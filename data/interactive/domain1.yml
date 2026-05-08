@@ -1,0 +1,61 @@
+interactive_questions:
+  - id: iq-d1-001
+    domain: domain1
+    type: ordering
+    question: "Place the components of the PKI certificate chain in order from ROOT to END ENTITY:"
+    items:
+      - "Root Certificate Authority (Root CA)"
+      - "Intermediate Certificate Authority (Intermediate CA)"
+      - "End-Entity Certificate (Server/User Certificate)"
+    correct_order: [0, 1, 2]
+    explanation: >
+      PKI uses a hierarchical trust model. The Root CA is the ultimate trust anchor — its certificate is self-signed and distributed in OS/browser trust stores. The Intermediate CA is signed by the Root CA and issues end-entity certificates, insulating the Root CA. End-entity certificates are issued to servers, users, or devices and signed by the Intermediate CA.
+
+  - id: iq-d1-002
+    domain: domain1
+    type: matching
+    question: "Match each authentication factor TYPE to its correct EXAMPLE:"
+    items:
+      - "Password or PIN"
+      - "Hardware security key (YubiKey)"
+      - "Fingerprint scan"
+      - "GPS location"
+    categories:
+      - "Something you know"
+      - "Something you have"
+      - "Something you are"
+      - "Somewhere you are"
+    correct_mapping:
+      "Password or PIN": "Something you know"
+      "Hardware security key (YubiKey)": "Something you have"
+      "Fingerprint scan": "Something you are"
+      "GPS location": "Somewhere you are"
+    explanation: >
+      Multi-factor authentication draws from distinct factor categories. Knowledge factors (password, PIN) can be shared or guessed. Possession factors (token, smart card, security key) require physical ownership. Inherence factors (biometrics) are physically tied to you. Location factors restrict access by geography.
+
+  - id: iq-d1-003
+    domain: domain1
+    type: multiselect
+    question: "Which of the following are asymmetric encryption algorithms? (Select ALL that apply)"
+    options:
+      - "RSA"
+      - "AES-256"
+      - "ECC (Elliptic Curve Cryptography)"
+      - "3DES"
+      - "Diffie-Hellman"
+    correct_answers: [0, 2, 4]
+    explanation: >
+      RSA, ECC, and Diffie-Hellman are asymmetric algorithms that use mathematically related key pairs (public/private). AES-256 and 3DES are symmetric algorithms that use the same key for both encryption and decryption. Asymmetric algorithms are much slower than symmetric but solve the key distribution problem.
+
+  - id: iq-d1-004
+    domain: domain1
+    type: fillblank
+    template: "A {blank} is a security control that detects and alerts on potential threats but does NOT block them."
+    choices:
+      - "IPS (Intrusion Prevention System)"
+      - "IDS (Intrusion Detection System)"
+      - "NGFW (Next-Generation Firewall)"
+      - "WAF (Web Application Firewall)"
+    correct_answer: 1
+    explanation: >
+      An IDS (Intrusion Detection System) is a passive monitoring tool that analyzes traffic or system activity and generates alerts when suspicious patterns are detected — but it does not take blocking action. An IPS (Intrusion Prevention System) is the inline, active counterpart that can block threats in real time.

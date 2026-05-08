@@ -1,0 +1,62 @@
+interactive_questions:
+  - id: iq-d4-001
+    domain: domain4
+    type: ordering
+    question: "Place the NIST SP 800-61 Incident Response phases in the CORRECT order:"
+    items:
+      - "Preparation"
+      - "Detection and Analysis"
+      - "Containment, Eradication, and Recovery"
+      - "Post-Incident Activity"
+    correct_order: [0, 1, 2, 3]
+    explanation: >
+      NIST SP 800-61 defines four incident response phases. Preparation establishes the IR capability before incidents occur (policies, tools, training). Detection and Analysis identifies incidents and determines scope. Containment limits spread; Eradication removes the threat; Recovery restores systems. Post-Incident Activity (lessons learned) improves the process for future incidents.
+
+  - id: iq-d4-002
+    domain: domain4
+    type: matching
+    question: "Match each ACCESS CONTROL MODEL to its defining characteristic:"
+    items:
+      - "Data owners set permissions at their discretion"
+      - "System enforces access based on security labels/clearances"
+      - "Permissions are assigned to job functions/roles"
+      - "Access decisions based on multiple attributes (user, resource, environment)"
+    categories:
+      - "DAC (Discretionary Access Control)"
+      - "MAC (Mandatory Access Control)"
+      - "RBAC (Role-Based Access Control)"
+      - "ABAC (Attribute-Based Access Control)"
+    correct_mapping:
+      "Data owners set permissions at their discretion": "DAC (Discretionary Access Control)"
+      "System enforces access based on security labels/clearances": "MAC (Mandatory Access Control)"
+      "Permissions are assigned to job functions/roles": "RBAC (Role-Based Access Control)"
+      "Access decisions based on multiple attributes (user, resource, environment)": "ABAC (Attribute-Based Access Control)"
+    explanation: >
+      DAC is flexible but relies on data owners making good decisions (traditional Unix/Windows permissions). MAC is strict and enforced by the OS using security labels — used in government/military systems. RBAC simplifies enterprise administration by grouping permissions into roles. ABAC is the most flexible and granular, supporting complex policies combining user attributes, resource attributes, and environmental context.
+
+  - id: iq-d4-003
+    domain: domain4
+    type: multiselect
+    question: "Which of the following are valid reasons to collect forensic evidence from a system? (Select ALL that apply)"
+    options:
+      - "Support criminal prosecution"
+      - "Understand how an attack occurred"
+      - "Immediately reimage and redeploy the system"
+      - "Identify what data was accessed or exfiltrated"
+      - "Support civil litigation"
+    correct_answers: [0, 1, 3, 4]
+    explanation: >
+      Forensic evidence supports prosecution, incident understanding, data breach assessment, and litigation. Immediately reimaging a system (without prior forensic preservation) is WRONG — it destroys evidence. Forensic images must be taken before any remediation to preserve the chain of custody. Evidence collected may be used in both criminal and civil proceedings.
+
+  - id: iq-d4-004
+    domain: domain4
+    type: fillblank
+    template: "The {blank} principle requires that critical tasks be divided between two or more individuals to prevent fraud and errors."
+    choices:
+      - "Least privilege"
+      - "Separation of duties"
+      - "Need to know"
+      - "Job rotation"
+    correct_answer: 1
+    explanation: >
+      Separation of duties prevents any single person from controlling an entire process, reducing fraud risk. Example: the person who requests a payment should not also approve and process it. Need to know limits access to information required for a specific task. Least privilege limits the scope of access rights. Job rotation moves employees between roles to detect fraud and cross-train staff.

@@ -1,0 +1,150 @@
+flashcards:
+  - id: fc-d4-001
+    domain: domain4
+    term: "IAM (Identity and Access Management)"
+    definition: "A framework of policies and technologies for managing digital identities and controlling access to resources. Encompasses authentication, authorization, provisioning, deprovisioning, and identity governance."
+    tags: [IAM, access-control]
+
+  - id: fc-d4-002
+    domain: domain4
+    term: "Principle of Least Privilege"
+    definition: "A security principle stating that users, processes, and systems should have only the minimum access rights required to perform their tasks — no more. Reduces the attack surface and limits blast radius from compromised accounts."
+    tags: [access-control, IAM]
+
+  - id: fc-d4-003
+    domain: domain4
+    term: "RBAC (Role-Based Access Control)"
+    definition: "An access control model assigning permissions to roles (job functions) rather than individual users. Users receive permissions by being assigned to roles. Simplifies administration and enforces separation of duties."
+    tags: [access-control, IAM]
+
+  - id: fc-d4-004
+    domain: domain4
+    term: "Separation of Duties"
+    definition: "A security principle requiring that no single individual has control over all aspects of a critical process, preventing fraud and errors. Example: requiring separate people to approve and process a financial transaction."
+    tags: [access-control, governance]
+
+  - id: fc-d4-005
+    domain: domain4
+    term: "SSO (Single Sign-On)"
+    definition: "Authentication mechanism allowing users to authenticate once and access multiple applications without re-entering credentials. Uses protocols like SAML 2.0, OAuth 2.0, and OIDC. Reduces password fatigue but creates a single point of failure if the IdP is compromised."
+    tags: [IAM, authentication]
+
+  - id: fc-d4-006
+    domain: domain4
+    term: "SIEM (Security Information and Event Management)"
+    definition: "A platform that aggregates, normalizes, and correlates log and event data from across the environment to detect threats, support incident response, and provide compliance reporting. Examples: Splunk, Microsoft Sentinel, IBM QRadar."
+    tags: [monitoring, incident-response]
+
+  - id: fc-d4-007
+    domain: domain4
+    term: "EDR (Endpoint Detection and Response)"
+    definition: "A security solution providing continuous endpoint monitoring, threat detection, investigation, and automated response. Records endpoint activity for forensic analysis. Examples: CrowdStrike Falcon, Microsoft Defender for Endpoint, SentinelOne."
+    tags: [endpoint-security]
+
+  - id: fc-d4-008
+    domain: domain4
+    term: "DLP (Data Loss Prevention)"
+    definition: "Technology that monitors, detects, and blocks transmission of sensitive data (PII, intellectual property, financial data) across email, web, removable media, and cloud channels based on content inspection and policy rules."
+    tags: [data-protection]
+
+  - id: fc-d4-009
+    domain: domain4
+    term: "Incident Response Lifecycle (NIST)"
+    definition: "NIST SP 800-61 defines four phases: 1) Preparation (build capabilities), 2) Detection and Analysis (identify and scope incidents), 3) Containment, Eradication, and Recovery (stop, remove, and restore), 4) Post-Incident Activity (lessons learned)."
+    tags: [incident-response]
+
+  - id: fc-d4-010
+    domain: domain4
+    term: "Chain of Custody"
+    definition: "A documented, chronological record tracking the collection, handling, transfer, analysis, and disposition of digital evidence. Ensures evidence integrity and admissibility in legal proceedings. Any break in chain of custody may render evidence inadmissible."
+    tags: [digital-forensics, evidence]
+
+  - id: fc-d4-011
+    domain: domain4
+    term: "Forensic Image"
+    definition: "A bit-for-bit copy of a storage device capturing every sector including deleted files, unallocated space, and file system metadata. Created using tools like dd, FTK Imager, or EnCase. Integrity verified with a cryptographic hash (MD5/SHA-256)."
+    tags: [digital-forensics]
+
+  - id: fc-d4-012
+    domain: domain4
+    term: "PAM (Privileged Access Management)"
+    definition: "A solution managing, controlling, and monitoring access to privileged accounts (admin, root, service accounts). Features include credential vaulting, session recording, just-in-time access, and privilege elevation control. Reduces insider threat risk."
+    tags: [IAM, access-control]
+
+  - id: fc-d4-013
+    domain: domain4
+    term: "SOC (Security Operations Center)"
+    definition: "A dedicated team and facility providing continuous (24/7/365) monitoring, detection, analysis, and response to cybersecurity threats. Uses SIEM, EDR, threat intelligence, and playbooks. Tiers 1-3 represent analyst escalation levels."
+    tags: [security-operations]
+
+  - id: fc-d4-014
+    domain: domain4
+    term: "Threat Hunting"
+    definition: "Proactive search through networks and systems for hidden threats that have evaded existing security controls. Unlike reactive monitoring, threat hunters actively look for indicators of compromise (IOCs) and attacker TTPs before an alert fires."
+    tags: [security-operations, threat-intelligence]
+
+  - id: fc-d4-015
+    domain: domain4
+    term: "Log Management"
+    definition: "The process of collecting, storing, analyzing, and archiving log data from systems, applications, and network devices. Critical for detecting security events, supporting incident response, and meeting compliance requirements (retention periods vary by regulation)."
+    tags: [monitoring, compliance]
+
+  - id: fc-d4-016
+    domain: domain4
+    term: "Vulnerability Management"
+    definition: "A continuous process of identifying, classifying, prioritizing, remediating, and reporting on security vulnerabilities. Includes vulnerability scanning, patch management, and risk-based remediation prioritization."
+    tags: [vulnerability-management]
+
+  - id: fc-d4-017
+    domain: domain4
+    term: "Patch Management"
+    definition: "The process of acquiring, testing, and deploying security patches to systems and software to remediate vulnerabilities. Includes patch testing in non-production, rollback planning, and tracking compliance. Critical for reducing attack surface."
+    tags: [vulnerability-management, security-operations]
+
+  - id: fc-d4-018
+    domain: domain4
+    term: "Deprovisioning"
+    definition: "The process of removing a user's access rights and accounts when they leave an organization or change roles. Timely deprovisioning prevents former employees from accessing systems. Tied to HR offboarding processes."
+    tags: [IAM, access-control]
+
+  - id: fc-d4-019
+    domain: domain4
+    term: "Directory Services"
+    definition: "A centralized repository storing information about users, computers, and resources in a network, enabling authentication and authorization. Active Directory (AD) is the dominant enterprise directory service, using LDAP and Kerberos protocols."
+    tags: [IAM, authentication]
+
+  - id: fc-d4-020
+    domain: domain4
+    term: "Kerberos"
+    definition: "A network authentication protocol using tickets and a Key Distribution Center (KDC) for secure mutual authentication. Used in Active Directory environments. Tickets avoid transmitting passwords over the network. Vulnerable to Golden Ticket and Pass-the-Ticket attacks."
+    tags: [authentication, protocols]
+
+  - id: fc-d4-021
+    domain: domain4
+    term: "TOTP vs HOTP"
+    definition: "TOTP (Time-based OTP) generates codes using current time + shared secret, valid for ~30 seconds. HOTP (HMAC-based OTP) generates codes using an incrementing counter + shared secret, valid until used. TOTP is more commonly used in authenticator apps."
+    tags: [authentication, MFA]
+
+  - id: fc-d4-022
+    domain: domain4
+    term: "Endpoint Hardening"
+    definition: "The process of securing endpoints by reducing attack surface: disabling unused services/ports, removing unnecessary software, enabling full disk encryption, applying security baselines (CIS Benchmarks), and configuring host firewalls."
+    tags: [endpoint-security]
+
+  - id: fc-d4-023
+    domain: domain4
+    term: "Network Access Control (NAC)"
+    definition: "A security solution that enforces security policy before granting network access. Checks endpoint compliance (OS patch level, antivirus status, configuration) and places non-compliant devices in quarantine. Uses 802.1X for port-based access control."
+    tags: [network-security, access-control]
+
+  - id: fc-d4-024
+    domain: domain4
+    term: "Containment (Incident Response)"
+    definition: "An IR phase that limits the spread and damage of an active incident. Short-term containment isolates affected systems; long-term containment applies temporary fixes while eradication is prepared. Forensic preservation should occur before containment alters evidence."
+    tags: [incident-response]
+
+  - id: fc-d4-025
+    domain: domain4
+    term: "Order of Volatility"
+    definition: "In digital forensics, the sequence for collecting evidence from most volatile (lost on power-off) to least volatile: CPU registers/cache → RAM → Swap space → Network connections → Running processes → Hard disk → Logs/Optical media → Printed documents."
+    tags: [digital-forensics, evidence]

@@ -1,0 +1,150 @@
+flashcards:
+  - id: fc-d1-001
+    domain: domain1
+    term: "CIA Triad"
+    definition: "The three core principles of information security: Confidentiality (preventing unauthorized access), Integrity (ensuring data accuracy), and Availability (ensuring authorized access when needed)."
+    tags: [fundamentals]
+
+  - id: fc-d1-002
+    domain: domain1
+    term: "Confidentiality"
+    definition: "The security property ensuring that information is accessible only to authorized individuals. Controls include encryption, access controls, and data classification."
+    tags: [CIA-triad]
+
+  - id: fc-d1-003
+    domain: domain1
+    term: "Integrity"
+    definition: "The security property ensuring that data has not been altered or tampered with by unauthorized parties. Achieved through hashing, digital signatures, and access controls."
+    tags: [CIA-triad]
+
+  - id: fc-d1-004
+    domain: domain1
+    term: "Availability"
+    definition: "The security property ensuring that systems and data are accessible to authorized users when needed. Threats include DoS attacks and hardware failures; controls include redundancy and backups."
+    tags: [CIA-triad]
+
+  - id: fc-d1-005
+    domain: domain1
+    term: "Non-repudiation"
+    definition: "The assurance that a party cannot deny the authenticity of their signature or the sending of a message. Achieved through digital signatures using asymmetric cryptography."
+    tags: [fundamentals, digital-signatures]
+
+  - id: fc-d1-006
+    domain: domain1
+    term: "Symmetric Encryption"
+    definition: "Encryption that uses the same key for both encryption and decryption. Fast and efficient for large data. Examples: AES, 3DES, Blowfish. Key distribution is a challenge."
+    tags: [cryptography]
+
+  - id: fc-d1-007
+    domain: domain1
+    term: "Asymmetric Encryption"
+    definition: "Encryption using a mathematically related key pair: a public key (shared openly) and a private key (kept secret). The public key encrypts; the private key decrypts. Examples: RSA, ECC, Diffie-Hellman."
+    tags: [cryptography]
+
+  - id: fc-d1-008
+    domain: domain1
+    term: "AES (Advanced Encryption Standard)"
+    definition: "A symmetric block cipher with 128-bit block size and key sizes of 128, 192, or 256 bits. The current U.S. federal standard for symmetric encryption, replacing DES."
+    tags: [cryptography, symmetric]
+
+  - id: fc-d1-009
+    domain: domain1
+    term: "RSA"
+    definition: "A widely used asymmetric encryption algorithm based on the difficulty of factoring large integers. Common key sizes: 2048 or 4096 bits. Used for key exchange, digital signatures, and certificate-based authentication."
+    tags: [cryptography, asymmetric]
+
+  - id: fc-d1-010
+    domain: domain1
+    term: "Hashing"
+    definition: "A one-way mathematical function that converts data of any size into a fixed-length digest. Hashes cannot be reversed. Used to verify integrity. Examples: SHA-256, SHA-3. MD5 and SHA-1 are deprecated."
+    tags: [cryptography, integrity]
+
+  - id: fc-d1-011
+    domain: domain1
+    term: "Digital Signature"
+    definition: "A cryptographic mechanism that provides authentication, integrity, and non-repudiation. Created by encrypting a hash of the message with the sender's private key. Verified using the sender's public key."
+    tags: [cryptography, non-repudiation]
+
+  - id: fc-d1-012
+    domain: domain1
+    term: "PKI (Public Key Infrastructure)"
+    definition: "A framework of policies, procedures, and technologies for managing digital certificates and public-key encryption. Components include Certificate Authorities (CAs), Registration Authorities (RAs), and certificate revocation."
+    tags: [PKI, cryptography]
+
+  - id: fc-d1-013
+    domain: domain1
+    term: "Certificate Authority (CA)"
+    definition: "A trusted third party that issues and signs digital certificates, binding a public key to an entity's identity. Root CAs are at the top of the trust hierarchy; intermediate CAs issue end-entity certificates."
+    tags: [PKI, certificates]
+
+  - id: fc-d1-014
+    domain: domain1
+    term: "Certificate Revocation List (CRL)"
+    definition: "A list published by a CA of digital certificates that have been revoked before their expiration date (due to key compromise, policy violations, etc.). OCSP is a real-time alternative to CRLs."
+    tags: [PKI, certificates]
+
+  - id: fc-d1-015
+    domain: domain1
+    term: "Multi-Factor Authentication (MFA)"
+    definition: "Authentication using two or more distinct factor types: something you know (password/PIN), something you have (token/smart card), something you are (biometrics), somewhere you are (geolocation), or something you do (behavior)."
+    tags: [authentication, access-control]
+
+  - id: fc-d1-016
+    domain: domain1
+    term: "Preventive Control"
+    definition: "A security control that stops a threat or attack before it occurs. Examples: firewalls, access controls, encryption, security awareness training, and physical locks."
+    tags: [security-controls]
+
+  - id: fc-d1-017
+    domain: domain1
+    term: "Detective Control"
+    definition: "A security control that identifies and records a security event after it has occurred. Examples: IDS, audit logs, security cameras, and SIEM alerts."
+    tags: [security-controls]
+
+  - id: fc-d1-018
+    domain: domain1
+    term: "Corrective Control"
+    definition: "A security control that restores systems or processes to normal after a security incident. Examples: backups, patch management, incident response procedures, and system reimaging."
+    tags: [security-controls]
+
+  - id: fc-d1-019
+    domain: domain1
+    term: "Compensating Control"
+    definition: "An alternative security control used when the primary recommended control cannot be implemented. Must provide equivalent protection. Example: enhanced monitoring instead of network segmentation when segmentation is not feasible."
+    tags: [security-controls]
+
+  - id: fc-d1-020
+    domain: domain1
+    term: "Honeypot"
+    definition: "A decoy system deliberately made to appear attractive to attackers to detect intrusions and study attacker techniques. A honeynet is a network of honeypots. They provide early warning and threat intelligence."
+    tags: [deception-technology]
+
+  - id: fc-d1-021
+    domain: domain1
+    term: "Mantrap (Access Control Vestibule)"
+    definition: "A physical security control consisting of a small room with two interlocking doors. The first door must close and authenticate before the second opens, preventing tailgating and piggybacking."
+    tags: [physical-security]
+
+  - id: fc-d1-022
+    domain: domain1
+    term: "Tailgating"
+    definition: "A physical security attack where an unauthorized person follows an authorized person into a restricted area without authenticating. Prevented by mantraps, security awareness training, and security guards."
+    tags: [physical-security, social-engineering]
+
+  - id: fc-d1-023
+    domain: domain1
+    term: "TOTP (Time-based One-Time Password)"
+    definition: "An OTP algorithm (RFC 6238) that generates a short-lived passcode by combining a shared secret with the current time. Codes expire every 30 seconds. Used in authenticator apps (Google Authenticator, Microsoft Authenticator)."
+    tags: [authentication, MFA]
+
+  - id: fc-d1-024
+    domain: domain1
+    term: "ECC (Elliptic Curve Cryptography)"
+    definition: "An asymmetric cryptographic approach using elliptic curve mathematics. Provides equivalent security to RSA with much smaller key sizes (256-bit ECC ≈ 3072-bit RSA), making it ideal for mobile and IoT devices."
+    tags: [cryptography, asymmetric]
+
+  - id: fc-d1-025
+    domain: domain1
+    term: "Steganography"
+    definition: "The practice of concealing a message, file, or data within another ordinary non-secret file (image, audio, video) to avoid detection. Unlike encryption which obscures content, steganography hides the existence of the message."
+    tags: [cryptography, obfuscation]

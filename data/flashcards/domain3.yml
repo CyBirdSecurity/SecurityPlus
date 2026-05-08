@@ -1,0 +1,150 @@
+flashcards:
+  - id: fc-d3-001
+    domain: domain3
+    term: "IaaS (Infrastructure as a Service)"
+    definition: "Cloud model where the provider delivers virtualized computing resources (compute, storage, networking). Customer manages OS and above. Provider manages physical hardware. Examples: AWS EC2, Azure VMs, Google Compute Engine."
+    tags: [cloud]
+
+  - id: fc-d3-002
+    domain: domain3
+    term: "PaaS (Platform as a Service)"
+    definition: "Cloud model providing a development/runtime platform. Customer manages applications and data; provider manages OS, middleware, and infrastructure. Examples: AWS Elastic Beanstalk, Heroku, Azure App Service."
+    tags: [cloud]
+
+  - id: fc-d3-003
+    domain: domain3
+    term: "SaaS (Software as a Service)"
+    definition: "Cloud model delivering complete applications over the internet. Provider manages everything from infrastructure to application. Customer only manages data and user access. Examples: Microsoft 365, Salesforce, Zoom."
+    tags: [cloud]
+
+  - id: fc-d3-004
+    domain: domain3
+    term: "Shared Responsibility Model"
+    definition: "A cloud security framework defining which security tasks the cloud provider handles and which the customer handles. 'Security OF the cloud' is the provider's; 'security IN the cloud' is the customer's. Scope varies by service model (IaaS/PaaS/SaaS)."
+    tags: [cloud, security-architecture]
+
+  - id: fc-d3-005
+    domain: domain3
+    term: "Zero Trust Architecture"
+    definition: "A security model based on 'never trust, always verify.' Assumes no implicit trust for any user or device inside or outside the network perimeter. Every access request is authenticated, authorized, and continuously validated regardless of source location."
+    tags: [security-architecture, zero-trust]
+
+  - id: fc-d3-006
+    domain: domain3
+    term: "Network Segmentation"
+    definition: "Dividing a network into smaller isolated zones to contain breaches, limit lateral movement, and apply granular security controls. Implemented using VLANs, subnets, and firewalls between segments."
+    tags: [network-security, segmentation]
+
+  - id: fc-d3-007
+    domain: domain3
+    term: "DMZ (Demilitarized Zone) / Screened Subnet"
+    definition: "A network segment between the internet and internal network that hosts public-facing services (web servers, email, DNS). Protected by firewalls on both sides, limiting exposure if a public server is compromised."
+    tags: [network-security, architecture]
+
+  - id: fc-d3-008
+    domain: domain3
+    term: "VLAN (Virtual Local Area Network)"
+    definition: "A logical network segment created at Layer 2, allowing network administrators to group devices by function regardless of physical location. Inter-VLAN communication requires a Layer 3 device (router or Layer 3 switch)."
+    tags: [network-security, segmentation]
+
+  - id: fc-d3-009
+    domain: domain3
+    term: "NGFW (Next-Generation Firewall)"
+    definition: "A firewall with deep packet inspection at Layer 7, providing application awareness, SSL/TLS inspection, intrusion prevention (IPS), user identity tracking, and threat intelligence integration. Far more capable than traditional stateful firewalls."
+    tags: [firewalls, network-security]
+
+  - id: fc-d3-010
+    domain: domain3
+    term: "IDS (Intrusion Detection System)"
+    definition: "A passive security monitoring system that analyzes network traffic or host activity to detect suspicious patterns and generate alerts. Does NOT block traffic — it only detects and reports. Network-based (NIDS) or host-based (HIDS)."
+    tags: [IDS, network-security]
+
+  - id: fc-d3-011
+    domain: domain3
+    term: "IPS (Intrusion Prevention System)"
+    definition: "An active, inline security system that detects and actively blocks malicious traffic in real time. Sits in the traffic path (inline) unlike a passive IDS. Can drop packets, reset connections, and block IPs."
+    tags: [IPS, network-security]
+
+  - id: fc-d3-012
+    domain: domain3
+    term: "VPN (Virtual Private Network)"
+    definition: "A technology creating an encrypted tunnel over a public network (internet) to securely connect remote users or sites. Types: site-to-site (connects offices), remote access (connects individual users). Protocols: IPSec, SSL/TLS, WireGuard."
+    tags: [VPN, network-security]
+
+  - id: fc-d3-013
+    domain: domain3
+    term: "TLS (Transport Layer Security)"
+    definition: "A cryptographic protocol providing encrypted communications over a network (successor to SSL). Used to secure HTTPS, email (SMTP/IMAP), and other protocols. Current version: TLS 1.3. Uses asymmetric key exchange and symmetric encryption for data transfer."
+    tags: [protocols, cryptography, network-security]
+
+  - id: fc-d3-014
+    domain: domain3
+    term: "SSH (Secure Shell)"
+    definition: "A cryptographic network protocol for secure remote command-line access, file transfer (SFTP/SCP), and port forwarding. Uses TCP port 22. Replaces insecure Telnet (port 23) and rlogin. Provides strong authentication and encryption."
+    tags: [protocols, secure-protocols]
+
+  - id: fc-d3-015
+    domain: domain3
+    term: "TPM (Trusted Platform Module)"
+    definition: "A dedicated hardware security chip (ISO/IEC 11889) that stores cryptographic keys, certificates, and measured boot data. Used for full disk encryption (BitLocker), device identity, and platform integrity verification."
+    tags: [hardware-security, cryptography]
+
+  - id: fc-d3-016
+    domain: domain3
+    term: "HSM (Hardware Security Module)"
+    definition: "A physical computing device that safeguards and manages cryptographic keys, performs cryptographic operations, and provides tamper-evident/tamper-resistant hardware. Used in PKI, banking, and certificate authorities."
+    tags: [hardware-security, cryptography, PKI]
+
+  - id: fc-d3-017
+    domain: domain3
+    term: "SDN (Software-Defined Networking)"
+    definition: "A network architecture separating the control plane (routing decisions) from the data plane (traffic forwarding), allowing centralized, programmable network control through software. Improves flexibility and enables micro-segmentation."
+    tags: [network-architecture]
+
+  - id: fc-d3-018
+    domain: domain3
+    term: "Hypervisor"
+    definition: "Software that creates and manages virtual machines (VMs) by abstracting hardware resources. Type 1 (bare-metal) runs directly on hardware (VMware ESXi, Hyper-V). Type 2 (hosted) runs on top of an OS (VMware Workstation, VirtualBox)."
+    tags: [virtualization]
+
+  - id: fc-d3-019
+    domain: domain3
+    term: "VM Escape"
+    definition: "A virtualization attack where malware running in a guest VM breaks out of its isolated environment to access the hypervisor or other VMs on the same host. A critical security concern in multi-tenant cloud environments."
+    tags: [virtualization, attacks]
+
+  - id: fc-d3-020
+    domain: domain3
+    term: "Microsegmentation"
+    definition: "A fine-grained network segmentation approach in software-defined environments that applies security policies at the workload/application level, limiting lateral movement even within the same network segment. Core to Zero Trust implementation."
+    tags: [network-security, zero-trust, segmentation]
+
+  - id: fc-d3-021
+    domain: domain3
+    term: "CASB (Cloud Access Security Broker)"
+    definition: "A security tool/service positioned between cloud users and cloud services to enforce security policies — visibility, compliance, data security, and threat protection — for cloud application usage."
+    tags: [cloud, security-tools]
+
+  - id: fc-d3-022
+    domain: domain3
+    term: "WPA3"
+    definition: "The current Wi-Fi security standard replacing WPA2. Uses SAE (Simultaneous Authentication of Equals) instead of PSK handshake, providing Forward Secrecy and resistance to offline dictionary attacks. WPA3-Enterprise uses 192-bit security."
+    tags: [wireless, protocols]
+
+  - id: fc-d3-023
+    domain: domain3
+    term: "Load Balancer"
+    definition: "A device or software that distributes incoming network traffic across multiple servers to improve availability, performance, and scalability. Also provides fault tolerance — if one server fails, traffic is redirected to healthy servers."
+    tags: [availability, network-architecture]
+
+  - id: fc-d3-024
+    domain: domain3
+    term: "Proxy Server"
+    definition: "An intermediary server that forwards client requests to other servers. Forward proxies anonymize clients; reverse proxies protect servers and provide load balancing. Transparent proxies intercept traffic without client configuration. Used for content filtering and caching."
+    tags: [network-security, architecture]
+
+  - id: fc-d3-025
+    domain: domain3
+    term: "Air Gap"
+    definition: "A security measure where a network is completely physically isolated from other networks, including the internet. Used for the most sensitive environments (nuclear, industrial control systems, classified military systems). Data transfer requires physical media."
+    tags: [network-security, physical-security]

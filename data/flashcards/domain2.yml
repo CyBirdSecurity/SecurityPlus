@@ -1,0 +1,150 @@
+flashcards:
+  - id: fc-d2-001
+    domain: domain2
+    term: "Phishing"
+    definition: "A social engineering attack using fraudulent emails impersonating trusted entities to trick recipients into revealing credentials, clicking malicious links, or downloading malware. The most common cyberattack vector."
+    tags: [social-engineering]
+
+  - id: fc-d2-002
+    domain: domain2
+    term: "Spear Phishing"
+    definition: "A targeted phishing attack directed at a specific individual, organization, or role using personalized information to increase credibility. More sophisticated and harder to detect than generic phishing."
+    tags: [social-engineering]
+
+  - id: fc-d2-003
+    domain: domain2
+    term: "Whaling"
+    definition: "A spear phishing attack targeting high-level executives (C-suite: CEO, CFO, CISO). These targets have high-value access and authority to approve large transactions, making them attractive targets for wire fraud."
+    tags: [social-engineering]
+
+  - id: fc-d2-004
+    domain: domain2
+    term: "Vishing"
+    definition: "Voice phishing — social engineering attacks conducted over phone calls. Attackers impersonate tech support, banks, or government agencies to extract information or direct victims to malicious websites."
+    tags: [social-engineering]
+
+  - id: fc-d2-005
+    domain: domain2
+    term: "Smishing"
+    definition: "SMS phishing — social engineering attacks delivered via text messages. Messages typically contain malicious links or phone numbers directing victims to fake websites or phone-based attackers."
+    tags: [social-engineering]
+
+  - id: fc-d2-006
+    domain: domain2
+    term: "Pretexting"
+    definition: "A social engineering technique where an attacker creates a fabricated scenario (pretext) — such as impersonating a vendor, auditor, or IT support — to manipulate a target into divulging information or performing actions."
+    tags: [social-engineering]
+
+  - id: fc-d2-007
+    domain: domain2
+    term: "Ransomware"
+    definition: "Malware that encrypts a victim's files and demands payment (ransom) for the decryption key. Modern ransomware also exfiltrates data for double extortion. Examples: WannaCry, REvil, LockBit."
+    tags: [malware]
+
+  - id: fc-d2-008
+    domain: domain2
+    term: "Worm"
+    definition: "Self-replicating malware that spreads across networks by exploiting vulnerabilities without requiring user interaction or a host file. Can consume bandwidth and resources. Examples: WannaCry (EternalBlue exploit), Conficker."
+    tags: [malware]
+
+  - id: fc-d2-009
+    domain: domain2
+    term: "Trojan Horse"
+    definition: "Malware disguised as legitimate software. Unlike viruses and worms, Trojans do not self-replicate. They rely on user execution. May create backdoors, deliver payloads, or steal data."
+    tags: [malware]
+
+  - id: fc-d2-010
+    domain: domain2
+    term: "Rootkit"
+    definition: "Malware designed to hide the existence of itself and other malicious software by modifying the OS kernel or firmware. Rootkits provide persistent, stealthy privileged access and are difficult to detect and remove."
+    tags: [malware]
+
+  - id: fc-d2-011
+    domain: domain2
+    term: "Keylogger"
+    definition: "Malware (or hardware device) that records every keystroke made on a system to capture passwords, credit card numbers, and other sensitive data. The captured data is sent to the attacker."
+    tags: [malware, data-theft]
+
+  - id: fc-d2-012
+    domain: domain2
+    term: "Botnet"
+    definition: "A network of compromised systems (bots/zombies) controlled by an attacker (botmaster) via a command-and-control (C2) server. Used for DDoS attacks, spam, credential stuffing, and cryptomining."
+    tags: [malware, botnets]
+
+  - id: fc-d2-013
+    domain: domain2
+    term: "DDoS (Distributed Denial of Service)"
+    definition: "An attack using many distributed systems (botnet) to overwhelm a target's resources — bandwidth, processing, or connection capacity — making it unavailable to legitimate users."
+    tags: [network-attacks, DoS]
+
+  - id: fc-d2-014
+    domain: domain2
+    term: "SQL Injection"
+    definition: "An application attack inserting malicious SQL code into user input fields that are incorporated into database queries, potentially allowing data theft, authentication bypass, or data modification. Prevented by parameterized queries/prepared statements."
+    tags: [application-attacks, OWASP]
+
+  - id: fc-d2-015
+    domain: domain2
+    term: "Cross-Site Scripting (XSS)"
+    definition: "An application attack injecting malicious scripts into web pages viewed by other users. Stored XSS persists in the database; Reflected XSS is in URL parameters. Prevented by input validation and Content Security Policy (CSP)."
+    tags: [application-attacks, OWASP]
+
+  - id: fc-d2-016
+    domain: domain2
+    term: "Man-in-the-Middle (MitM) Attack"
+    definition: "An attack where an adversary secretly intercepts and potentially alters communications between two parties. Techniques include ARP poisoning, SSL stripping, and rogue Wi-Fi access points. Prevented by certificate pinning and HTTPS."
+    tags: [network-attacks]
+
+  - id: fc-d2-017
+    domain: domain2
+    term: "Zero-Day Vulnerability"
+    definition: "A previously unknown vulnerability that has no available patch or fix. Attackers who discover zero-days can exploit them before vendors are aware, giving defenders zero days to respond. Detected through behavioral analysis and threat intelligence."
+    tags: [vulnerabilities]
+
+  - id: fc-d2-018
+    domain: domain2
+    term: "CVE (Common Vulnerabilities and Exposures)"
+    definition: "A publicly maintained list of cybersecurity vulnerabilities, each assigned a unique identifier (e.g., CVE-2021-44228 for Log4Shell). Maintained by MITRE. CVE scores use CVSS (Common Vulnerability Scoring System) from 0-10."
+    tags: [vulnerabilities, threat-intelligence]
+
+  - id: fc-d2-019
+    domain: domain2
+    term: "APT (Advanced Persistent Threat)"
+    definition: "A sophisticated, long-term cyberattack typically carried out by well-funded threat actors (nation-states, organized crime) targeting specific high-value organizations. Characterized by stealth, persistence, and multi-stage intrusion."
+    tags: [threat-actors]
+
+  - id: fc-d2-020
+    domain: domain2
+    term: "Watering Hole Attack"
+    definition: "An attack where adversaries compromise websites frequently visited by the target audience (industry sites, forums) and inject malware. Targets unknowingly download malware when they visit the compromised site."
+    tags: [attacks, social-engineering]
+
+  - id: fc-d2-021
+    domain: domain2
+    term: "Supply Chain Attack"
+    definition: "An attack targeting less-secure elements in the supply chain (software vendors, hardware manufacturers, third-party services) to compromise end targets. Examples: SolarWinds (2020), XZ Utils backdoor (2024)."
+    tags: [attacks, supply-chain]
+
+  - id: fc-d2-022
+    domain: domain2
+    term: "CVSS (Common Vulnerability Scoring System)"
+    definition: "A standardized framework for rating the severity of security vulnerabilities on a scale of 0–10. Considers Base, Temporal, and Environmental metrics. Scores: Critical (9-10), High (7-8.9), Medium (4-6.9), Low (0-3.9)."
+    tags: [vulnerabilities, scoring]
+
+  - id: fc-d2-023
+    domain: domain2
+    term: "Typosquatting"
+    definition: "A social engineering attack that registers domains with common typos of legitimate sites (gooogle.com) to capture users who mistype URLs. Used for phishing, malware distribution, or credential harvesting."
+    tags: [social-engineering, phishing]
+
+  - id: fc-d2-024
+    domain: domain2
+    term: "Credential Stuffing"
+    definition: "An automated attack using large sets of stolen username/password pairs (from previous breaches) to try to gain access to other accounts, exploiting password reuse. Mitigated by MFA and breach monitoring services."
+    tags: [attacks, authentication]
+
+  - id: fc-d2-025
+    domain: domain2
+    term: "Pass-the-Hash"
+    definition: "An attack technique where an attacker captures NTLM password hashes from memory (using tools like Mimikatz) and uses them to authenticate without knowing the plaintext password. Mitigated by Credential Guard and privileged access workstations."
+    tags: [attacks, authentication, lateral-movement]

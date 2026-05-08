@@ -1,0 +1,66 @@
+interactive_questions:
+  - id: iq-d2-001
+    domain: domain2
+    type: ordering
+    question: "Place the stages of a typical cyberattack (Cyber Kill Chain) in the CORRECT order:"
+    items:
+      - "Reconnaissance"
+      - "Weaponization"
+      - "Delivery"
+      - "Exploitation"
+      - "Installation"
+      - "Command and Control (C2)"
+      - "Actions on Objectives"
+    correct_order: [0, 1, 2, 3, 4, 5, 6]
+    explanation: >
+      The Cyber Kill Chain (Lockheed Martin) describes seven stages of a targeted attack: Reconnaissance (gather information), Weaponization (create payload), Delivery (transmit to target), Exploitation (trigger vulnerability), Installation (establish foothold), Command and Control (establish remote access), Actions on Objectives (achieve goal: exfiltrate data, deploy ransomware, etc.).
+
+  - id: iq-d2-002
+    domain: domain2
+    type: matching
+    question: "Match each MALWARE TYPE to its PRIMARY characteristic:"
+    items:
+      - "Self-replicates across networks without user interaction"
+      - "Disguises itself as legitimate software"
+      - "Hides malware presence by modifying the OS kernel"
+      - "Encrypts files and demands payment"
+    categories:
+      - "Worm"
+      - "Trojan"
+      - "Rootkit"
+      - "Ransomware"
+    correct_mapping:
+      "Self-replicates across networks without user interaction": "Worm"
+      "Disguises itself as legitimate software": "Trojan"
+      "Hides malware presence by modifying the OS kernel": "Rootkit"
+      "Encrypts files and demands payment": "Ransomware"
+    explanation: >
+      Each malware type has a defining characteristic. Worms are autonomous spreaders; Trojans rely on deception and user execution; Rootkits provide persistent stealthy access; Ransomware monetizes access by encrypting victim data. Understanding these distinctions guides detection and response strategies.
+
+  - id: iq-d2-003
+    domain: domain2
+    type: multiselect
+    question: "Which of the following are types of social engineering attacks? (Select ALL that apply)"
+    options:
+      - "Phishing"
+      - "SQL Injection"
+      - "Pretexting"
+      - "Buffer Overflow"
+      - "Vishing"
+      - "Tailgating"
+    correct_answers: [0, 2, 4, 5]
+    explanation: >
+      Social engineering manipulates human psychology rather than technical vulnerabilities. Phishing (email), Pretexting (fabricated scenario), Vishing (voice calls), and Tailgating (physical entry) are all social engineering techniques. SQL Injection is a technical application attack, and Buffer Overflow is a memory corruption vulnerability — neither exploit human behavior.
+
+  - id: iq-d2-004
+    domain: domain2
+    type: fillblank
+    template: "An attack that exploits a previously unknown vulnerability for which no patch exists is called a {blank} attack."
+    choices:
+      - "Known-plaintext"
+      - "Zero-day"
+      - "Birthday"
+      - "Replay"
+    correct_answer: 1
+    explanation: >
+      A zero-day attack exploits a vulnerability that is unknown to the software vendor and for which no patch or fix exists at the time of exploitation. The term 'zero-day' refers to the fact that defenders have had zero days to patch. Detection relies on behavioral analysis, threat intelligence, and intrusion detection rather than signature-based detection.

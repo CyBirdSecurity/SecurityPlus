@@ -1,0 +1,150 @@
+flashcards:
+  - id: fc-d5-001
+    domain: domain5
+    term: "Risk Management"
+    definition: "The process of identifying, assessing, and controlling threats to an organization's assets. Key steps: identify assets, identify threats/vulnerabilities, assess likelihood and impact, select risk responses, monitor and review."
+    tags: [risk-management]
+
+  - id: fc-d5-002
+    domain: domain5
+    term: "Risk Appetite"
+    definition: "The amount and type of risk an organization is willing to accept in pursuit of its objectives. Defined by leadership and guides risk response decisions. Higher risk appetite may allow accepting more residual risk; lower appetite demands more controls."
+    tags: [risk-management]
+
+  - id: fc-d5-003
+    domain: domain5
+    term: "SLE (Single Loss Expectancy)"
+    definition: "The monetary value expected to be lost in a single occurrence of a specific risk event. SLE = Asset Value × Exposure Factor. Example: if a $100,000 server has a 40% exposure factor, SLE = $40,000."
+    tags: [risk-management, quantitative-risk]
+
+  - id: fc-d5-004
+    domain: domain5
+    term: "ALE (Annualized Loss Expectancy)"
+    definition: "The expected annual loss from a specific threat. ALE = SLE × ARO. Used to justify security investment — controls costing less than the ALE provide positive ROI. Fundamental to quantitative risk analysis."
+    tags: [risk-management, quantitative-risk]
+
+  - id: fc-d5-005
+    domain: domain5
+    term: "ARO (Annual Rate of Occurrence)"
+    definition: "The estimated number of times a specific threat is expected to occur in one year. Example: ARO of 0.5 means the event is expected once every two years. Used in ALE calculations."
+    tags: [risk-management, quantitative-risk]
+
+  - id: fc-d5-006
+    domain: domain5
+    term: "Risk Transfer"
+    definition: "A risk response strategy that shifts the financial consequences of a risk to a third party. Most commonly achieved through cyber liability insurance. Outsourcing also transfers some risk but does not eliminate organizational accountability."
+    tags: [risk-management, risk-response]
+
+  - id: fc-d5-007
+    domain: domain5
+    term: "Risk Acceptance"
+    definition: "A risk response where the organization acknowledges a risk and decides to take no action to mitigate it, accepting potential losses. Appropriate when the cost of mitigation exceeds the expected loss or when the risk level is within risk appetite."
+    tags: [risk-management, risk-response]
+
+  - id: fc-d5-008
+    domain: domain5
+    term: "Data Classification"
+    definition: "The process of categorizing data based on sensitivity, value, and regulatory requirements to apply appropriate security controls. Common levels (government): Top Secret, Secret, Confidential, Unclassified. Commercial: Restricted, Confidential, Internal, Public."
+    tags: [data-management, governance]
+
+  - id: fc-d5-009
+    domain: domain5
+    term: "HIPAA (Health Insurance Portability and Accountability Act)"
+    definition: "U.S. law protecting the privacy and security of Protected Health Information (PHI). Key rules: Privacy Rule (PHI use/disclosure), Security Rule (ePHI safeguards), Breach Notification Rule. Applies to covered entities and business associates."
+    tags: [compliance, regulations]
+
+  - id: fc-d5-010
+    domain: domain5
+    term: "PCI DSS (Payment Card Industry Data Security Standard)"
+    definition: "A security standard for organizations that handle payment card data. 12 core requirements covering network security, cardholder data protection, vulnerability management, access control, monitoring, and security policy. Compliance levels based on transaction volume."
+    tags: [compliance, regulations]
+
+  - id: fc-d5-011
+    domain: domain5
+    term: "GDPR (General Data Protection Regulation)"
+    definition: "EU regulation governing personal data protection and privacy for EU citizens. Key principles: lawful basis, data minimization, purpose limitation, accuracy, storage limitation. Requires 72-hour breach notification. Fines up to 4% of global turnover."
+    tags: [compliance, regulations, privacy]
+
+  - id: fc-d5-012
+    domain: domain5
+    term: "SOX (Sarbanes-Oxley Act)"
+    definition: "U.S. law requiring accurate financial reporting and internal controls for publicly traded companies. IT controls under SOX focus on data integrity and access controls for financial systems. Section 404 requires management assessment of internal controls."
+    tags: [compliance, regulations]
+
+  - id: fc-d5-013
+    domain: domain5
+    term: "NIST Cybersecurity Framework (CSF)"
+    definition: "A voluntary framework for managing cybersecurity risk organized around five core functions: Identify, Protect, Detect, Respond, Recover. Widely adopted across sectors. CSF 2.0 added a sixth function: Govern."
+    tags: [frameworks, NIST]
+
+  - id: fc-d5-014
+    domain: domain5
+    term: "ISO 27001"
+    definition: "International standard for establishing, implementing, maintaining, and improving an Information Security Management System (ISMS). Certification demonstrates a systematic approach to managing sensitive information. Organized around risk-based thinking and Plan-Do-Check-Act."
+    tags: [frameworks, compliance]
+
+  - id: fc-d5-015
+    domain: domain5
+    term: "BCP (Business Continuity Plan)"
+    definition: "A comprehensive plan for maintaining critical business operations during and after a disruption. Broader than IT recovery — encompasses people, processes, facilities, and communications. Includes the DRP as its IT-focused component."
+    tags: [BCP, business-continuity]
+
+  - id: fc-d5-016
+    domain: domain5
+    term: "DRP (Disaster Recovery Plan)"
+    definition: "An IT-focused plan for recovering systems, applications, and data after a disaster. A subset of BCP. Defines RTO, RPO, recovery strategies, backup procedures, alternate site requirements, and recovery testing schedules."
+    tags: [BCP, DRP]
+
+  - id: fc-d5-017
+    domain: domain5
+    term: "RTO (Recovery Time Objective)"
+    definition: "The maximum acceptable time to restore a system or service after a disruption. If RTO is 4 hours, systems must be restored within 4 hours. Drives decisions on backup systems, failover capabilities, and staffing."
+    tags: [BCP, DRP]
+
+  - id: fc-d5-018
+    domain: domain5
+    term: "RPO (Recovery Point Objective)"
+    definition: "The maximum acceptable amount of data loss measured in time. If RPO is 1 hour, backups must occur at least every hour. Drives backup frequency and replication strategy decisions."
+    tags: [BCP, DRP]
+
+  - id: fc-d5-019
+    domain: domain5
+    term: "Security Policy"
+    definition: "A high-level document stating management's intent, requirements, and goals regarding information security. Defines 'what must be done' but not 'how.' Examples: Acceptable Use Policy (AUP), Password Policy, Data Classification Policy."
+    tags: [governance, policies]
+
+  - id: fc-d5-020
+    domain: domain5
+    term: "Security Procedure"
+    definition: "A detailed, step-by-step document explaining how to implement a security policy or perform a specific security task. Defines the 'how.' More operational and specific than a policy. Example: step-by-step patch deployment procedure."
+    tags: [governance, policies]
+
+  - id: fc-d5-021
+    domain: domain5
+    term: "Third-Party Risk Management (TPRM)"
+    definition: "The process of identifying, assessing, and managing risks posed by third-party vendors, suppliers, and partners who have access to organizational data or systems. Includes vendor due diligence, contract requirements, and ongoing monitoring."
+    tags: [risk-management, third-party]
+
+  - id: fc-d5-022
+    domain: domain5
+    term: "Penetration Testing"
+    definition: "Authorized simulated attack against systems to identify exploitable vulnerabilities. Types: Black box (no prior knowledge), White box (full knowledge), Gray box (partial knowledge). Must have explicit written authorization before conducting."
+    tags: [security-assessment]
+
+  - id: fc-d5-023
+    domain: domain5
+    term: "Security Awareness Training"
+    definition: "Programs educating employees about security threats, policies, and best practices to reduce human error and social engineering susceptibility. Includes phishing simulations, annual compliance training, and targeted role-based training."
+    tags: [governance, human-factors]
+
+  - id: fc-d5-024
+    domain: domain5
+    term: "Data Retention Policy"
+    definition: "A policy defining how long different types of data must be retained and when/how it should be securely disposed of. Driven by regulatory requirements (HIPAA requires 6 years; PCI DSS requires 1 year for certain logs). Failure to follow retention can create legal liability."
+    tags: [data-management, compliance]
+
+  - id: fc-d5-025
+    domain: domain5
+    term: "Due Diligence vs Due Care"
+    definition: "Due Diligence is the investigation and research conducted BEFORE making a decision (e.g., evaluating vendor security before contracting). Due Care is the ongoing reasonable effort to protect assets AFTER a decision is made. Both create a legal standard of reasonable behavior."
+    tags: [governance, risk-management]

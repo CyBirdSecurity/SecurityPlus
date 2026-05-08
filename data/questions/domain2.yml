@@ -1,0 +1,190 @@
+questions:
+  - id: q-d2-001
+    domain: domain2
+    question: "An attacker sends an email claiming to be from the IT helpdesk asking users to reset their passwords via a provided link. What type of attack is this?"
+    options:
+      - "A. Vishing"
+      - "B. Spear phishing"
+      - "C. Phishing"
+      - "D. Smishing"
+    correct_answer: 2
+    explanations:
+      correct: "Phishing is a social engineering attack delivered via email that impersonates a trusted entity to trick users into revealing credentials or clicking malicious links. A generic email targeting many users from a fake IT helpdesk is a classic phishing scenario."
+      incorrect:
+        - "Vishing is voice phishing — attacks conducted over phone calls or voicemail."
+        - "Spear phishing is a targeted phishing attack directed at a specific individual or organization using personalized information. A generic helpdesk email sent broadly is standard phishing."
+        - null
+        - "Smishing is SMS phishing — attacks delivered via text messages."
+    tags: [social-engineering, phishing]
+    difficulty: easy
+
+  - id: q-d2-002
+    domain: domain2
+    question: "Which type of malware spreads across a network by exploiting vulnerabilities WITHOUT requiring user interaction?"
+    options:
+      - "A. Trojan"
+      - "B. Worm"
+      - "C. Virus"
+      - "D. Ransomware"
+    correct_answer: 1
+    explanations:
+      correct: "A worm is self-replicating malware that propagates across networks by exploiting vulnerabilities without requiring user interaction or a host file. Famous examples include WannaCry and NotPetya, which spread autonomously across networks."
+      incorrect:
+        - "A Trojan disguises itself as legitimate software and requires user interaction to install. It does not self-replicate or spread autonomously."
+        - null
+        - "A virus requires a host file and user interaction (running an infected program) to spread. Worms are self-contained."
+        - "Ransomware encrypts files and demands payment but is a payload type — it can be delivered by various methods including worms, but ransomware itself is classified by what it does, not how it spreads."
+    tags: [malware, worms, network-attacks]
+    difficulty: easy
+
+  - id: q-d2-003
+    domain: domain2
+    question: "A user reports their browser redirects to unexpected websites and displays excessive ads. Which type of malware is MOST likely responsible?"
+    options:
+      - "A. Ransomware"
+      - "B. Rootkit"
+      - "C. Adware"
+      - "D. Keylogger"
+    correct_answer: 2
+    explanations:
+      correct: "Adware is malware designed to display unwanted advertisements and redirect browsers to advertising or malicious sites. It generates revenue for attackers through forced ad impressions and may also collect browsing data."
+      incorrect:
+        - "Ransomware encrypts files and demands payment — it would not cause browser redirects or ads."
+        - "A rootkit hides malware and attacker presence by modifying the OS — it does not typically cause visible browser redirects."
+        - null
+        - "A keylogger records keystrokes to steal credentials — it runs silently and would not cause visible browser redirects."
+    tags: [malware, adware]
+    difficulty: easy
+
+  - id: q-d2-004
+    domain: domain2
+    question: "Which attack technique involves an attacker inserting themselves between two communicating parties to intercept and potentially alter their communications?"
+    options:
+      - "A. Replay attack"
+      - "B. Man-in-the-Middle (MitM) attack"
+      - "C. SQL injection"
+      - "D. Pass-the-hash attack"
+    correct_answer: 1
+    explanations:
+      correct: "A Man-in-the-Middle (MitM) attack occurs when an attacker secretly intercepts and potentially alters communications between two parties who believe they are communicating directly. Techniques include ARP poisoning, SSL stripping, and rogue access points."
+      incorrect:
+        - "A replay attack involves capturing and retransmitting valid authentication data — the attacker does not position themselves in real-time between communicating parties."
+        - null
+        - "SQL injection is an application-layer attack that inserts malicious SQL into database queries — it is not a network interception attack."
+        - "Pass-the-hash involves using captured password hashes to authenticate without knowing the plaintext password — it is a credential-based attack, not network interception."
+    tags: [network-attacks, MitM, interception]
+    difficulty: easy
+
+  - id: q-d2-005
+    domain: domain2
+    question: "An attacker floods a web server with millions of requests from thousands of compromised hosts, rendering it unavailable. What type of attack is this?"
+    options:
+      - "A. Distributed Denial of Service (DDoS)"
+      - "B. Smurf attack"
+      - "C. SYN flood"
+      - "D. Ping of Death"
+    correct_answer: 0
+    explanations:
+      correct: "A Distributed Denial of Service (DDoS) attack uses many compromised systems (a botnet) to simultaneously send massive volumes of traffic to a target, overwhelming its resources and making it unavailable to legitimate users. The distributed nature from thousands of hosts distinguishes it from a simple DoS attack."
+      incorrect:
+        - null
+        - "A Smurf attack uses ICMP broadcast amplification — it is a specific DoS technique, not the general distributed flooding described."
+        - "A SYN flood exploits TCP three-way handshake by sending many SYN requests without completing handshakes — it is one type of DoS, but the scenario describes a distributed attack from thousands of hosts."
+        - "A Ping of Death sends oversized ICMP packets to crash systems — it is a historical single-source attack, not a distributed flooding attack."
+    tags: [DoS, DDoS, network-attacks]
+    difficulty: easy
+
+  - id: q-d2-006
+    domain: domain2
+    question: "Which of the following BEST describes a SQL injection attack?"
+    options:
+      - "A. Injecting malicious scripts into web pages viewed by other users"
+      - "B. Inserting malicious SQL code into an application's database query"
+      - "C. Exploiting buffer overflow to execute arbitrary code"
+      - "D. Capturing and replaying authentication tokens"
+    correct_answer: 1
+    explanations:
+      correct: "SQL injection occurs when an attacker inserts or 'injects' malicious SQL statements into an input field that is incorporated into a database query. If the application does not properly sanitize inputs, the injected SQL executes and can allow data theft, authentication bypass, or data manipulation."
+      incorrect:
+        - "Injecting malicious scripts into web pages viewed by other users is Cross-Site Scripting (XSS), not SQL injection."
+        - null
+        - "Exploiting buffer overflow to execute arbitrary code is a memory corruption attack, not SQL injection."
+        - "Capturing and replaying authentication tokens is a replay attack or session hijacking."
+    tags: [application-attacks, SQL-injection, OWASP]
+    difficulty: easy
+
+  - id: q-d2-007
+    domain: domain2
+    question: "A threat intelligence feed reports that a sophisticated nation-state group is targeting critical infrastructure. How would this group BEST be classified?"
+    options:
+      - "A. Script kiddie"
+      - "B. Hacktivist"
+      - "C. Advanced Persistent Threat (APT)"
+      - "D. Insider threat"
+    correct_answer: 2
+    explanations:
+      correct: "An Advanced Persistent Threat (APT) is a sophisticated, well-funded, and stealthy threat actor — typically nation-state sponsored — that conducts long-term targeted attacks against specific high-value targets like critical infrastructure, government, or defense systems. APTs maintain persistent access over long periods."
+      incorrect:
+        - "A script kiddie uses pre-written tools with little skill and generally lacks the sophistication for targeted critical infrastructure attacks."
+        - "A hacktivist is motivated by political or ideological causes and typically conducts website defacement or DDoS attacks — not long-term nation-state-level operations."
+        - null
+        - "An insider threat originates from within the organization (employee, contractor). Nation-state groups operate externally."
+    tags: [threat-actors, APT, threat-intelligence]
+    difficulty: medium
+
+  - id: q-d2-008
+    domain: domain2
+    question: "Which vulnerability scanning approach authenticates to target systems to perform a more thorough internal assessment?"
+    options:
+      - "A. Unauthenticated scan"
+      - "B. Credentialed scan"
+      - "C. Passive scan"
+      - "D. External scan"
+    correct_answer: 1
+    explanations:
+      correct: "A credentialed (authenticated) scan provides the scanner with valid credentials to log into target systems, allowing it to assess locally installed software versions, patch levels, configuration settings, and security policies that are invisible from an external network perspective. This produces more accurate and comprehensive results."
+      incorrect:
+        - "An unauthenticated (non-credentialed) scan assesses targets from a network perspective without logging in — it finds open ports and exposed services but misses internal configuration issues."
+        - null
+        - "A passive scan monitors network traffic without sending probes — it discovers assets but does not assess vulnerabilities in depth."
+        - "An external scan simulates an outside attacker's view — the key distinction in this question is authentication, not the scan source location."
+    tags: [vulnerability-management, scanning]
+    difficulty: medium
+
+  - id: q-d2-009
+    domain: domain2
+    question: "What is the MAIN difference between a vulnerability and an exploit?"
+    options:
+      - "A. A vulnerability is a weakness; an exploit is code or technique that takes advantage of it"
+      - "B. A vulnerability is always software-based; an exploit is always hardware-based"
+      - "C. A vulnerability requires physical access; an exploit works remotely"
+      - "D. A vulnerability is discovered by defenders; an exploit is discovered by attackers"
+    correct_answer: 0
+    explanations:
+      correct: "A vulnerability is a weakness or flaw in a system, application, or process that could be exploited. An exploit is the specific code, technique, or mechanism that takes advantage of a vulnerability to cause harm. Understanding this distinction is fundamental to vulnerability management."
+      incorrect:
+        - null
+        - "Vulnerabilities and exploits can be software, hardware, or configuration-based — neither is exclusively one or the other."
+        - "Vulnerabilities can be exploited remotely or locally; there is no physical access requirement."
+        - "Both vulnerabilities and exploits can be discovered by either attackers or defenders."
+    tags: [vulnerabilities, exploits, fundamentals]
+    difficulty: easy
+
+  - id: q-d2-010
+    domain: domain2
+    question: "An attacker calls an employee posing as a vendor and convinces them to reveal their VPN credentials. What type of attack is this?"
+    options:
+      - "A. Phishing"
+      - "B. Pretexting"
+      - "C. Whaling"
+      - "D. Watering hole"
+    correct_answer: 1
+    explanations:
+      correct: "Pretexting is a social engineering technique where the attacker creates a fabricated scenario (a pretext) — such as impersonating a vendor — to manipulate victims into revealing information or performing actions. The attacker invents a believable backstory to gain trust."
+      incorrect:
+        - "Phishing is conducted via email with a malicious link or attachment — this scenario involves a phone call and impersonation."
+        - null
+        - "Whaling targets high-level executives (C-suite) specifically. This scenario targets a general employee."
+        - "A watering hole attack compromises websites that target users frequently visit — it does not involve direct social interaction."
+    tags: [social-engineering, pretexting]
+    difficulty: medium

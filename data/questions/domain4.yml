@@ -1,0 +1,190 @@
+questions:
+  - id: q-d4-001
+    domain: domain4
+    question: "Which access control model assigns permissions based on a user's job function or position within an organization?"
+    options:
+      - "A. Discretionary Access Control (DAC)"
+      - "B. Mandatory Access Control (MAC)"
+      - "C. Role-Based Access Control (RBAC)"
+      - "D. Attribute-Based Access Control (ABAC)"
+    correct_answer: 2
+    explanations:
+      correct: "Role-Based Access Control (RBAC) grants permissions to roles (job functions) rather than to individual users. Users are then assigned to roles. This simplifies administration — when a user changes jobs, you change their role assignment rather than modifying individual permissions."
+      incorrect:
+        - "Discretionary Access Control (DAC) allows data owners to set permissions on their own resources at their discretion (e.g., traditional Unix file permissions). It is not based on job functions centrally."
+        - "Mandatory Access Control (MAC) uses security labels and clearance levels enforced by the system (e.g., Top Secret, Secret) — it is not organized around job roles."
+        - null
+        - "Attribute-Based Access Control (ABAC) makes decisions based on a combination of attributes (user attributes, resource attributes, environmental conditions) — more granular than RBAC."
+    tags: [access-control, RBAC, IAM]
+    difficulty: easy
+
+  - id: q-d4-002
+    domain: domain4
+    question: "During incident response, which phase involves identifying the scope of an attack and determining what systems are affected?"
+    options:
+      - "A. Preparation"
+      - "B. Detection and Analysis"
+      - "C. Containment"
+      - "D. Post-Incident Activity"
+    correct_answer: 1
+    explanations:
+      correct: "The Detection and Analysis phase of the NIST Incident Response lifecycle involves identifying that an incident has occurred, determining its scope, confirming which systems are affected, and analyzing the nature of the attack. This phase includes collecting evidence and assessing the severity before moving to containment."
+      incorrect:
+        - "The Preparation phase establishes the incident response capability before incidents occur — it involves creating plans, training teams, and deploying tools."
+        - null
+        - "Containment occurs after scope is determined — it involves limiting the spread and impact of an incident that has already been analyzed."
+        - "Post-Incident Activity is the lessons-learned phase that occurs after the incident is resolved."
+    tags: [incident-response, NIST, security-operations]
+    difficulty: medium
+
+  - id: q-d4-003
+    domain: domain4
+    question: "An analyst notices a large amount of data leaving the network to an external IP during off-hours. Which tool would BEST help investigate this activity?"
+    options:
+      - "A. Vulnerability scanner"
+      - "B. Security Information and Event Management (SIEM)"
+      - "C. Password manager"
+      - "D. Web application firewall"
+    correct_answer: 1
+    explanations:
+      correct: "A SIEM aggregates and correlates log data from across the environment (firewalls, servers, endpoints, network devices) to detect anomalies and threats. It would allow an analyst to investigate the source, destination, timing, volume, and pattern of the suspicious data transfer and correlate it with other events."
+      incorrect:
+        - "A vulnerability scanner identifies security weaknesses in systems — it does not monitor or investigate live network traffic anomalies."
+        - null
+        - "A password manager stores credentials — it has no network monitoring or investigation capability."
+        - "A WAF protects web applications from attacks — it does not provide the broad log correlation needed to investigate network traffic anomalies."
+    tags: [SIEM, security-operations, monitoring]
+    difficulty: easy
+
+  - id: q-d4-004
+    domain: domain4
+    question: "Which of the following BEST describes the principle of least privilege?"
+    options:
+      - "A. Users should have no access until they request it"
+      - "B. Users should be granted only the minimum access necessary to perform their job"
+      - "C. Access should be granted for the shortest time possible only"
+      - "D. Privileged accounts should use biometric authentication only"
+    correct_answer: 1
+    explanations:
+      correct: "The principle of least privilege states that users, processes, and systems should be granted only the minimum permissions necessary to perform their intended function — no more. This limits the damage that can occur from errors, compromised accounts, or malicious insiders."
+      incorrect:
+        - "Denying all access until requested is a zero-default access policy; while related, least privilege specifically refers to minimizing the scope of granted permissions, not eliminating them until requested."
+        - null
+        - "Granting access for the shortest time possible describes the principle of just-in-time (JIT) access or time-based access, a related but separate concept."
+        - "Authentication method requirements are not part of the least privilege principle definition."
+    tags: [access-control, least-privilege, IAM]
+    difficulty: easy
+
+  - id: q-d4-005
+    domain: domain4
+    question: "Which technology allows a single user to authenticate once and then access multiple applications without re-entering credentials?"
+    options:
+      - "A. Multi-factor authentication (MFA)"
+      - "B. Single Sign-On (SSO)"
+      - "C. Privileged Access Management (PAM)"
+      - "D. Federation"
+    correct_answer: 1
+    explanations:
+      correct: "Single Sign-On (SSO) allows a user to authenticate once to a central identity provider and then access multiple applications or services without re-authenticating for each one. Common SSO implementations use protocols like SAML, OAuth, or OIDC."
+      incorrect:
+        - "MFA requires multiple authentication factors but does not reduce the number of times a user must authenticate across applications. It can be combined with SSO."
+        - null
+        - "Privileged Access Management (PAM) controls and monitors access to privileged accounts (admin/root) — it focuses on high-privilege access, not general user convenience."
+        - "Federation enables identity trust between different organizations or domains, allowing users from one organization to access resources in another. SSO is a component that federation may enable, but federation is broader."
+    tags: [SSO, IAM, authentication]
+    difficulty: easy
+
+  - id: q-d4-006
+    domain: domain4
+    question: "A security analyst performs forensic acquisition of a hard drive. What is the MOST important step to take to ensure evidence integrity?"
+    options:
+      - "A. Immediately analyze the original drive using forensic software"
+      - "B. Create a forensic image and verify it with a cryptographic hash"
+      - "C. Encrypt the original drive before analysis"
+      - "D. Copy files using Windows Explorer to a USB drive"
+    correct_answer: 1
+    explanations:
+      correct: "Proper forensic acquisition requires creating a bit-for-bit image of the original drive and verifying integrity using a cryptographic hash (MD5 or SHA-256). The hash proves the image is an exact copy — if the hash matches before and after, no data has been altered. All analysis is performed on the image, not the original."
+      incorrect:
+        - "Analyzing the original drive risks modifying evidence (timestamps, file system metadata). Forensic images preserve the original."
+        - null
+        - "Encrypting the original drive would alter it and potentially render it unusable as evidence — you never modify original evidence."
+        - "Copying files with Windows Explorer does not create a forensic image — it misses deleted files, file system metadata, unallocated space, and modifies access timestamps."
+    tags: [digital-forensics, evidence-integrity, chain-of-custody]
+    difficulty: medium
+
+  - id: q-d4-007
+    domain: domain4
+    question: "Which technology prevents users from sending sensitive data such as credit card numbers or PII via email or other channels?"
+    options:
+      - "A. Intrusion Prevention System (IPS)"
+      - "B. Data Loss Prevention (DLP)"
+      - "C. Web Application Firewall (WAF)"
+      - "D. Email gateway spam filter"
+    correct_answer: 1
+    explanations:
+      correct: "Data Loss Prevention (DLP) solutions monitor, detect, and block the transmission of sensitive data (PII, PCI data, intellectual property) across email, web, removable media, and other channels. DLP uses content inspection and policy rules to identify and prevent unauthorized data exfiltration."
+      incorrect:
+        - "An IPS detects and blocks network-based attacks based on signatures and anomalies — it does not specifically inspect and block data based on content sensitivity (PII, credit card patterns)."
+        - null
+        - "A WAF protects web applications from attacks like SQL injection and XSS — it does not inspect outbound email for PII content."
+        - "An email spam filter blocks unsolicited and malicious inbound email — it does not inspect outbound content for sensitive data patterns."
+    tags: [DLP, data-protection, security-operations]
+    difficulty: easy
+
+  - id: q-d4-008
+    domain: domain4
+    question: "Which authentication technology uses a token that generates a new passcode every 30 seconds without requiring network connectivity?"
+    options:
+      - "A. HOTP (HMAC-based One-Time Password)"
+      - "B. TOTP (Time-based One-Time Password)"
+      - "C. Push notification authentication"
+      - "D. Certificate-based authentication"
+    correct_answer: 1
+    explanations:
+      correct: "TOTP (Time-based One-Time Password), defined in RFC 6238, generates a temporary passcode by combining a shared secret with the current time, producing a new 6-8 digit code every 30 seconds. It works offline and is used by Google Authenticator and Microsoft Authenticator apps."
+      incorrect:
+        - "HOTP (HMAC-based OTP) generates codes based on a counter (the number of authentications), not time. Codes remain valid until used, which is a security difference from TOTP."
+        - null
+        - "Push notification authentication sends an approval request to a mobile app — it requires network connectivity to receive and respond to the push."
+        - "Certificate-based authentication uses digital certificates for authentication — it does not involve time-based one-time codes."
+    tags: [authentication, MFA, TOTP, OTP]
+    difficulty: medium
+
+  - id: q-d4-009
+    domain: domain4
+    question: "What is the purpose of a Security Operations Center (SOC)?"
+    options:
+      - "A. To develop security software and patches for vulnerabilities"
+      - "B. To continuously monitor, detect, analyze, and respond to cybersecurity incidents"
+      - "C. To conduct penetration testing against the organization's own systems"
+      - "D. To manage end-user help desk requests related to access"
+    correct_answer: 1
+    explanations:
+      correct: "A Security Operations Center (SOC) is a dedicated team and facility focused on continuous 24/7 monitoring, detection, analysis, and response to cybersecurity events and incidents. SOC analysts use tools like SIEM, EDR, and threat intelligence to protect the organization in real time."
+      incorrect:
+        - "Developing security patches is the role of software development and patch management teams — not the SOC's primary function."
+        - null
+        - "Penetration testing is typically performed by a separate red team or external security firm — it is distinct from the SOC's operational monitoring role."
+        - "Help desk access management is an IT support function. While related to IAM, it is not the SOC's core responsibility."
+    tags: [SOC, security-operations, monitoring]
+    difficulty: easy
+
+  - id: q-d4-010
+    domain: domain4
+    question: "Which endpoint security technology uses behavioral analysis to detect unknown malware that has never been seen before?"
+    options:
+      - "A. Signature-based antivirus"
+      - "B. Next-Generation Antivirus (NGAV) with heuristic/behavioral detection"
+      - "C. Host-based firewall"
+      - "D. Full disk encryption"
+    correct_answer: 1
+    explanations:
+      correct: "Next-Generation Antivirus (NGAV) uses machine learning, behavioral analysis, and heuristics to detect malware based on what it does (its behavior) rather than matching it against a database of known signatures. This allows it to detect zero-day and previously unknown malware that signature-based tools would miss."
+      incorrect:
+        - "Signature-based antivirus only detects malware for which it has a known signature — it cannot detect zero-day threats or new variants."
+        - null
+        - "A host-based firewall controls network connections to/from the endpoint — it does not analyze file behavior or detect malware."
+        - "Full disk encryption protects data confidentiality if a device is lost or stolen — it does not detect malware."
+    tags: [endpoint-security, NGAV, malware-detection]
+    difficulty: medium

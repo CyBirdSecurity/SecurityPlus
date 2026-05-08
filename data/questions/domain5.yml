@@ -1,0 +1,190 @@
+questions:
+  - id: q-d5-001
+    domain: domain5
+    question: "A company is evaluating security risks. They calculate a 20% chance of a breach occurring annually with a potential loss of $500,000 per incident. What is the Annualized Loss Expectancy (ALE)?"
+    options:
+      - "A. $500,000"
+      - "B. $100,000"
+      - "C. $2,500,000"
+      - "D. $25,000"
+    correct_answer: 1
+    explanations:
+      correct: "ALE = ARO (Annual Rate of Occurrence) × SLE (Single Loss Expectancy). ALE = 0.20 × $500,000 = $100,000. This represents the expected annual loss from the risk, which helps prioritize security investments — a control costing less than $100,000/year would be cost-effective."
+      incorrect:
+        - "$500,000 is the Single Loss Expectancy (SLE) — the loss per incident — not the annualized figure."
+        - null
+        - "$2,500,000 would result from multiplying SLE × 5, which would be an ARO of 5 (five incidents per year), not 20%."
+        - "$25,000 would result from 5% × $500,000, not the 20% stated."
+    tags: [risk-management, ALE, quantitative-risk]
+    difficulty: medium
+
+  - id: q-d5-002
+    domain: domain5
+    question: "Which regulation specifically protects the privacy and security of patient health information in the United States?"
+    options:
+      - "A. PCI DSS"
+      - "B. GDPR"
+      - "C. HIPAA"
+      - "D. SOX"
+    correct_answer: 2
+    explanations:
+      correct: "HIPAA (Health Insurance Portability and Accountability Act) establishes national standards for protecting sensitive patient health information (PHI — Protected Health Information). It applies to healthcare providers, health plans, and business associates. The Security Rule specifically addresses electronic PHI (ePHI)."
+      incorrect:
+        - "PCI DSS (Payment Card Industry Data Security Standard) protects cardholder data for credit/debit card transactions — it is not specific to health information."
+        - "GDPR (General Data Protection Regulation) is a European Union regulation that protects personal data of EU citizens — it is not U.S. health-specific."
+        - null
+        - "SOX (Sarbanes-Oxley Act) focuses on financial reporting accuracy and internal controls for publicly traded U.S. companies — not healthcare data."
+    tags: [compliance, HIPAA, regulations]
+    difficulty: easy
+
+  - id: q-d5-003
+    domain: domain5
+    question: "What is the PRIMARY goal of a Business Continuity Plan (BCP)?"
+    options:
+      - "A. To restore IT systems as quickly as possible after a disaster"
+      - "B. To maintain critical business operations during and after a disruption"
+      - "C. To identify and remediate security vulnerabilities"
+      - "D. To document the organization's security policies"
+    correct_answer: 1
+    explanations:
+      correct: "A Business Continuity Plan (BCP) focuses on maintaining critical business functions and processes during and after a disruption — not just IT recovery. It encompasses people, processes, facilities, and communications, not just technology. The Disaster Recovery Plan (DRP) is the IT-focused subset of BCP."
+      incorrect:
+        - "Restoring IT systems quickly is the goal of a Disaster Recovery Plan (DRP), which is the technology-focused component of BCP — broader BCP includes all business operations."
+        - null
+        - "Identifying and remediating vulnerabilities is vulnerability management — not BCP."
+        - "Documenting security policies is a governance function, not business continuity planning."
+    tags: [BCP, DRP, business-continuity]
+    difficulty: easy
+
+  - id: q-d5-004
+    domain: domain5
+    question: "An organization classifies some data as 'Confidential' and other data as 'Public.' What framework concept does this represent?"
+    options:
+      - "A. Data retention policy"
+      - "B. Data classification"
+      - "C. Data sovereignty"
+      - "D. Data minimization"
+    correct_answer: 1
+    explanations:
+      correct: "Data classification is the process of organizing data into categories based on sensitivity, value, and regulatory requirements. Common classification levels include Public, Internal/Private, Confidential, and Restricted/Top Secret. Classification drives appropriate security controls, handling requirements, and access restrictions."
+      incorrect:
+        - "A data retention policy specifies how long data must be kept and when it should be destroyed — not how it is categorized by sensitivity."
+        - null
+        - "Data sovereignty refers to the legal principle that data is subject to the laws of the country where it is stored — not a classification framework."
+        - "Data minimization is a privacy principle (from GDPR) that limits data collection to only what is necessary — not a classification concept."
+    tags: [data-classification, governance, data-management]
+    difficulty: easy
+
+  - id: q-d5-005
+    domain: domain5
+    question: "Which risk response strategy involves transferring the financial impact of a risk to a third party?"
+    options:
+      - "A. Risk avoidance"
+      - "B. Risk mitigation"
+      - "C. Risk transfer"
+      - "D. Risk acceptance"
+    correct_answer: 2
+    explanations:
+      correct: "Risk transfer shifts the financial consequences of a risk to another party — the most common method is purchasing cyber liability insurance. Outsourcing functions to a third party also transfers some risk. The organization still faces the operational impact but the financial liability is shared or shifted."
+      incorrect:
+        - "Risk avoidance eliminates the risk entirely by not engaging in the activity that creates it (e.g., not collecting certain data, not deploying a vulnerable technology)."
+        - "Risk mitigation reduces the likelihood or impact of the risk through controls, processes, or technologies."
+        - null
+        - "Risk acceptance (also called risk tolerance) means the organization acknowledges the risk and chooses to absorb the potential impact without taking action."
+    tags: [risk-management, risk-response]
+    difficulty: easy
+
+  - id: q-d5-006
+    domain: domain5
+    question: "What is the purpose of a vendor risk assessment in third-party risk management?"
+    options:
+      - "A. To negotiate lower pricing with vendors"
+      - "B. To evaluate security practices of vendors who handle organizational data"
+      - "C. To classify internal data assets by sensitivity"
+      - "D. To test the organization's own infrastructure for vulnerabilities"
+    correct_answer: 1
+    explanations:
+      correct: "A vendor risk assessment evaluates the security posture, privacy practices, and compliance status of third-party vendors before and during a business relationship. Since vendors often have access to organizational data or systems, their security weaknesses can become the organization's vulnerabilities — as demonstrated in many supply chain attacks."
+      incorrect:
+        - "Price negotiation is a procurement function, not a security risk assessment."
+        - null
+        - "Data asset classification is an internal data governance activity, not vendor evaluation."
+        - "Testing internal infrastructure is vulnerability management or penetration testing — directed inward, not at vendors."
+    tags: [third-party-risk, vendor-management, supply-chain]
+    difficulty: easy
+
+  - id: q-d5-007
+    domain: domain5
+    question: "According to NIST SP 800-30, which of the following represents the CORRECT formula for calculating risk?"
+    options:
+      - "A. Risk = Asset Value × Vulnerability"
+      - "B. Risk = Threat × Vulnerability × Impact"
+      - "C. Risk = Likelihood × Impact"
+      - "D. Risk = Control Effectiveness / Threat Level"
+    correct_answer: 2
+    explanations:
+      correct: "NIST SP 800-30 defines risk as a function of the likelihood that a threat source will exploit a vulnerability and the resulting impact. Risk = Likelihood × Impact. This guides risk prioritization: a high-likelihood, high-impact event demands immediate attention, while a low-likelihood, low-impact event may be accepted."
+      incorrect:
+        - "Asset value is not a direct component of the NIST risk formula, though it informs impact assessment."
+        - "While threat, vulnerability, and impact are all relevant concepts, the NIST formula specifically uses likelihood (probability) and impact."
+        - null
+        - "This is not a recognized risk formula — control effectiveness affects residual risk after controls are applied, not the raw risk calculation."
+    tags: [risk-management, NIST, risk-calculation]
+    difficulty: medium
+
+  - id: q-d5-008
+    domain: domain5
+    question: "Which security framework provides a voluntary set of standards and best practices for managing cybersecurity risk in critical infrastructure?"
+    options:
+      - "A. ISO 27001"
+      - "B. NIST Cybersecurity Framework (CSF)"
+      - "C. PCI DSS"
+      - "D. SOC 2"
+    correct_answer: 1
+    explanations:
+      correct: "The NIST Cybersecurity Framework (CSF) was developed to help organizations manage and reduce cybersecurity risk. It is organized around five core functions: Identify, Protect, Detect, Respond, and Recover. It is voluntary, flexible, and widely adopted across industries including critical infrastructure."
+      incorrect:
+        - "ISO 27001 is an international standard for an Information Security Management System (ISMS) — it is certification-based and more prescriptive than the voluntary NIST CSF."
+        - null
+        - "PCI DSS is a mandatory compliance standard specifically for organizations handling payment card data — it is not a voluntary general cybersecurity framework."
+        - "SOC 2 is an auditing procedure for service organizations to demonstrate security controls to customers — it is an attestation/audit standard, not a general risk management framework."
+    tags: [frameworks, NIST-CSF, compliance]
+    difficulty: easy
+
+  - id: q-d5-009
+    domain: domain5
+    question: "What is the difference between a security policy and a security procedure?"
+    options:
+      - "A. A policy is technical; a procedure is administrative"
+      - "B. A policy states what must be done; a procedure explains how to do it"
+      - "C. A policy is optional; a procedure is mandatory"
+      - "D. A policy applies to IT staff; a procedure applies to all employees"
+    correct_answer: 1
+    explanations:
+      correct: "A security policy is a high-level document that states management's intent and requirements — the 'what' and 'why' (e.g., 'All sensitive data must be encrypted in transit'). A procedure is a step-by-step document that explains specifically how to implement the policy — the 'how' (e.g., specific commands to enable TLS on a web server)."
+      incorrect:
+        - "Policies are typically administrative (governance) documents; procedures can be both technical and administrative."
+        - null
+        - "Both policies and procedures are typically mandatory — policies set requirements; procedures provide implementation guidance."
+        - "Security policies apply to all employees, not just IT staff — everyone must comply with the acceptable use policy, for example."
+    tags: [governance, policies, procedures]
+    difficulty: easy
+
+  - id: q-d5-010
+    domain: domain5
+    question: "An organization with a maximum acceptable downtime of 4 hours for a critical system sets this as their:"
+    options:
+      - "A. Recovery Point Objective (RPO)"
+      - "B. Recovery Time Objective (RTO)"
+      - "C. Mean Time Between Failures (MTBF)"
+      - "D. Mean Time to Repair (MTTR)"
+    correct_answer: 1
+    explanations:
+      correct: "Recovery Time Objective (RTO) is the maximum acceptable time to restore a system or service after a disruption. If the RTO is 4 hours, the organization must have backup systems, procedures, and resources in place to restore operations within that window."
+      incorrect:
+        - "Recovery Point Objective (RPO) is the maximum acceptable amount of data loss measured in time — it defines how old the most recent acceptable backup can be (e.g., data from up to 1 hour ago is acceptable to lose)."
+        - null
+        - "MTBF (Mean Time Between Failures) measures the average time between system failures — it is a reliability metric, not a recovery target."
+        - "MTTR (Mean Time to Repair) is the average time it actually takes to repair a system — it is a historical metric, not a target objective."
+    tags: [BCP, RTO, RPO, business-continuity]
+    difficulty: medium

@@ -1,0 +1,190 @@
+questions:
+  - id: q-d3-001
+    domain: domain3
+    question: "Which cloud service model provides virtualized computing resources over the internet, where the provider manages the underlying infrastructure?"
+    options:
+      - "A. Software as a Service (SaaS)"
+      - "B. Platform as a Service (PaaS)"
+      - "C. Infrastructure as a Service (IaaS)"
+      - "D. Function as a Service (FaaS)"
+    correct_answer: 2
+    explanations:
+      correct: "Infrastructure as a Service (IaaS) provides virtualized computing resources (virtual machines, storage, networking) over the internet. The provider manages physical hardware and hypervisors, while the customer manages the OS, middleware, and applications. Examples include AWS EC2, Azure VMs, and Google Compute Engine."
+      incorrect:
+        - "SaaS delivers complete applications over the internet — the provider manages everything from infrastructure to the application. Users just access the software (e.g., Microsoft 365, Salesforce)."
+        - "PaaS provides a development platform and runtime environment where developers deploy applications without managing infrastructure (e.g., AWS Elastic Beanstalk, Azure App Service)."
+        - null
+        - "FaaS (serverless) allows running individual functions in the cloud without managing servers — it is more granular than IaaS."
+    tags: [cloud, IaaS, PaaS, SaaS]
+    difficulty: easy
+
+  - id: q-d3-002
+    domain: domain3
+    question: "A company wants to isolate sensitive financial systems from general office workstations using network architecture. Which technique is MOST appropriate?"
+    options:
+      - "A. Network Address Translation (NAT)"
+      - "B. Network segmentation with VLANs"
+      - "C. DNS sinkholes"
+      - "D. Port mirroring"
+    correct_answer: 1
+    explanations:
+      correct: "Network segmentation using VLANs (Virtual Local Area Networks) logically divides a network into isolated segments, preventing direct communication between segments without passing through a firewall or router. This limits the blast radius of a breach and protects sensitive systems from less-secure segments."
+      incorrect:
+        - "NAT translates private IP addresses to public ones for internet communication — it does not segment or isolate internal network segments from each other."
+        - null
+        - "A DNS sinkhole redirects malicious domain lookups to a controlled server to block malware communication — it is not a network segmentation technique."
+        - "Port mirroring copies network traffic to a monitoring port for analysis (e.g., feeding an IDS) — it does not isolate segments."
+    tags: [network-segmentation, VLAN, architecture]
+    difficulty: medium
+
+  - id: q-d3-003
+    domain: domain3
+    question: "Which protocol should be used INSTEAD of Telnet for secure remote administration of network devices?"
+    options:
+      - "A. FTP"
+      - "B. SSH"
+      - "C. HTTP"
+      - "D. SNMP v1"
+    correct_answer: 1
+    explanations:
+      correct: "SSH (Secure Shell) encrypts all communications including authentication credentials, commands, and data, making it the secure replacement for Telnet. Telnet transmits all data in plaintext, making it vulnerable to eavesdropping. SSH uses port 22 and provides strong authentication and encryption."
+      incorrect:
+        - "FTP (File Transfer Protocol) transfers files in plaintext — it is not used for remote terminal/command administration and is itself insecure."
+        - null
+        - "HTTP transmits web traffic in plaintext — it is not used for remote device administration. HTTPS would be used for web-based management interfaces."
+        - "SNMP v1 transmits community strings (passwords) in plaintext and has known security weaknesses. SNMPv3 provides encryption and authentication."
+    tags: [secure-protocols, SSH, Telnet]
+    difficulty: easy
+
+  - id: q-d3-004
+    domain: domain3
+    question: "An organization deploys multiple virtual machines on a single physical host. What is the security concern if the hypervisor is compromised?"
+    options:
+      - "A. Only the host OS is affected"
+      - "B. All virtual machines on that host are potentially exposed"
+      - "C. Only VMs on different physical hosts are affected"
+      - "D. The virtual machines are isolated and unaffected"
+    correct_answer: 1
+    explanations:
+      correct: "The hypervisor is the foundation that all VMs on a host depend on. If the hypervisor is compromised, an attacker achieves VM escape — potentially gaining control over all VMs running on that physical host. This is called a hypervisor attack or VM escape and represents the key security risk of virtualization consolidation."
+      incorrect:
+        - "A hypervisor compromise affects all VMs it hosts, not just the host OS."
+        - null
+        - "VMs on different physical hosts would not be directly affected by a single hypervisor compromise."
+        - "VMs rely on the hypervisor for isolation — a compromised hypervisor breaks that isolation."
+    tags: [virtualization, hypervisor, VM-escape]
+    difficulty: medium
+
+  - id: q-d3-005
+    domain: domain3
+    question: "Which type of firewall inspects traffic at the application layer and can make decisions based on the content of the communication?"
+    options:
+      - "A. Packet filtering firewall"
+      - "B. Stateful inspection firewall"
+      - "C. Next-Generation Firewall (NGFW)"
+      - "D. Circuit-level gateway"
+    correct_answer: 2
+    explanations:
+      correct: "A Next-Generation Firewall (NGFW) operates at the application layer (Layer 7) and can perform deep packet inspection, application identification, SSL/TLS inspection, intrusion prevention, and user identity tracking. It understands application context far beyond traditional firewalls."
+      incorrect:
+        - "A packet filtering firewall operates at Layers 3-4, examining source/destination IP, port, and protocol — it cannot inspect application content."
+        - "A stateful inspection firewall tracks connection state and allows established sessions, but primarily operates at Layers 3-4 without deep application inspection."
+        - null
+        - "A circuit-level gateway monitors TCP handshakes to verify session legitimacy but does not inspect the actual data payload."
+    tags: [firewalls, NGFW, network-security]
+    difficulty: medium
+
+  - id: q-d3-006
+    domain: domain3
+    question: "What is the PRIMARY difference between IDS and IPS?"
+    options:
+      - "A. IDS encrypts traffic; IPS decrypts it"
+      - "B. IDS detects and alerts; IPS detects and actively blocks threats"
+      - "C. IDS works at Layer 7; IPS works at Layer 3"
+      - "D. IDS requires agents; IPS is agentless"
+    correct_answer: 1
+    explanations:
+      correct: "An Intrusion Detection System (IDS) passively monitors network traffic or host activity, detects suspicious patterns, and generates alerts — but takes no blocking action. An Intrusion Prevention System (IPS) is inline and can actively block or drop malicious traffic in real time when threats are detected."
+      incorrect:
+        - "Neither IDS nor IPS primarily perform encryption or decryption — that is a function of encryption protocols or SSL inspection."
+        - null
+        - "Both IDS and IPS can operate at multiple layers; the layer of operation is not the primary distinction."
+        - "Agent requirements vary by implementation; this is not the primary functional difference between IDS and IPS."
+    tags: [IDS, IPS, network-security]
+    difficulty: easy
+
+  - id: q-d3-007
+    domain: domain3
+    question: "Which network architecture places publicly accessible servers (web, email, DNS) in a segment separated from both the internet and the internal network?"
+    options:
+      - "A. Air gap"
+      - "B. Screened subnet (DMZ)"
+      - "C. Zero trust network"
+      - "D. Software-defined networking (SDN)"
+    correct_answer: 1
+    explanations:
+      correct: "A screened subnet, commonly called a DMZ (Demilitarized Zone), is a network segment that sits between the public internet and the trusted internal network, typically protected by firewalls on both sides. Public-facing servers are placed here so that even if compromised, attackers do not have direct access to the internal network."
+      incorrect:
+        - "An air gap physically isolates a network with no network connections — it is used for the most sensitive systems and does not host public-facing services."
+        - null
+        - "A zero trust network is a security model that assumes no implicit trust inside or outside the perimeter — it is an architecture philosophy, not a specific physical segment placement."
+        - "Software-defined networking (SDN) separates network control from data forwarding — it is a network management architecture, not a security perimeter design."
+    tags: [DMZ, network-architecture, segmentation]
+    difficulty: easy
+
+  - id: q-d3-008
+    domain: domain3
+    question: "Which VPN protocol is considered the MOST secure for site-to-site connections and uses UDP port 500 for key exchange?"
+    options:
+      - "A. PPTP"
+      - "B. L2TP/IPSec"
+      - "C. IPSec IKEv2"
+      - "D. SSL VPN"
+    correct_answer: 2
+    explanations:
+      correct: "IPSec with IKEv2 (Internet Key Exchange version 2) uses UDP port 500 for initial key exchange and is considered highly secure for site-to-site VPN connections. IKEv2 provides fast re-establishment after connection drops, strong authentication, and is widely used in enterprise environments."
+      incorrect:
+        - "PPTP (Point-to-Point Tunneling Protocol) is considered insecure due to known vulnerabilities in its authentication mechanism (MS-CHAPv2) and encryption."
+        - "L2TP/IPSec is a common combination but L2TP itself provides no encryption — it relies entirely on IPSec for security. IKEv2 is more modern and efficient."
+        - null
+        - "SSL VPN uses TLS over HTTPS (TCP port 443) — it is commonly used for remote access but not primarily for site-to-site connections."
+    tags: [VPN, IPSec, network-security]
+    difficulty: hard
+
+  - id: q-d3-009
+    domain: domain3
+    question: "Which wireless security protocol is currently recommended for enterprise Wi-Fi authentication?"
+    options:
+      - "A. WEP"
+      - "B. WPA"
+      - "C. WPA2-Personal"
+      - "D. WPA3-Enterprise"
+    correct_answer: 3
+    explanations:
+      correct: "WPA3-Enterprise is the current recommendation for corporate Wi-Fi security. It uses 192-bit cryptographic strength in its Enterprise mode, Simultaneous Authentication of Equals (SAE) instead of PSK, and Forward Secrecy to protect past sessions even if a key is compromised. WPA2-Enterprise with 802.1X is also acceptable but WPA3 is preferred."
+      incorrect:
+        - "WEP (Wired Equivalent Privacy) has been completely broken since 2001 and should never be used."
+        - "WPA (Wi-Fi Protected Access) uses TKIP which has known weaknesses — it is deprecated."
+        - "WPA2-Personal uses a Pre-Shared Key (PSK) that all users share, making it inappropriate for enterprise environments where individual accountability is needed."
+        - null
+    tags: [wireless, WPA3, 802.1X, authentication]
+    difficulty: medium
+
+  - id: q-d3-010
+    domain: domain3
+    question: "What security benefit does a Trusted Platform Module (TPM) provide?"
+    options:
+      - "A. It provides centralized user authentication across the domain"
+      - "B. It stores cryptographic keys and provides hardware-based integrity measurements"
+      - "C. It encrypts network traffic between endpoints"
+      - "D. It monitors memory for malicious code injection"
+    correct_answer: 1
+    explanations:
+      correct: "A TPM (Trusted Platform Module) is a dedicated hardware chip that securely stores cryptographic keys, certificates, and passwords. It also provides Platform Configuration Registers (PCRs) for measured boot — verifying system integrity by recording hash values of boot components to detect tampering."
+      incorrect:
+        - "Centralized authentication across a domain is provided by directory services like Active Directory with Kerberos, not TPM."
+        - null
+        - "Network traffic encryption is provided by protocols like TLS/IPSec. TPM can store the keys used in these protocols but does not itself encrypt network traffic."
+        - "Memory monitoring for malicious injection is performed by endpoint security solutions with behavior monitoring; TPM focuses on key storage and boot integrity."
+    tags: [hardware-security, TPM, cryptography]
+    difficulty: medium

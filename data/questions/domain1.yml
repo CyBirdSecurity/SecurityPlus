@@ -1,0 +1,190 @@
+questions:
+  - id: q-d1-001
+    domain: domain1
+    question: "Which of the following BEST describes the CIA triad in information security?"
+    options:
+      - "A. Confidentiality, Integrity, and Availability"
+      - "B. Cryptography, Identity, and Authentication"
+      - "C. Compliance, Investigation, and Authorization"
+      - "D. Certification, Integrity, and Accountability"
+    correct_answer: 0
+    explanations:
+      correct: "The CIA triad stands for Confidentiality (preventing unauthorized disclosure), Integrity (ensuring data accuracy and completeness), and Availability (ensuring authorized users can access data when needed). These three principles form the cornerstone of information security."
+      incorrect:
+        - null
+        - "Cryptography, Identity, and Authentication are important security concepts but they do not form the CIA triad."
+        - "Compliance, Investigation, and Authorization are security-related activities but not the CIA triad components."
+        - "Certification, Integrity, and Accountability are not the components of the CIA triad."
+    tags: [cia-triad, fundamentals]
+    difficulty: easy
+
+  - id: q-d1-002
+    domain: domain1
+    question: "A company wants to ensure that only authorized users can read sensitive documents, but those users should not be able to modify them. Which security principle is MOST relevant?"
+    options:
+      - "A. Availability"
+      - "B. Non-repudiation"
+      - "C. Integrity"
+      - "D. Confidentiality"
+    correct_answer: 3
+    explanations:
+      correct: "Confidentiality ensures that information is accessible only to those authorized to access it. Preventing unauthorized users from reading sensitive documents is a confidentiality control. Integrity would protect against modification."
+      incorrect:
+        - "Availability ensures that systems and data are accessible when needed — it does not restrict who can read them."
+        - "Non-repudiation provides proof that a sender cannot deny sending a message; it is not about read access restrictions."
+        - "Integrity ensures data has not been altered; this scenario focuses on restricting read access, which is confidentiality."
+        - null
+    tags: [cia-triad, confidentiality]
+    difficulty: easy
+
+  - id: q-d1-003
+    domain: domain1
+    question: "Which type of security control is a firewall PRIMARILY classified as?"
+    options:
+      - "A. Corrective"
+      - "B. Preventive"
+      - "C. Detective"
+      - "D. Compensating"
+    correct_answer: 1
+    explanations:
+      correct: "A firewall is primarily a preventive control because it prevents unauthorized traffic from entering or leaving a network before an incident occurs. It enforces security policy by blocking malicious or disallowed traffic proactively."
+      incorrect:
+        - "Corrective controls restore systems after an incident has occurred (e.g., backups, patches). A firewall acts before an incident."
+        - null
+        - "Detective controls identify and alert on incidents that have already occurred (e.g., IDS, audit logs). A firewall primarily prevents them."
+        - "Compensating controls are alternative measures used when a primary control cannot be implemented. A firewall is a direct, primary preventive control."
+    tags: [security-controls, preventive]
+    difficulty: easy
+
+  - id: q-d1-004
+    domain: domain1
+    question: "Which encryption algorithm is considered ASYMMETRIC?"
+    options:
+      - "A. AES"
+      - "B. 3DES"
+      - "C. RSA"
+      - "D. Blowfish"
+    correct_answer: 2
+    explanations:
+      correct: "RSA (Rivest–Shamir–Adleman) is an asymmetric encryption algorithm that uses a mathematically related public/private key pair. The public key encrypts data and only the corresponding private key can decrypt it, making it ideal for key exchange and digital signatures."
+      incorrect:
+        - "AES (Advanced Encryption Standard) is a symmetric algorithm — it uses the same key for both encryption and decryption."
+        - "3DES (Triple DES) is a symmetric algorithm that applies DES encryption three times."
+        - null
+        - "Blowfish is a symmetric block cipher that uses a single shared key for both encryption and decryption."
+    tags: [cryptography, asymmetric, RSA]
+    difficulty: easy
+
+  - id: q-d1-005
+    domain: domain1
+    question: "What is the purpose of a digital certificate in PKI?"
+    options:
+      - "A. To encrypt data at rest on a hard drive"
+      - "B. To bind a public key to an identity verified by a Certificate Authority"
+      - "C. To store private keys securely in hardware"
+      - "D. To perform hashing on transmitted data"
+    correct_answer: 1
+    explanations:
+      correct: "A digital certificate binds a public key to a verified identity (such as a person, organization, or device). The Certificate Authority (CA) digitally signs the certificate, vouching that the public key belongs to the named entity. This enables trust in public key cryptography."
+      incorrect:
+        - "Encrypting data at rest is a function of symmetric encryption or disk encryption tools, not digital certificates."
+        - null
+        - "Hardware Security Modules (HSMs) or smart cards store private keys securely; certificates contain the public key."
+        - "Hashing is performed by hash algorithms (SHA-256, etc.); certificates use hashing as part of signing but are not hashing tools themselves."
+    tags: [PKI, certificates, cryptography]
+    difficulty: medium
+
+  - id: q-d1-006
+    domain: domain1
+    question: "Which of the following BEST describes multi-factor authentication (MFA)?"
+    options:
+      - "A. Using two different passwords to log in"
+      - "B. Combining something you know with something you have or are"
+      - "C. Requiring a username and password on separate screens"
+      - "D. Using biometrics as the only authentication method"
+    correct_answer: 1
+    explanations:
+      correct: "Multi-factor authentication requires presenting two or more distinct authentication factors from different categories: something you know (password/PIN), something you have (smart card, token, phone), or something you are (biometrics). Using two passwords is just two instances of the same factor category and does NOT constitute MFA."
+      incorrect:
+        - "Two passwords are both in the 'something you know' category — this is single-factor authentication with two knowledge factors, not true MFA."
+        - null
+        - "Separating username and password into different screens is still single-factor (knowledge-based) authentication."
+        - "Using only biometrics is single-factor (something you are) authentication."
+    tags: [authentication, MFA, access-control]
+    difficulty: easy
+
+  - id: q-d1-007
+    domain: domain1
+    question: "A security analyst needs to ensure that a hash function used for password storage is resistant to preimage attacks. Which hash algorithm should be recommended?"
+    options:
+      - "A. MD5"
+      - "B. SHA-1"
+      - "C. SHA-256"
+      - "D. CRC32"
+    correct_answer: 2
+    explanations:
+      correct: "SHA-256 (part of the SHA-2 family) is the recommended hash algorithm because it has no known practical vulnerabilities to preimage or collision attacks and produces a 256-bit digest. MD5 and SHA-1 are both considered cryptographically broken."
+      incorrect:
+        - "MD5 is considered cryptographically broken — collision attacks and rainbow table attacks make it unsuitable for password storage or security applications."
+        - "SHA-1 has known collision vulnerabilities and is deprecated for security use by NIST."
+        - null
+        - "CRC32 is a cyclic redundancy check for error detection, not a cryptographic hash function — it has no security properties."
+    tags: [cryptography, hashing, SHA]
+    difficulty: medium
+
+  - id: q-d1-008
+    domain: domain1
+    question: "Which of the following physical security controls is MOST effective at preventing tailgating?"
+    options:
+      - "A. Security cameras"
+      - "B. Badge readers"
+      - "C. Mantraps (access control vestibules)"
+      - "D. Motion sensors"
+    correct_answer: 2
+    explanations:
+      correct: "Mantraps (also called access control vestibules) are small rooms with two interlocking doors where the first door must close and authenticate before the second opens. This physically prevents tailgating by allowing only one person through at a time, making it the most effective physical control against this threat."
+      incorrect:
+        - "Security cameras are detective controls — they record tailgating after it occurs but do not prevent it."
+        - "Badge readers authenticate individuals but do not physically prevent an unauthorized person from following closely behind an authorized user."
+        - null
+        - "Motion sensors detect movement but do not distinguish between authorized and unauthorized individuals or prevent tailgating."
+    tags: [physical-security, tailgating, access-control]
+    difficulty: medium
+
+  - id: q-d1-009
+    domain: domain1
+    question: "What does non-repudiation ensure in a security context?"
+    options:
+      - "A. That data cannot be read by unauthorized users"
+      - "B. That a sender cannot deny having sent a message"
+      - "C. That data arrives without modification"
+      - "D. That systems remain operational during attacks"
+    correct_answer: 1
+    explanations:
+      correct: "Non-repudiation ensures that a party cannot deny the authenticity of their signature or the sending of a message. Digital signatures achieve non-repudiation — only the sender's private key can create the signature, providing proof of origin that the sender cannot later deny."
+      incorrect:
+        - "Preventing unauthorized reading is confidentiality, not non-repudiation."
+        - null
+        - "Data arriving without modification is integrity."
+        - "Systems remaining operational is availability."
+    tags: [non-repudiation, digital-signatures, fundamentals]
+    difficulty: easy
+
+  - id: q-d1-010
+    domain: domain1
+    question: "Which of the following BEST describes the purpose of a honeypot?"
+    options:
+      - "A. To encrypt sensitive data stored in a database"
+      - "B. To serve as a decoy system to attract and study attackers"
+      - "C. To filter malicious traffic before it reaches the network perimeter"
+      - "D. To provide redundancy for critical servers"
+    correct_answer: 1
+    explanations:
+      correct: "A honeypot is a deception technology — a deliberately vulnerable or attractive decoy system placed to lure attackers away from real assets. Security teams can observe attacker techniques, gather threat intelligence, and detect intrusions while the attacker interacts with the decoy."
+      incorrect:
+        - "Encrypting database data is a data-at-rest protection control, not a honeypot function."
+        - null
+        - "Filtering malicious traffic is the function of a firewall or IPS, not a honeypot."
+        - "Providing server redundancy is a high availability/fault tolerance control, not a honeypot."
+    tags: [deception-technology, honeypot, threat-intelligence]
+    difficulty: easy

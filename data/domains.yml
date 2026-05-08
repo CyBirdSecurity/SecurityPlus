@@ -1,0 +1,30 @@
+domains:
+  - id: domain1
+    name: General Security Concepts
+    weight: 12
+    color: "#7c3aed"
+    description: "Cryptography fundamentals, authentication, authorization, PKI, security controls, and physical security"
+
+  - id: domain2
+    name: Threats, Vulnerabilities, and Mitigations
+    weight: 22
+    color: "#ef4444"
+    description: "Malware, social engineering, network and application attacks, threat intelligence, and vulnerability management"
+
+  - id: domain3
+    name: Security Architecture
+    weight: 18
+    color: "#06b6d4"
+    description: "Cloud security, network segmentation, secure protocols, virtualization, hardware security, and infrastructure design"
+
+  - id: domain4
+    name: Security Operations
+    weight: 28
+    color: "#2563eb"
+    description: "Identity and access management, endpoint security, log monitoring, incident response, digital forensics, and DLP"
+
+  - id: domain5
+    name: Security Program Management and Oversight
+    weight: 20
+    color: "#10b981"
+    description: "Risk management, compliance frameworks, data privacy, policies, third-party risk, and data classification"

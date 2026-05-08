@@ -1,0 +1,64 @@
+interactive_questions:
+  - id: iq-d5-001
+    domain: domain5
+    type: ordering
+    question: "Arrange the NIST Cybersecurity Framework (CSF) core functions in their STANDARD order:"
+    items:
+      - "Govern"
+      - "Identify"
+      - "Protect"
+      - "Detect"
+      - "Respond"
+      - "Recover"
+    correct_order: [0, 1, 2, 3, 4, 5]
+    explanation: >
+      The NIST CSF 2.0 core functions form a continuous cycle. Govern provides overarching governance context for all other functions (new in CSF 2.0). Identify develops understanding of assets and risks. Protect implements safeguards. Detect discovers cybersecurity events. Respond takes action when an incident is detected. Recover restores capabilities. These functions are not strictly sequential — many occur in parallel.
+
+  - id: iq-d5-002
+    domain: domain5
+    type: matching
+    question: "Match each RISK RESPONSE STRATEGY to the correct EXAMPLE:"
+    items:
+      - "Purchase cyber liability insurance"
+      - "Stop collecting social security numbers since they are not required"
+      - "Accept that the 0.001% chance of flooding is within risk tolerance"
+      - "Deploy multi-factor authentication to reduce breach likelihood"
+    categories:
+      - "Risk Transfer"
+      - "Risk Avoidance"
+      - "Risk Acceptance"
+      - "Risk Mitigation"
+    correct_mapping:
+      "Purchase cyber liability insurance": "Risk Transfer"
+      "Stop collecting social security numbers since they are not required": "Risk Avoidance"
+      "Accept that the 0.001% chance of flooding is within risk tolerance": "Risk Acceptance"
+      "Deploy multi-factor authentication to reduce breach likelihood": "Risk Mitigation"
+    explanation: >
+      The four risk response strategies: Transfer (shift financial impact to insurer/third party), Avoidance (eliminate the risk by removing the activity), Acceptance (acknowledge and absorb the risk), Mitigation (reduce likelihood or impact through controls). Risk can rarely be completely eliminated — residual risk remains after mitigation and is either accepted or transferred.
+
+  - id: iq-d5-003
+    domain: domain5
+    type: multiselect
+    question: "Which of the following are components of a Business Impact Analysis (BIA)? (Select ALL that apply)"
+    options:
+      - "Identifying critical business processes"
+      - "Conducting penetration testing"
+      - "Determining Recovery Time Objectives (RTO)"
+      - "Assessing financial impact of downtime"
+      - "Establishing maximum tolerable downtime"
+    correct_answers: [0, 2, 3, 4]
+    explanation: >
+      A Business Impact Analysis (BIA) is the foundation of BCP/DRP planning. It identifies critical processes, establishes RTOs and RPOs, quantifies financial and operational impact of downtime, and determines Maximum Tolerable Downtime (MTD). Penetration testing is a security assessment activity, not a BIA component. BIA results drive recovery strategy decisions and prioritization.
+
+  - id: iq-d5-004
+    domain: domain5
+    type: fillblank
+    template: "The maximum acceptable time to restore a system or service after an outage is called the {blank}."
+    choices:
+      - "RPO (Recovery Point Objective)"
+      - "RTO (Recovery Time Objective)"
+      - "MTD (Maximum Tolerable Downtime)"
+      - "MTBF (Mean Time Between Failures)"
+    correct_answer: 1
+    explanation: >
+      RTO (Recovery Time Objective) is the target time for restoring a system after a disruption — the maximum tolerable downtime before business impact becomes unacceptable. RPO defines maximum acceptable data loss (measured in time). MTD is the absolute maximum time a business can survive without a function. MTBF is a reliability metric measuring average time between failures.
