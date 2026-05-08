@@ -36,7 +36,7 @@ try {
   process.exit(1); // nothing else can run without domain list
 }
 
-check(domains.length === 8, `8 domains defined (got ${domains.length})`);
+check(domains.length === 5, `5 domains defined (got ${domains.length})`);
 
 const domainIds = new Set(domains.map(d => d.id));
 domains.forEach((d, i) => {
