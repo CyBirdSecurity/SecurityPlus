@@ -188,3 +188,288 @@ questions:
         - "Memory monitoring for malicious injection is performed by endpoint security solutions with behavior monitoring; TPM focuses on key storage and boot integrity."
     tags: [hardware-security, TPM, cryptography]
     difficulty: medium
+
+  - id: q-d3-011
+    domain: domain3
+    question: "Which of the following is a key security difference between containers and traditional virtual machines (VMs)?"
+    options:
+      - "A. Containers use hardware-based isolation; VMs share the host OS kernel"
+      - "B. Containers share the host OS kernel; VMs have their own isolated OS instance"
+      - "C. Containers are inherently more secure because their images are smaller"
+      - "D. VMs cannot be network-isolated from each other on the same physical host"
+    correct_answer: 1
+    explanations:
+      correct: "Containers share the host OS kernel with other containers, meaning a kernel vulnerability could affect all containers on the host. VMs each run their own OS instance on top of a hypervisor, providing stronger isolation. This is a key security trade-off: containers are lightweight and fast but have a larger shared attack surface at the kernel level."
+      incorrect:
+        - "Containers do not use hardware-based isolation — they share the host kernel. Hardware-based isolation is a characteristic of VMs using hypervisors that abstract physical hardware."
+        - null
+        - "Container image size does not determine security — a minimal image reduces attack surface but containers still share the host kernel regardless of size."
+        - "VMs can absolutely be network-isolated using VLANs, virtual switches, and firewall rules — isolation between VMs is one of virtualization's core security benefits."
+    tags: [containers, virtualization, cloud-security, architecture]
+    difficulty: medium
+
+  - id: q-d3-012
+    domain: domain3
+    question: "An organization requires all administrators to connect to a heavily hardened intermediate server before they can access systems in a restricted production network segment. What is this intermediate server called?"
+    options:
+      - "A. Proxy server"
+      - "B. Load balancer"
+      - "C. Jump server (bastion host)"
+      - "D. Honeypot"
+    correct_answer: 2
+    explanations:
+      correct: "A jump server (bastion host) is a hardened, monitored host positioned at a network boundary that administrators must connect through before accessing systems in a secure network segment. It provides a single audited entry point, reducing the attack surface. All administrative sessions are logged, and the jump server itself is hardened with minimal services."
+      incorrect:
+        - "A proxy server forwards client requests to other servers and can filter content — it is not specifically designed as a monitored administrative gateway for privileged access."
+        - "A load balancer distributes incoming traffic across multiple servers to ensure availability — it is not an administrative access control mechanism."
+        - null
+        - "A honeypot is a decoy system designed to lure and observe attackers — it is not a legitimate administrative access gateway."
+    tags: [bastion-host, jump-server, privileged-access, architecture]
+    difficulty: easy
+
+  - id: q-d3-013
+    domain: domain3
+    question: "A company deploys a server that sits between employees and the internet, intercepting all outbound web requests to enforce acceptable use policies and filter malicious content. What type of server is this?"
+    options:
+      - "A. Reverse proxy"
+      - "B. Load balancer"
+      - "C. Forward proxy"
+      - "D. Web application firewall (WAF)"
+    correct_answer: 2
+    explanations:
+      correct: "A forward proxy sits between internal clients and the internet, acting on behalf of clients. It intercepts outbound requests, can filter and log web traffic, enforce content policies, and provide anonymity for internal hosts. Secure Web Gateways (SWG) are enterprise-grade forward proxies that add malware scanning and URL categorization."
+      incorrect:
+        - "A reverse proxy sits in front of web servers and intercepts inbound requests from external clients on behalf of internal servers — it protects servers, not clients. Outbound user traffic goes through a forward proxy."
+        - "A load balancer distributes traffic across multiple backend servers for availability — it does not inspect or filter user browsing behavior."
+        - null
+        - "A WAF specifically protects web applications from application-layer attacks (SQL injection, XSS) on inbound traffic — it does not act as an outbound filter for employee internet browsing."
+    tags: [proxy, forward-proxy, network-security, content-filtering]
+    difficulty: medium
+
+  - id: q-d3-014
+    domain: domain3
+    question: "In an active-active load balancing configuration, what happens to traffic when one of the servers fails?"
+    options:
+      - "A. A cold standby server powers on and takes over while the failed server reboots"
+      - "B. All remaining active servers absorb the redistributed traffic and continue serving requests"
+      - "C. All new requests are queued and held until the failed server is restored"
+      - "D. Traffic is automatically redirected to a passive standby server that was idle"
+    correct_answer: 1
+    explanations:
+      correct: "In an active-active configuration, all nodes are simultaneously handling traffic. When one node fails, the load balancer detects the failure (via health checks) and redistributes that node's traffic among the remaining active nodes. This provides both load distribution and fault tolerance — no time is spent starting up a standby server."
+      incorrect:
+        - "A cold standby server that is powered off and brought online during failover describes an active-passive (cold standby) configuration — the most common alternative to active-active."
+        - "Queuing requests until restoration would cause service degradation and is not how load balancers handle failure — they redistribute to healthy nodes immediately."
+        - "Redirecting to a passive idle server describes an active-passive (warm/hot standby) configuration — in active-active, all nodes are already serving traffic, not waiting in standby."
+        - null
+    tags: [load-balancing, high-availability, fault-tolerance, architecture]
+    difficulty: medium
+
+  - id: q-d3-015
+    domain: domain3
+    question: "An organization wants to gain visibility into which cloud applications employees are using (including unauthorized 'shadow IT'), enforce data security policies in cloud apps, and detect misconfigured cloud storage. Which security technology provides this capability?"
+    options:
+      - "A. Web Application Firewall (WAF)"
+      - "B. Secure Web Gateway (SWG)"
+      - "C. Cloud Access Security Broker (CASB)"
+      - "D. Next-Generation Firewall (NGFW)"
+    correct_answer: 2
+    explanations:
+      correct: "A Cloud Access Security Broker (CASB) is a security policy enforcement point between cloud service users and cloud service providers. CASBs provide visibility into cloud app usage (including shadow IT), enforce data security policies, detect threats, and ensure compliance. They can operate in-line (via proxy) or via API integration with cloud providers."
+      incorrect:
+        - "A WAF protects web applications from attacks like SQL injection and XSS by inspecting inbound HTTP/S traffic — it does not provide cloud app discovery or enforcement across SaaS applications."
+        - "An SWG filters employee web traffic for malicious content and enforces URL policies — it can block access to cloud apps but does not provide the deep integration, data inspection, and governance capabilities of a CASB."
+        - null
+        - "An NGFW provides application-layer visibility and can block certain apps, but lacks the deep cloud service-specific integration, API connectivity, and data governance features of a dedicated CASB."
+    tags: [CASB, cloud-security, shadow-IT, DLP]
+    difficulty: medium
+
+  - id: q-d3-016
+    domain: domain3
+    question: "Which IEEE standard provides port-based network access control, requiring devices to authenticate to a RADIUS server before the switch allows network access through that port?"
+    options:
+      - "A. 802.11ac (Wi-Fi 5)"
+      - "B. 802.1Q (VLAN tagging)"
+      - "C. 802.3af (Power over Ethernet)"
+      - "D. 802.1X (Port-based NAC)"
+    correct_answer: 3
+    explanations:
+      correct: "IEEE 802.1X is the standard for port-based Network Access Control (NAC). It uses the EAP (Extensible Authentication Protocol) to require devices to authenticate to an authentication server (typically RADIUS) before the network switch or wireless AP allows network access. This ensures only authorized and policy-compliant devices can connect to the network."
+      incorrect:
+        - "802.11ac (Wi-Fi 5) is the IEEE standard for high-speed wireless LAN communications — it defines wireless transmission speeds and channels, not authentication requirements."
+        - "802.1Q defines VLAN tagging for Ethernet frames to segment network traffic — it is a network segmentation standard, not an authentication standard."
+        - "802.3af defines Power over Ethernet (PoE), which delivers electrical power over Ethernet cables to devices like IP phones and cameras — it has no authentication function."
+        - null
+    tags: [802.1X, NAC, RADIUS, network-access-control]
+    difficulty: medium
+
+  - id: q-d3-017
+    domain: domain3
+    question: "Which security technique divides a data center or cloud network into very small, granular segments where each workload has individually enforced security policies and east-west traffic between workloads is controlled?"
+    options:
+      - "A. VLAN-based network segmentation"
+      - "B. Microsegmentation"
+      - "C. Air gapping"
+      - "D. Network Address Translation (NAT)"
+    correct_answer: 1
+    explanations:
+      correct: "Microsegmentation creates fine-grained security perimeters around individual workloads, applications, or virtual machines using software-defined policies. Unlike VLANs (which segment at the network level), microsegmentation controls lateral (east-west) traffic between workloads within the same network segment. This limits an attacker's ability to move laterally after compromising one workload."
+      incorrect:
+        - "VLAN-based segmentation divides networks into logical segments at Layer 2/3 — it is coarser than microsegmentation and does not control traffic between individual workloads within the same VLAN."
+        - null
+        - "Air gapping physically isolates systems from all networks — it is the most extreme isolation technique and prevents all connectivity, unlike microsegmentation which allows controlled communication."
+        - "NAT translates private IP addresses for external communication — it does not create security segments or control traffic between internal workloads."
+    tags: [microsegmentation, zero-trust, cloud-security, east-west]
+    difficulty: medium
+
+  - id: q-d3-018
+    domain: domain3
+    question: "Which security extension to the DNS protocol digitally signs DNS records to provide origin authentication and data integrity, protecting against DNS cache poisoning attacks?"
+    options:
+      - "A. DNS over HTTPS (DoH)"
+      - "B. DNS over TLS (DoT)"
+      - "C. DNSSEC"
+      - "D. DNS sinkholing"
+    correct_answer: 2
+    explanations:
+      correct: "DNSSEC (DNS Security Extensions) adds cryptographic signatures (using public key cryptography) to DNS records, allowing resolvers to verify that DNS responses are authentic and have not been tampered with. If a DNS record's signature does not validate, the resolver rejects it — preventing cache poisoning attacks where an attacker injects forged DNS responses."
+      incorrect:
+        - "DNS over HTTPS (DoH) encrypts DNS queries using HTTPS to provide privacy (hiding what domains you look up) — it does not verify the authenticity of DNS records themselves."
+        - "DNS over TLS (DoT) encrypts DNS traffic using TLS for privacy between the client and resolver — like DoH, it provides transport privacy but does not authenticate the integrity of DNS record data."
+        - null
+        - "DNS sinkholing redirects DNS lookups for malicious domains to a controlled IP address to block malware communication — it is a threat mitigation technique, not a cryptographic integrity mechanism."
+    tags: [DNSSEC, DNS-security, network-security]
+    difficulty: medium
+
+  - id: q-d3-019
+    domain: domain3
+    question: "What is the PRIMARY security purpose of TLS (Transport Layer Security) when used to secure HTTPS connections?"
+    options:
+      - "A. To prevent denial-of-service attacks against web servers"
+      - "B. To authenticate users logging into web applications"
+      - "C. To encrypt data in transit and authenticate the server's identity to the client"
+      - "D. To scan web traffic for malware and block malicious requests"
+    correct_answer: 2
+    explanations:
+      correct: "TLS provides two primary security services: (1) encryption of data in transit using symmetric keys negotiated during the TLS handshake, ensuring confidentiality; and (2) server authentication, where the server's digital certificate (verified against a trusted CA) proves the server's identity to the client. This protects against eavesdropping and man-in-the-middle attacks."
+      incorrect:
+        - "TLS does not protect against denial-of-service attacks — DoS mitigation requires rate limiting, traffic scrubbing, and DDoS protection services, not encryption."
+        - "TLS authenticates the server to the client using certificates. User authentication (logging in) is a separate application-layer function handled by username/password, MFA, or certificates — not TLS itself."
+        - null
+        - "Scanning traffic for malware is the function of secure web gateways, NGFWs with SSL inspection, or antivirus — TLS is a cryptographic protocol, not a content inspection tool."
+    tags: [TLS, HTTPS, encryption, network-security]
+    difficulty: easy
+
+  - id: q-d3-020
+    domain: domain3
+    question: "A network operations team uses a dedicated management network physically separate from production traffic to configure routers, switches, and servers, even when primary network links are down. What is this approach called?"
+    options:
+      - "A. In-band management"
+      - "B. Out-of-band (OOB) management"
+      - "C. Secure shell tunneling"
+      - "D. Split tunneling"
+    correct_answer: 1
+    explanations:
+      correct: "Out-of-band (OOB) management uses a separate, dedicated network (often a physically separate management network or console servers with modem/cellular access) to manage infrastructure devices independently of the production network. OOB allows administrators to access and recover devices even during a network outage, security incident, or when primary management paths are compromised."
+      incorrect:
+        - "In-band management uses the same production network infrastructure that carries user traffic — it is the common default but cannot be used when the production network is down or compromised."
+        - null
+        - "SSH tunneling creates encrypted tunnels through the existing network — it improves security of in-band management but does not provide the independence of a separate physical management network."
+        - "Split tunneling is a VPN feature that sends only some traffic through the VPN while the rest goes directly to the internet — it is not related to dedicated management networks."
+    tags: [out-of-band-management, network-security, architecture]
+    difficulty: medium
+
+  - id: q-d3-021
+    domain: domain3
+    question: "Before allowing a device to connect to the corporate network, a system automatically checks whether the device has current antivirus, required OS patches, and an active host-based firewall. Devices that fail are quarantined. What technology performs this?"
+    options:
+      - "A. Intrusion Detection System (IDS)"
+      - "B. Vulnerability scanner"
+      - "C. Network Access Control (NAC)"
+      - "D. Endpoint Detection and Response (EDR)"
+    correct_answer: 2
+    explanations:
+      correct: "Network Access Control (NAC) enforces health and compliance requirements (endpoint posture assessment) on devices attempting to access the network. Devices that meet policy requirements are granted full access; non-compliant devices are quarantined in a remediation VLAN until they meet requirements. NAC can use 802.1X for authentication and posture checks."
+      incorrect:
+        - "An IDS passively monitors network traffic for suspicious patterns and generates alerts — it does not assess device health or make access control decisions."
+        - "A vulnerability scanner assesses systems for known weaknesses — it is a periodic assessment tool, not a real-time access control enforcement mechanism."
+        - null
+        - "EDR monitors endpoint activity for malicious behavior and responds to threats — it operates on enrolled devices but does not control network access based on compliance status."
+    tags: [NAC, network-access-control, endpoint-security, 802.1X]
+    difficulty: easy
+
+  - id: q-d3-022
+    domain: domain3
+    question: "An organization manages cloud infrastructure using version-controlled Terraform templates that are reviewed by a security team before deployment. What is a key security advantage of this Infrastructure as Code (IaC) approach?"
+    options:
+      - "A. IaC automatically encrypts all provisioned cloud resources without additional configuration"
+      - "B. IaC templates can be version-controlled, peer-reviewed, and security-scanned before deployment, reducing configuration drift and human error"
+      - "C. IaC eliminates the need for network segmentation in cloud environments"
+      - "D. IaC prevents cloud service providers from accessing the organization's deployed resources"
+    correct_answer: 1
+    explanations:
+      correct: "Infrastructure as Code allows infrastructure configurations to be treated like software: stored in version control, subjected to code review (including security review), scanned by static analysis tools for misconfigurations (e.g., Checkov, tfsec), and deployed consistently. This reduces configuration drift, enables auditability, and catches security issues before they reach production."
+      incorrect:
+        - "IaC does not automatically encrypt resources — encryption must be explicitly configured in the templates. IaC just makes it easier to enforce and audit these configurations consistently."
+        - null
+        - "Network segmentation remains necessary in cloud environments regardless of IaC use — IaC is used to define and deploy that segmentation consistently, not eliminate the need for it."
+        - "Cloud providers always have access to physical infrastructure by design — IaC does not change the cloud provider's access model."
+    tags: [IaC, cloud-security, DevSecOps, configuration-management]
+    difficulty: medium
+
+  - id: q-d3-023
+    domain: domain3
+    question: "Which security architecture converges network security services (SWG, CASB, ZTNA, FWaaS) with SD-WAN capabilities into a single cloud-delivered service, designed for distributed workforces?"
+    options:
+      - "A. Zero Trust Network Access (ZTNA)"
+      - "B. Security Operations Center (SOC)"
+      - "C. Extended Detection and Response (XDR)"
+      - "D. Secure Access Service Edge (SASE)"
+    correct_answer: 3
+    explanations:
+      correct: "Secure Access Service Edge (SASE) is an architecture coined by Gartner that converges wide-area networking (SD-WAN) and comprehensive cloud-delivered security services — including Secure Web Gateway (SWG), Cloud Access Security Broker (CASB), Zero Trust Network Access (ZTNA), and Firewall as a Service (FWaaS) — into a single, unified cloud-native platform. It addresses the security needs of distributed, cloud-first organizations."
+      incorrect:
+        - "ZTNA is a security approach that provides remote access to applications based on identity and context verification — it is one component within SASE, not the complete converged architecture."
+        - "A SOC is a team and facility focused on monitoring and responding to security events — it is an operational concept, not a network/security convergence architecture."
+        - "XDR collects and correlates data across endpoints, networks, and cloud to improve threat detection and response — it is a security analytics platform, not a networking + security convergence model."
+        - null
+    tags: [SASE, cloud-security, SD-WAN, ZTNA]
+    difficulty: hard
+
+  - id: q-d3-024
+    domain: domain3
+    question: "In a traditional three-tier firewall architecture with an outer firewall facing the internet and an inner firewall protecting the internal network, where should public-facing web servers be placed?"
+    options:
+      - "A. On the trusted internal network behind the inner firewall"
+      - "B. In the screened subnet (DMZ) between the outer and inner firewalls"
+      - "C. On the same network segment as the external internet router"
+      - "D. On a dedicated management VLAN behind the inner firewall"
+    correct_answer: 1
+    explanations:
+      correct: "Public-facing servers belong in the screened subnet (DMZ — demilitarized zone), the network segment sandwiched between the outer and inner firewalls. The outer firewall allows internet traffic to reach DMZ servers on specific ports; the inner firewall blocks DMZ systems from initiating connections into the internal network. If a DMZ server is compromised, attackers face the inner firewall before reaching internal systems."
+      incorrect:
+        - "Placing public-facing servers on the internal trusted network would expose the internal network directly if those servers were compromised — this is the exact risk the DMZ architecture prevents."
+        - null
+        - "Placing servers on the same segment as the internet router would expose them directly to the internet with no firewall protection — this is insecure."
+        - "A management VLAN is for administrative access to network devices — public-facing web servers should never be on a management VLAN."
+    tags: [DMZ, screened-subnet, network-architecture, firewalls]
+    difficulty: easy
+
+  - id: q-d3-025
+    domain: domain3
+    question: "Which environment BEST describes a system that has been air-gapped?"
+    options:
+      - "A. A server protected by multiple firewalls in a DMZ"
+      - "B. A system using encrypted network communications with certificate-based authentication"
+      - "C. A physically isolated system with no network or electronic connections to other systems"
+      - "D. A system requiring multi-factor authentication for all remote access attempts"
+    correct_answer: 2
+    explanations:
+      correct: "An air gap is a physical security measure that completely isolates a system or network by ensuring there are no network connections, wireless interfaces, or other electronic communication paths to external systems or the internet. Air-gapped systems are used for the most sensitive environments — such as nuclear facility controls, classified government networks, and industrial control systems. Data transfer requires physical media."
+      incorrect:
+        - "A server in a DMZ behind multiple firewalls is still network-connected — firewalls filter traffic but do not eliminate network connectivity. An air gap removes connectivity entirely."
+        - "Using encrypted communications and certificate authentication improves security on connected systems — these are cryptographic controls, not physical isolation. The system remains networked."
+        - null
+        - "MFA requirements improve access security for remote connections — but if remote access exists at all, the system is not air-gapped."
+    tags: [air-gap, physical-security, isolation, architecture]
+    difficulty: easy

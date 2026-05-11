@@ -188,3 +188,288 @@ questions:
         - "Full disk encryption protects data confidentiality if a device is lost or stolen — it does not detect malware."
     tags: [endpoint-security, NGAV, malware-detection]
     difficulty: medium
+
+  - id: q-d4-011
+    domain: domain4
+    question: "A forensic investigator arrives at a compromised live system. In what ORDER should evidence be collected, starting with the MOST volatile data?"
+    options:
+      - "A. Hard drive → Network connections → RAM → CPU cache"
+      - "B. CPU cache → RAM → Network connections → Hard drive"
+      - "C. RAM → Hard drive → CPU cache → Network connections"
+      - "D. Network connections → RAM → Hard drive → CPU cache"
+    correct_answer: 1
+    explanations:
+      correct: "The order of volatility in digital forensics dictates collecting the most ephemeral data first. CPU cache and registers are lost immediately upon power loss; RAM contents disappear when the system is powered off or restarted; active network connections exist only while sessions are alive; hard drive data persists through power cycles. Collecting in this order preserves the most evidence."
+      incorrect:
+        - "Starting with the hard drive would allow volatile data in RAM, CPU cache, and network connections to be lost or altered during the time-consuming disk imaging process."
+        - null
+        - "This ordering is incorrect — CPU cache is more volatile than RAM, and network connections are more volatile than hard drives. The sequence is out of order."
+        - "Network connections are volatile but they are less volatile than CPU cache and RAM — CPU cache is the most volatile data source."
+    tags: [digital-forensics, order-of-volatility, evidence-collection]
+    difficulty: medium
+
+  - id: q-d4-012
+    domain: domain4
+    question: "During a digital investigation, why is maintaining strict chain of custody documentation critical?"
+    options:
+      - "A. It helps investigators analyze evidence faster by organizing it chronologically"
+      - "B. It ensures evidence is legally admissible by documenting who handled it, when, and how, demonstrating integrity was maintained"
+      - "C. It encrypts evidence files to prevent unauthorized access during investigation"
+      - "D. It allows multiple investigators to modify and work on the same original evidence simultaneously"
+    correct_answer: 1
+    explanations:
+      correct: "Chain of custody is a legal and procedural control that documents every person who handled evidence, the time and date of each transfer, and the conditions under which it was stored. A broken chain of custody can allow defense attorneys to argue evidence was tampered with, rendering it inadmissible in court. All analysis should be performed on forensic copies, not originals."
+      incorrect:
+        - "While chronological organization may be a byproduct of good documentation, the primary purpose of chain of custody is legal admissibility and integrity demonstration — not investigation speed."
+        - null
+        - "Encryption protects data confidentiality — it is not the function or purpose of chain of custody documentation."
+        - "Working on original evidence is a violation of forensic principles — chain of custody protocols require that originals be preserved and analysis performed on verified copies."
+    tags: [digital-forensics, chain-of-custody, legal-admissibility]
+    difficulty: easy
+
+  - id: q-d4-013
+    domain: domain4
+    question: "During which penetration testing phase does the tester gather information about the target exclusively using publicly available sources (OSINT) without directly interacting with target systems?"
+    options:
+      - "A. Active reconnaissance / scanning and enumeration"
+      - "B. Exploitation"
+      - "C. Passive reconnaissance"
+      - "D. Post-exploitation / lateral movement"
+    correct_answer: 2
+    explanations:
+      correct: "Passive reconnaissance gathers intelligence about a target exclusively from publicly available sources — websites, WHOIS records, DNS lookups via third-party tools, job postings, social media, Google dorking, and breach databases — without sending any traffic directly to the target. The target cannot detect this activity. It is the first phase of a penetration test."
+      incorrect:
+        - "Active reconnaissance (scanning and enumeration) directly interacts with target systems using port scanners, version detection, and service fingerprinting — the target could detect this activity, unlike passive recon."
+        - "Exploitation uses discovered vulnerabilities to gain unauthorized access — it comes after reconnaissance has identified targets and potential weaknesses."
+        - null
+        - "Post-exploitation and lateral movement occur after initial access has been achieved — they involve maintaining persistence and expanding access within the target environment."
+    tags: [penetration-testing, reconnaissance, OSINT]
+    difficulty: easy
+
+  - id: q-d4-014
+    domain: domain4
+    question: "A security exercise is conducted where one group simulates real-world adversary tactics (including social engineering and exploitation) against the organization's infrastructure, while another group defends and responds in real time. What is this exercise called?"
+    options:
+      - "A. Tabletop exercise"
+      - "B. Capture the flag (CTF) competition"
+      - "C. Red team / blue team exercise"
+      - "D. Disaster recovery drill"
+    correct_answer: 2
+    explanations:
+      correct: "A red team / blue team exercise pits an offensive team (red team, who simulates real attackers using adversary TTPs) against a defensive team (blue team, who monitors, detects, and responds) in a live environment. This tests real detection and response capabilities under realistic attack conditions. A purple team exercise combines both, with red and blue collaborating to improve detection together."
+      incorrect:
+        - "A tabletop exercise is a discussion-based simulation where participants walk through scenarios verbally around a table — no live systems or actual attacks are involved."
+        - "A CTF is typically a competitive challenge with predefined security puzzles — it does not simulate adversary attacks against an organization's own production infrastructure."
+        - null
+        - "A disaster recovery drill tests the ability to restore systems after an outage — it focuses on recovery procedures, not adversarial attack simulation."
+    tags: [red-team, blue-team, security-testing, exercises]
+    difficulty: easy
+
+  - id: q-d4-015
+    domain: domain4
+    question: "Which security platform integrates with multiple tools to automate repetitive analyst tasks, orchestrate workflows across security tools, and execute automated response playbooks when incidents are detected?"
+    options:
+      - "A. SIEM (Security Information and Event Management)"
+      - "B. SOAR (Security Orchestration, Automation, and Response)"
+      - "C. EDR (Endpoint Detection and Response)"
+      - "D. DLP (Data Loss Prevention)"
+    correct_answer: 1
+    explanations:
+      correct: "SOAR (Security Orchestration, Automation, and Response) platforms automate and orchestrate security operations by integrating with a wide range of security tools (SIEM, threat intel, ticketing, firewalls) and executing predefined playbooks automatically. SOAR reduces mean time to respond (MTTR) by automating repetitive analyst tasks — such as enriching alerts with threat intelligence, isolating endpoints, and creating tickets."
+      incorrect:
+        - "SIEM aggregates and correlates logs to detect threats and generate alerts — it provides visibility and detection but does not natively execute automated response actions. SOAR often consumes SIEM alerts and triggers automated responses."
+        - null
+        - "EDR monitors endpoint activity and responds to endpoint threats — it is a point solution focused on endpoints, not a cross-tool orchestration and automation platform."
+        - "DLP monitors and prevents unauthorized transmission of sensitive data — it focuses on data protection, not security workflow automation."
+    tags: [SOAR, security-automation, incident-response, SOC]
+    difficulty: medium
+
+  - id: q-d4-016
+    domain: domain4
+    question: "Which security activity involves analysts proactively searching for hidden threats that have already evaded existing security controls, rather than responding to alerts generated by automated systems?"
+    options:
+      - "A. Incident response"
+      - "B. Vulnerability scanning"
+      - "C. Threat hunting"
+      - "D. Log monitoring and alerting"
+    correct_answer: 2
+    explanations:
+      correct: "Threat hunting is a proactive, human-led security practice where analysts form hypotheses about potential adversary activity (based on threat intelligence and TTPs) and manually search through data — logs, endpoints, network traffic — to find evidence of threats that automated tools did not detect. Skilled threat hunters find attackers who are living off the land and evading signature-based detection."
+      incorrect:
+        - "Incident response is reactive — it begins after an incident has been detected. Threat hunting is proactive, assuming adversaries may already be present but undetected."
+        - "Vulnerability scanning uses automated tools to identify known weaknesses in systems — it finds vulnerabilities before exploitation, not adversaries who are already present."
+        - null
+        - "Log monitoring and alerting uses rules and automated detection to generate alerts — threat hunting goes beyond existing alert rules to search for unknown or unconfigured patterns."
+    tags: [threat-hunting, proactive-security, SOC, threat-intelligence]
+    difficulty: medium
+
+  - id: q-d4-017
+    domain: domain4
+    question: "A security platform detects that a user account is logging in at 3 AM from a country the user has never accessed from before, downloading 10x their normal data volume. Which technology MOST likely generated this behavioral alert?"
+    options:
+      - "A. Signature-based IDS"
+      - "B. User and Entity Behavior Analytics (UEBA)"
+      - "C. Data Loss Prevention (DLP)"
+      - "D. Web Application Firewall (WAF)"
+    correct_answer: 1
+    explanations:
+      correct: "User and Entity Behavior Analytics (UEBA) uses machine learning to establish behavioral baselines for users and entities, then detects anomalous deviations — such as unusual login locations, times, data access volumes, or privilege use. Unlike signature-based detection, UEBA can detect insider threats, compromised accounts, and novel attack patterns because it focuses on behavior, not known attack signatures."
+      incorrect:
+        - "Signature-based IDS matches traffic against known attack patterns — it cannot detect behavioral anomalies or unusual activity that deviates from a user's personal baseline."
+        - null
+        - "DLP monitors and prevents transmission of sensitive data based on content policies — it may trigger on the large download but does not correlate user behavior across multiple dimensions (time, location, volume)."
+        - "A WAF protects web applications from attacks like SQLi and XSS — it does not analyze user behavioral patterns across authentication, data access, and geography."
+    tags: [UEBA, behavioral-analytics, insider-threat, SOC]
+    difficulty: medium
+
+  - id: q-d4-018
+    domain: domain4
+    question: "Which security tool detects unauthorized modifications to critical system files and configurations by computing and comparing cryptographic hash values against a known-good baseline?"
+    options:
+      - "A. Antivirus / anti-malware"
+      - "B. Vulnerability scanner"
+      - "C. File Integrity Monitoring (FIM)"
+      - "D. Host-based firewall"
+    correct_answer: 2
+    explanations:
+      correct: "File Integrity Monitoring (FIM) establishes a cryptographic hash baseline of critical files (OS binaries, configuration files, application files). It continuously or periodically recomputes hashes and alerts when any change is detected. FIM is required by PCI DSS and is essential for detecting rootkits, unauthorized configuration changes, and post-compromise file modifications. Tripwire and OSSEC are well-known FIM tools."
+      incorrect:
+        - "Antivirus detects known malicious files and behaviors — it does not create a baseline of all system files and detect arbitrary changes to them, including non-malicious but unauthorized configuration modifications."
+        - "A vulnerability scanner identifies security weaknesses and misconfigurations — it does not continuously monitor file hash values for unauthorized changes."
+        - null
+        - "A host-based firewall controls inbound and outbound network connections — it has no capability to detect changes to file system contents."
+    tags: [FIM, file-integrity-monitoring, endpoint-security, PCI-DSS]
+    difficulty: medium
+
+  - id: q-d4-019
+    domain: domain4
+    question: "A security team creates a step-by-step document that guides SOC analysts through the specific investigation and response actions required when a ransomware infection is detected. What is this document called?"
+    options:
+      - "A. Security policy"
+      - "B. Incident response plan"
+      - "C. Playbook (runbook)"
+      - "D. Business continuity plan"
+    correct_answer: 2
+    explanations:
+      correct: "A playbook (also called a runbook) is a detailed, prescriptive document containing step-by-step procedures for responding to a specific type of security incident (e.g., ransomware, phishing, data breach). It translates the high-level incident response plan into actionable steps analysts follow. Playbooks can also be automated in SOAR platforms to execute response actions automatically."
+      incorrect:
+        - "A security policy is a high-level governance document that states organizational security requirements and intent — it does not provide step-by-step operational procedures."
+        - "An incident response plan is a high-level document describing the overall IR process, roles, communication chains, and phases — it is the parent document that playbooks support with specific procedural detail."
+        - null
+        - "A business continuity plan focuses on maintaining critical business operations during a disruption — it addresses organizational continuity, not the specific technical steps for investigating a ransomware incident."
+    tags: [incident-response, playbooks, SOC, SOAR]
+    difficulty: easy
+
+  - id: q-d4-020
+    domain: domain4
+    question: "An organization receives notice that it is the subject of an impending lawsuit. What action must the organization IMMEDIATELY take regarding electronically stored information (ESI) that may be relevant to the case?"
+    options:
+      - "A. Delete all related data to protect sensitive information from disclosure"
+      - "B. Implement a legal hold to suspend normal data deletion and preserve all potentially relevant data"
+      - "C. Encrypt all case-related data and transfer it to an external attorney's system"
+      - "D. Continue normal data retention schedules to avoid the appearance of special handling"
+    correct_answer: 1
+    explanations:
+      correct: "A legal hold (also called a litigation hold or preservation order) requires an organization to suspend its normal retention and destruction policies for ESI that may be relevant to anticipated or active litigation. Failure to implement a legal hold and the subsequent destruction of relevant evidence can result in sanctions, adverse inference instructions, or even default judgment — this is called spoliation of evidence."
+      incorrect:
+        - "Deleting relevant data after receiving notice of litigation constitutes spoliation of evidence — this is a serious legal violation that can result in severe court sanctions including case dismissal."
+        - null
+        - "Encrypting and transferring data to external parties requires proper handling and may require court supervision — but the immediate required action is preserving the data in place, not transferring it."
+        - "Continuing normal data deletion schedules after receiving litigation notice is spoliation — normal retention policies must be suspended for relevant data."
+    tags: [legal-hold, eDiscovery, digital-forensics, compliance]
+    difficulty: medium
+
+  - id: q-d4-021
+    domain: domain4
+    question: "What is the PRIMARY goal of the containment phase during an incident response?"
+    options:
+      - "A. Determine the root cause of the attack and the initial attack vector"
+      - "B. Restore all affected systems to normal business operation as quickly as possible"
+      - "C. Limit the spread and impact of the incident while preserving evidence for investigation"
+      - "D. Notify regulatory bodies and law enforcement about the incident"
+    correct_answer: 2
+    explanations:
+      correct: "The containment phase aims to stop an incident from spreading further and limit its impact — without destroying evidence needed for investigation. Containment strategies include isolating infected systems from the network, blocking malicious IPs, revoking compromised credentials, and segmenting affected network segments. There are short-term and long-term containment strategies depending on the incident type."
+      incorrect:
+        - "Determining root cause is the analysis/investigation phase — it may run concurrently with containment but is a distinct analytical activity that comes after or alongside initial containment."
+        - "Restoring systems is the recovery phase — it occurs after eradication of the threat. Recovering systems before full containment and eradication risks reinfection."
+        - null
+        - "Regulatory notification may be required but is a communications/post-containment activity — the primary operational goal of containment is stopping the spread of the incident."
+    tags: [incident-response, containment, NIST, security-operations]
+    difficulty: easy
+
+  - id: q-d4-022
+    domain: domain4
+    question: "When a new employee joins the company, they are automatically granted access to the applications and systems required for their specific job role, with no additional manual provisioning steps. What process and technology enable this?"
+    options:
+      - "A. Identity federation with a third-party IdP"
+      - "B. Just-in-time (JIT) privileged access"
+      - "C. Role-based access control (RBAC) with automated IAM provisioning"
+      - "D. Privileged Access Management (PAM)"
+    correct_answer: 2
+    explanations:
+      correct: "Automated IAM provisioning tied to RBAC assigns predefined access rights based on the employee's job role when their account is created. When a new user is assigned a role (e.g., 'Sales Representative'), an automated workflow provisions the correct application access, group memberships, and permissions — eliminating manual provisioning delays and reducing human error."
+      incorrect:
+        - "Identity federation enables users from one organization to access resources in another (cross-domain) — it is not the mechanism for provisioning a new internal employee's application access."
+        - "Just-in-time access grants temporary elevated privileges on demand for specific tasks — it is used for privileged access management, not standard employee onboarding provisioning."
+        - null
+        - "PAM controls and audits access to highly privileged administrative accounts — it is focused on administrator access, not the broader automated provisioning of regular employee access rights."
+    tags: [IAM, provisioning, RBAC, access-control, onboarding]
+    difficulty: medium
+
+  - id: q-d4-023
+    domain: domain4
+    question: "Which pair of open standards are MOST commonly used for structuring and sharing threat intelligence between organizations and security platforms?"
+    options:
+      - "A. SNMP and Syslog"
+      - "B. STIX and TAXII"
+      - "C. CEF and LEEF"
+      - "D. OpenIOC and YARA"
+    correct_answer: 1
+    explanations:
+      correct: "STIX (Structured Threat Information eXpression) is the standardized language for describing cyber threat intelligence — including IoCs, TTPs, campaigns, and threat actors. TAXII (Trusted Automated eXchange of Intelligence Information) is the transport protocol that defines how STIX content is shared between organizations and platforms. They are designed to work together and are widely adopted by ISACs and commercial threat intelligence feeds."
+      incorrect:
+        - "SNMP is for network device monitoring and Syslog is for transmitting log data — neither is a threat intelligence format or sharing standard."
+        - null
+        - "CEF (Common Event Format) and LEEF (Log Event Extended Format) are log formatting standards used by SIEM products — they are not threat intelligence sharing standards."
+        - "OpenIOC is an XML-based IoC format developed by Mandiant, and YARA provides pattern-matching rules for malware identification — both are threat intelligence formats but are not the primary interoperability standards used for broader community sharing."
+    tags: [threat-intelligence, STIX, TAXII, ISACs]
+    difficulty: medium
+
+  - id: q-d4-024
+    domain: domain4
+    question: "When an employee with privileged system access is terminated, which action is MOST critical from a security perspective and should be performed FIRST?"
+    options:
+      - "A. Archive all their files and transfer them to cold storage"
+      - "B. Immediately disable all their accounts and revoke all access credentials and tokens"
+      - "C. Change their password to a temporary value and notify their manager"
+      - "D. Transfer their files to their manager and then disable the account after a 30-day transition period"
+    correct_answer: 1
+    explanations:
+      correct: "Immediate account disablement and credential revocation is the critical first step for departing employees, especially those with privileged access. Disgruntled former employees are a significant insider threat risk — every minute of continued access after termination is an opportunity for sabotage or data theft. All accounts, VPN access, API keys, SSH keys, and physical access credentials should be revoked simultaneously."
+      incorrect:
+        - "Archiving files is important for business continuity but is not a security priority — it can be done after accounts are disabled."
+        - null
+        - "Changing to a temporary password still leaves accounts active — a terminated employee who knows the account name can potentially work around this or use other access paths (SSH keys, tokens, API keys) that a simple password change does not address."
+        - "A 30-day transition period for privileged employees is a significant security risk — access should be removed immediately at termination, with any necessary knowledge transfer arranged separately."
+    tags: [offboarding, access-control, insider-threat, IAM]
+    difficulty: easy
+
+  - id: q-d4-025
+    domain: domain4
+    question: "A threat intelligence report documents an adversary group's specific tools, lateral movement techniques, persistence mechanisms, and exfiltration methods. Which framework is BEST suited for mapping and categorizing these adversary behaviors?"
+    options:
+      - "A. CVE / CVSS"
+      - "B. OWASP Top 10"
+      - "C. MITRE ATT&CK framework"
+      - "D. NIST SP 800-53"
+    correct_answer: 2
+    explanations:
+      correct: "The MITRE ATT&CK (Adversarial Tactics, Techniques, and Common Knowledge) framework is a comprehensive, community-curated knowledge base of adversary tactics (the 'why'), techniques (the 'how'), and sub-techniques based on real-world observations. Security teams use it to map threat intelligence, assess detection coverage, prioritize defenses, and communicate about adversary behavior in a standardized language."
+      incorrect:
+        - "CVE identifies specific known vulnerabilities and CVSS scores their severity — they are vulnerability-centric tools, not frameworks for describing adversary behavioral TTPs."
+        - "The OWASP Top 10 describes the most critical web application security risks — it is focused on application vulnerabilities, not adversary tactics and techniques across the full kill chain."
+        - null
+        - "NIST SP 800-53 is a catalog of security and privacy controls for federal information systems — it prescribes defensive controls, not a taxonomy of adversary attack techniques."
+    tags: [MITRE-ATT&CK, threat-intelligence, TTPs, frameworks]
+    difficulty: medium

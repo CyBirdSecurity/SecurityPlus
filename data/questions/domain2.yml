@@ -188,3 +188,288 @@ questions:
         - "A watering hole attack compromises websites that target users frequently visit — it does not involve direct social interaction."
     tags: [social-engineering, pretexting]
     difficulty: medium
+
+  - id: q-d2-011
+    domain: domain2
+    question: "An attacker injects malicious JavaScript into a product review field on an e-commerce site. When other users view that product page, the script executes in their browsers and steals their session cookies. What type of attack is this?"
+    options:
+      - "A. SQL injection"
+      - "B. Cross-site request forgery (CSRF)"
+      - "C. Command injection"
+      - "D. Cross-site scripting (XSS)"
+    correct_answer: 3
+    explanations:
+      correct: "Cross-site scripting (XSS) occurs when an attacker injects malicious scripts into content served by a trusted website. When victims load the page, the script executes in their browser with the same trust level as the site. Stored (persistent) XSS stores the payload in the database; reflected XSS returns it in an immediate response. Cookie theft and session hijacking are common payloads."
+      incorrect:
+        - "SQL injection targets database query logic on the server side — it does not inject scripts that execute in other users' browsers."
+        - "CSRF tricks an authenticated user into unknowingly sending a forged request — it does not involve injecting scripts into a page that execute for other visitors."
+        - "Command injection inserts OS commands into server-side inputs to execute on the web server — it runs server-side, not in victim browsers."
+        - null
+    tags: [XSS, application-attacks, OWASP, web-attacks]
+    difficulty: easy
+
+  - id: q-d2-012
+    domain: domain2
+    question: "An attacker tricks an authenticated banking customer into clicking a malicious link that silently submits a funds transfer request to the bank's website using the victim's active session. What type of attack is this?"
+    options:
+      - "A. Cross-site scripting (XSS)"
+      - "B. Cross-site request forgery (CSRF)"
+      - "C. Session hijacking"
+      - "D. Clickjacking"
+    correct_answer: 1
+    explanations:
+      correct: "Cross-site request forgery (CSRF) exploits the trust a web application has in an authenticated user's browser. The attacker crafts a forged request that is automatically executed using the victim's existing authenticated session — without the victim's knowledge. Anti-CSRF tokens in forms prevent this attack by verifying that requests originate from the legitimate site."
+      incorrect:
+        - "XSS injects scripts that execute in the victim's browser from the target site — it does not specifically forge authenticated requests using existing sessions."
+        - null
+        - "Session hijacking involves stealing or forging session tokens to impersonate a user — CSRF does not steal the session; it abuses the existing session without knowing the token."
+        - "Clickjacking overlays a transparent iframe over a legitimate page to trick users into clicking hidden elements — it is a different technique that may be combined with CSRF but is distinct."
+    tags: [CSRF, application-attacks, OWASP, web-attacks]
+    difficulty: medium
+
+  - id: q-d2-013
+    domain: domain2
+    question: "A critical vulnerability in a widely used VPN appliance is being actively exploited by attackers before the vendor has been notified or released a patch. What type of vulnerability is this?"
+    options:
+      - "A. An unpatched known vulnerability"
+      - "B. A legacy vulnerability"
+      - "C. A zero-day vulnerability"
+      - "D. A disclosed vulnerability"
+    correct_answer: 2
+    explanations:
+      correct: "A zero-day vulnerability is one that is unknown to the software vendor (or for which no patch exists) at the time it is being exploited. The term 'zero-day' refers to the number of days the vendor has had to create a fix — zero. These are highly valuable to attackers because there is no available patch for defenders to apply."
+      incorrect:
+        - "An unpatched known vulnerability is one the vendor has acknowledged and released a patch for, but the organization has not yet applied it — this is different from a zero-day, where no patch exists yet."
+        - "A legacy vulnerability exists in end-of-life software that no longer receives vendor support — not the same as an actively exploited unknown vulnerability."
+        - null
+        - "A disclosed vulnerability has been publicly announced (often with a CVE) — once disclosed, the vendor has been notified, making it no longer a zero-day."
+    tags: [zero-day, vulnerabilities, threat-intelligence]
+    difficulty: easy
+
+  - id: q-d2-014
+    domain: domain2
+    question: "An attacker gains access to a low-privileged user account on a system and then exploits a kernel vulnerability to gain SYSTEM-level (root) privileges on that same machine. What type of attack is this?"
+    options:
+      - "A. Lateral movement"
+      - "B. Vertical privilege escalation"
+      - "C. Horizontal privilege escalation"
+      - "D. Pass-the-hash"
+    correct_answer: 1
+    explanations:
+      correct: "Vertical privilege escalation involves gaining higher levels of privilege than currently held — moving 'up' the privilege hierarchy (e.g., from standard user to administrator or root). Exploiting OS or kernel vulnerabilities to gain elevated privileges is a classic vertical escalation technique."
+      incorrect:
+        - "Lateral movement involves moving from one system to another at a similar privilege level within a network to expand access — not gaining higher privileges on the same system."
+        - null
+        - "Horizontal privilege escalation involves accessing the accounts or resources of other users at the same privilege level (e.g., accessing another user's files without authorization) — the privilege level does not increase."
+        - "Pass-the-hash uses a captured NTLM password hash to authenticate as a user without knowing the plaintext password — it is a credential-based lateral movement technique, not privilege escalation on the local system."
+    tags: [privilege-escalation, post-exploitation, attacks]
+    difficulty: medium
+
+  - id: q-d2-015
+    domain: domain2
+    question: "A disgruntled developer inserts code into a company application that will delete all customer records if their employee ID is ever removed from the HR database. What type of malware is this?"
+    options:
+      - "A. Ransomware"
+      - "B. Trojan"
+      - "C. Worm"
+      - "D. Logic bomb"
+    correct_answer: 3
+    explanations:
+      correct: "A logic bomb is malicious code that remains dormant until a specific condition (trigger) is met — such as a date, a file being deleted, or a name being removed from a database. When triggered, it executes its payload (deleting files, corrupting data, etc.). Logic bombs are often planted by insiders with privileged system access."
+      incorrect:
+        - "Ransomware encrypts files and demands payment for decryption — it activates immediately upon execution, not based on a conditional trigger."
+        - "A Trojan disguises itself as legitimate software to gain user trust and installation — it does not specifically define the conditional trigger mechanism described."
+        - "A worm self-replicates and spreads across networks without user interaction — it does not wait for a specific condition before executing its payload."
+        - null
+    tags: [malware, logic-bomb, insider-threat]
+    difficulty: easy
+
+  - id: q-d2-016
+    domain: domain2
+    question: "An attacker poisons the DNS resolver cache, causing users who type a legitimate bank URL to be silently redirected to a fraudulent website that harvests credentials. What is this attack called?"
+    options:
+      - "A. Typosquatting"
+      - "B. URL hijacking"
+      - "C. DNS cache poisoning (Pharming)"
+      - "D. Domain hijacking"
+    correct_answer: 2
+    explanations:
+      correct: "DNS cache poisoning (pharming) corrupts the DNS resolver's cache with forged DNS records, redirecting users to attacker-controlled IP addresses even when they type the correct domain name. Unlike phishing, which relies on users clicking deceptive links, pharming hijacks the DNS resolution process — victims may have no visible indication they are on a fraudulent site."
+      incorrect:
+        - "Typosquatting registers domain names with common misspellings of legitimate sites (e.g., 'gooogle.com') to catch users who mistype URLs — it does not corrupt DNS caches."
+        - "URL hijacking is a broad term that can describe several attacks including typosquatting — it does not specifically describe DNS cache corruption."
+        - null
+        - "Domain hijacking involves unauthorized transfer of a domain name's registration to an attacker — it targets the domain registrar, not the DNS resolver cache."
+    tags: [DNS, pharming, network-attacks, cache-poisoning]
+    difficulty: medium
+
+  - id: q-d2-017
+    domain: domain2
+    question: "A threat actor identifies that their targets (security researchers) frequently visit a specific niche conference website. They compromise that website and plant malware that infects visitors' systems. What type of attack is this?"
+    options:
+      - "A. Spear phishing"
+      - "B. Whaling"
+      - "C. Watering hole attack"
+      - "D. Business email compromise"
+    correct_answer: 2
+    explanations:
+      correct: "A watering hole attack compromises websites that the target group is known to frequent — analogous to a predator waiting at a watering hole where prey reliably appear. Rather than attacking targets directly, the attacker infects a trusted resource the targets will naturally visit. This is effective against targets who maintain high email vigilance but still browse trusted sites."
+      incorrect:
+        - "Spear phishing is a targeted email attack crafted for a specific individual using personalized information — it does not involve compromising third-party websites."
+        - "Whaling targets high-level executives specifically using tailored email attacks — it is a subset of spear phishing, not a website compromise technique."
+        - null
+        - "Business email compromise (BEC) involves impersonating executives or vendors via email to authorize fraudulent wire transfers or data disclosure — it does not involve compromising external websites."
+    tags: [watering-hole, threat-actors, web-attacks]
+    difficulty: medium
+
+  - id: q-d2-018
+    domain: domain2
+    question: "Malware is discovered that operates entirely in RAM, leverages built-in OS tools like PowerShell and WMI, and writes no executable files to disk. What type of malware is this?"
+    options:
+      - "A. Rootkit"
+      - "B. Fileless malware"
+      - "C. Polymorphic malware"
+      - "D. Macro virus"
+    correct_answer: 1
+    explanations:
+      correct: "Fileless malware (also called memory-resident or living-off-the-land malware) executes entirely in memory without writing files to disk, and abuses legitimate OS tools (PowerShell, WMI, certutil) to blend with normal activity. This makes it exceptionally difficult to detect with traditional file-scanning antivirus. It typically achieves persistence through the registry or scheduled tasks rather than executable files."
+      incorrect:
+        - "A rootkit modifies OS components to hide attacker presence and maintain privileged access — while rootkits can be sophisticated, they generally do involve some disk-resident components and are defined by their hiding capability, not their file-free execution."
+        - null
+        - "Polymorphic malware changes its code signature with each infection to evade signature-based detection — it still writes files to disk; the defining trait is signature mutation, not file-free operation."
+        - "A macro virus is embedded in document files (Word, Excel) and executes when the document is opened — it is file-based, not memory-resident."
+    tags: [malware, fileless, living-off-the-land, endpoint-security]
+    difficulty: medium
+
+  - id: q-d2-019
+    domain: domain2
+    question: "An attacker sends a web request containing '../../../../etc/passwd' as a filename parameter, attempting to read files outside the web application's root directory. What type of attack is this?"
+    options:
+      - "A. SQL injection"
+      - "B. Path traversal (directory traversal)"
+      - "C. Server-side request forgery (SSRF)"
+      - "D. Command injection"
+    correct_answer: 1
+    explanations:
+      correct: "Path traversal (directory traversal) exploits insufficient validation of file path inputs, allowing attackers to use '../' sequences to navigate outside the intended directory and access restricted files on the server (such as /etc/passwd on Linux or system configuration files on Windows). Proper input validation and chroot jails prevent this attack."
+      incorrect:
+        - "SQL injection inserts malicious SQL syntax into database query inputs — it targets databases, not the file system path."
+        - null
+        - "Server-side request forgery (SSRF) tricks a server into making HTTP requests to internal resources — it does not use directory traversal sequences to read local files."
+        - "Command injection inserts OS commands into application inputs to execute them on the server — it executes commands, rather than directly reading files via path manipulation."
+    tags: [path-traversal, application-attacks, OWASP, web-attacks]
+    difficulty: medium
+
+  - id: q-d2-020
+    domain: domain2
+    question: "Which standardized scoring system rates the severity of security vulnerabilities on a numeric scale from 0.0 to 10.0 based on factors such as exploitability, impact, and scope?"
+    options:
+      - "A. CVE (Common Vulnerabilities and Exposures)"
+      - "B. CWE (Common Weakness Enumeration)"
+      - "C. CVSS (Common Vulnerability Scoring System)"
+      - "D. NVD (National Vulnerability Database)"
+    correct_answer: 2
+    explanations:
+      correct: "CVSS (Common Vulnerability Scoring System) provides a standardized, vendor-neutral method for rating vulnerability severity. It calculates scores from 0 (informational) to 10 (critical) using metrics including attack vector, attack complexity, privileges required, user interaction, and impact on confidentiality, integrity, and availability. Organizations use CVSS scores to prioritize patching."
+      incorrect:
+        - "CVE is a catalog that assigns unique identifiers (CVE-YYYY-NNNN) to publicly known vulnerabilities — it identifies and names vulnerabilities but does not score their severity."
+        - "CWE categorizes the underlying types of software weaknesses (e.g., CWE-89: SQL Injection) — it classifies weakness categories, not individual vulnerability severity."
+        - null
+        - "The NVD is a U.S. government database that enriches CVE entries with additional analysis including CVSS scores — it uses CVSS scoring but is the repository, not the scoring system itself."
+    tags: [CVSS, vulnerability-management, risk-assessment]
+    difficulty: easy
+
+  - id: q-d2-021
+    domain: domain2
+    question: "A security analyst observes unusual outbound connections to foreign IP addresses, several new local administrator accounts not created by IT, and large amounts of data transferred during off-hours. What are these observations collectively called?"
+    options:
+      - "A. Threat vectors"
+      - "B. Indicators of Compromise (IoC)"
+      - "C. Attack patterns"
+      - "D. Threat intelligence"
+    correct_answer: 1
+    explanations:
+      correct: "Indicators of Compromise (IoCs) are forensic artifacts or observable evidence that suggest a system has been breached or is under attack. Examples include unusual network connections, unexpected accounts, known malicious IP addresses or domains, unusual process activity, and modified system files. IoCs are used to detect, investigate, and attribute attacks."
+      incorrect:
+        - "Threat vectors are the paths or methods attackers use to gain access (e.g., phishing, unpatched software) — they describe how attacks happen, not observable post-compromise evidence."
+        - null
+        - "Attack patterns describe general methods and sequences attackers use (see MITRE ATT&CK) — they are more abstract frameworks than specific observable artifacts."
+        - "Threat intelligence is processed information about adversaries, their capabilities, and intentions — it provides context and attribution but is broader than specific observable evidence artifacts."
+    tags: [IoC, threat-intelligence, incident-response, monitoring]
+    difficulty: easy
+
+  - id: q-d2-022
+    domain: domain2
+    question: "An attacker acquires a list of email/password pairs from a data breach on one service and automatically tests those same credentials against dozens of other websites. What type of attack is this?"
+    options:
+      - "A. Password spraying"
+      - "B. Brute force attack"
+      - "C. Credential stuffing"
+      - "D. Dictionary attack"
+    correct_answer: 2
+    explanations:
+      correct: "Credential stuffing exploits the common practice of password reuse: attackers take username/password pairs leaked from one breach and automatically test them against other services (banking, email, retail). Because users often reuse credentials across sites, success rates can be significant. Multi-factor authentication and breach detection services mitigate this attack."
+      incorrect:
+        - "Password spraying tries a small set of common passwords (like 'Password123') across many accounts to avoid lockout — it does not rely on previously leaked credential pairs."
+        - "A brute force attack systematically tries all possible password combinations for a specific account — it does not use known credential pairs from breaches."
+        - null
+        - "A dictionary attack tries common words and phrases from a wordlist against a specific account — it generates candidates rather than replaying known credential pairs from external breaches."
+    tags: [credential-stuffing, password-attacks, authentication]
+    difficulty: easy
+
+  - id: q-d2-023
+    domain: domain2
+    question: "An attacker creates a rogue Wi-Fi access point broadcasting the same SSID as a legitimate coffee shop network and positions it nearby. Unsuspecting users connect to it, allowing the attacker to intercept their traffic. What is this attack called?"
+    options:
+      - "A. Deauthentication attack"
+      - "B. Bluejacking"
+      - "C. IV (initialization vector) attack"
+      - "D. Evil twin attack"
+    correct_answer: 3
+    explanations:
+      correct: "An evil twin attack deploys a rogue access point that mimics a legitimate Wi-Fi network's SSID (and sometimes BSSID) to trick users into connecting to the attacker's network instead. Once connected, the attacker can perform man-in-the-middle attacks, capture credentials, and intercept unencrypted traffic. Users should use VPNs and verify certificate warnings to defend against this."
+      incorrect:
+        - "A deauthentication attack sends forged 802.11 deauth frames to disconnect clients from legitimate APs — it can be used to force clients to reconnect to an evil twin but is a separate technique."
+        - "Bluejacking sends unsolicited messages to Bluetooth-enabled devices in range — it is a Bluetooth attack, not a Wi-Fi impersonation attack."
+        - "An IV (initialization vector) attack exploits weaknesses in WEP's use of IVs to crack the encryption key — it is a cryptanalysis attack against WEP, not a rogue AP impersonation technique."
+        - null
+    tags: [evil-twin, wireless-attacks, rogue-AP, MitM]
+    difficulty: easy
+
+  - id: q-d2-024
+    domain: domain2
+    question: "An attacker pairs with a victim's Bluetooth-enabled phone without authorization and silently copies the victim's contact list, calendar, and files. What type of attack is this?"
+    options:
+      - "A. Bluejacking"
+      - "B. Bluesnarfing"
+      - "C. RFID cloning"
+      - "D. NFC eavesdropping"
+    correct_answer: 1
+    explanations:
+      correct: "Bluesnarfing is an unauthorized access attack against Bluetooth-enabled devices that exploits Bluetooth vulnerabilities to connect to the device and copy data such as contacts, messages, photos, and calendar entries without the owner's knowledge or consent. It differs from bluejacking, which only sends messages."
+      incorrect:
+        - "Bluejacking sends unsolicited Bluetooth messages (like a contact card or text) to nearby devices — it is generally harmless and does not involve data theft."
+        - null
+        - "RFID cloning captures and reproduces RFID signals (such as access badges) — it targets radio frequency identification systems, not Bluetooth."
+        - "NFC eavesdropping captures Near-Field Communication transmissions — NFC operates at very short range (< 4 cm) and is distinct from Bluetooth attacks."
+    tags: [Bluetooth, bluesnarfing, wireless-attacks]
+    difficulty: medium
+
+  - id: q-d2-025
+    domain: domain2
+    question: "An attacker attempts to compromise corporate accounts by trying only a few commonly used passwords (such as 'Welcome1' and 'Spring2024!') across thousands of different usernames, deliberately staying below account lockout thresholds. What type of attack is this?"
+    options:
+      - "A. Credential stuffing"
+      - "B. Brute force attack"
+      - "C. Password spraying"
+      - "D. Rainbow table attack"
+    correct_answer: 2
+    explanations:
+      correct: "Password spraying tries a small number of commonly used passwords against a large number of accounts, intentionally keeping the number of attempts per account low to avoid triggering account lockout policies. It is particularly effective in corporate environments where password policies force predictable patterns (e.g., Season+Year). Multi-factor authentication defeats this attack."
+      incorrect:
+        - "Credential stuffing uses specific username/password pairs from known data breaches, not generic common passwords tested across many accounts."
+        - "A brute force attack exhaustively tries all possible combinations against a specific account — it will typically trigger lockout policies and does not spread attempts across many accounts."
+        - null
+        - "A rainbow table attack uses precomputed hash tables to crack password hashes after obtaining a password database — it is an offline attack requiring access to the hash, not an online login attack."
+    tags: [password-spraying, password-attacks, authentication]
+    difficulty: easy

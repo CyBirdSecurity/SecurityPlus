@@ -188,3 +188,288 @@ questions:
         - "MTTR (Mean Time to Repair) is the average time it actually takes to repair a system — it is a historical metric, not a target objective."
     tags: [BCP, RTO, RPO, business-continuity]
     difficulty: medium
+
+  - id: q-d5-011
+    domain: domain5
+    question: "Before launching a new customer portal that collects and processes personal data, an organization systematically evaluates the privacy risks that the new processing activity introduces. What is this activity called?"
+    options:
+      - "A. Risk assessment"
+      - "B. Data classification review"
+      - "C. Privacy Impact Assessment (PIA)"
+      - "D. Security audit"
+    correct_answer: 2
+    explanations:
+      correct: "A Privacy Impact Assessment (PIA) — also called a Data Protection Impact Assessment (DPIA) under GDPR — is a structured process for identifying, evaluating, and mitigating privacy risks introduced by new projects, systems, or processes that involve personal data. GDPR mandates DPIAs for high-risk processing activities. A PIA considers data flows, necessity of collection, security safeguards, and individual rights."
+      incorrect:
+        - "A general risk assessment evaluates security risks broadly (threats, vulnerabilities, impacts) — a PIA is specifically focused on privacy risks to individuals from personal data processing."
+        - "A data classification review categorizes existing data by sensitivity — it is a data governance activity, not a forward-looking evaluation of risks from new data processing."
+        - null
+        - "A security audit examines whether existing security controls are effectively implemented — it looks backward at current state, whereas a PIA proactively evaluates risks before a new system is deployed."
+    tags: [privacy, PIA, DPIA, GDPR, compliance]
+    difficulty: medium
+
+  - id: q-d5-012
+    domain: domain5
+    question: "A customer requests that a company permanently delete all personal data the company holds about them. Which GDPR right does this exercise?"
+    options:
+      - "A. Right to data portability"
+      - "B. Right of access (Subject Access Request)"
+      - "C. Right to rectification"
+      - "D. Right to erasure (right to be forgotten)"
+    correct_answer: 3
+    explanations:
+      correct: "The right to erasure (Article 17 GDPR), commonly known as the 'right to be forgotten,' allows individuals to request that their personal data be deleted when it is no longer necessary for the purpose it was collected, when consent is withdrawn, or when processing is unlawful. Organizations must comply unless legitimate grounds for retention exist (e.g., legal obligations)."
+      incorrect:
+        - "The right to data portability (Article 20) allows individuals to receive their personal data in a machine-readable format and transfer it to another controller — it is about data transfer, not deletion."
+        - "The right of access (Article 15) allows individuals to obtain a copy of their personal data and information about how it is processed — it provides visibility, not deletion."
+        - "The right to rectification (Article 16) allows individuals to have inaccurate personal data corrected — it is about fixing errors, not deleting data."
+        - null
+    tags: [GDPR, privacy-rights, right-to-erasure, compliance]
+    difficulty: easy
+
+  - id: q-d5-013
+    domain: domain5
+    question: "What is the key difference between a SOC 2 Type I and a SOC 2 Type II audit report?"
+    options:
+      - "A. Type I covers only the Security trust service criterion; Type II covers all five criteria"
+      - "B. Type I is conducted by internal auditors; Type II requires external independent auditors"
+      - "C. Type I assesses whether controls are suitably designed at a point in time; Type II assesses operating effectiveness over a period (typically 6-12 months)"
+      - "D. Type I applies to SaaS companies; Type II applies to on-premises service organizations"
+    correct_answer: 2
+    explanations:
+      correct: "A SOC 2 Type I report assesses whether a service organization's controls are suitably designed at a specific point in time — a snapshot. A SOC 2 Type II report examines whether those controls actually operated effectively over an observation period (typically 6-12 months). Type II provides significantly more assurance because it demonstrates consistent implementation, not just design."
+      incorrect:
+        - "Both Type I and Type II can cover any combination of the five Trust Service Criteria (Security, Availability, Processing Integrity, Confidentiality, Privacy) — the type designation does not determine which criteria are covered."
+        - "Both Type I and Type II require an independent external CPA firm to conduct the audit — neither is an internal audit."
+        - null
+        - "SOC 2 applies to service organizations that store, process, or transmit customer data — it is not differentiated by deployment model."
+    tags: [SOC2, compliance, auditing, third-party-risk]
+    difficulty: medium
+
+  - id: q-d5-014
+    domain: domain5
+    question: "An organization is decommissioning SSDs that stored sensitive financial data. Which data destruction method is MOST reliable for ensuring data cannot be recovered from solid-state drives?"
+    options:
+      - "A. Degaussing the drives"
+      - "B. Overwriting with multiple passes of zeros and ones"
+      - "C. Physical destruction (shredding or crushing the drive)"
+      - "D. Standard formatting using the operating system"
+    correct_answer: 2
+    explanations:
+      correct: "Physical destruction (shredding, crushing, or disintegration) is the most reliable method for SSDs because standard overwriting and degaussing are unreliable on solid-state media. SSDs use wear-leveling algorithms that distribute writes across cells and maintain reserved areas, meaning overwritten data may persist in unmapped blocks. NIST SP 800-88 recommends destruction as the highest assurance method for SSDs."
+      incorrect:
+        - "Degaussing uses a strong magnetic field to erase magnetic storage — SSDs use flash memory (NAND), which is not magnetic and is completely unaffected by degaussing."
+        - "Multi-pass overwriting is unreliable on SSDs because wear-leveling may prevent writes from reaching all physical storage cells, leaving data in reserved or remapped blocks — NIST SP 800-88 notes this limitation."
+        - null
+        - "Standard OS formatting typically only removes file system pointers (table of contents), not the actual data — data can be trivially recovered with forensic tools even after a quick format."
+    tags: [data-destruction, SSD, media-sanitization, NIST-800-88]
+    difficulty: medium
+
+  - id: q-d5-015
+    domain: domain5
+    question: "Two government agencies create an informal written agreement that documents their mutual expectations for sharing cybersecurity threat intelligence. The agreement is not legally binding but outlines each party's responsibilities. What type of agreement is this?"
+    options:
+      - "A. Service Level Agreement (SLA)"
+      - "B. Non-Disclosure Agreement (NDA)"
+      - "C. Memorandum of Understanding (MOU)"
+      - "D. Master Service Agreement (MSA)"
+    correct_answer: 2
+    explanations:
+      correct: "A Memorandum of Understanding (MOU) is an informal, typically non-binding agreement between two parties that documents mutual intent, expectations, and responsibilities — without creating legal obligations. MOUs are commonly used between government agencies and in partnerships where formal contracts are not appropriate. They establish a shared understanding before more formal agreements may be created."
+      incorrect:
+        - "A Service Level Agreement (SLA) is a binding contractual document that defines the measurable performance standards a service provider must meet — it is legally enforceable and specifies penalties for non-compliance."
+        - "A Non-Disclosure Agreement (NDA) is a binding legal agreement prohibiting parties from disclosing confidential information to third parties — it is a confidentiality-specific legal contract."
+        - null
+        - "A Master Service Agreement (MSA) is a comprehensive contract that establishes the terms and conditions governing a business relationship and all future work — it is legally binding and far more formal than an MOU."
+    tags: [legal-agreements, MOU, governance, third-party-risk]
+    difficulty: medium
+
+  - id: q-d5-016
+    domain: domain5
+    question: "An incident response team gathers in a conference room to verbally walk through their response to a simulated ransomware attack scenario, discussing roles, decisions, and gaps — without touching any live systems. What type of exercise is this?"
+    options:
+      - "A. Penetration test"
+      - "B. Red team exercise"
+      - "C. Tabletop exercise"
+      - "D. Parallel test (parallel processing test)"
+    correct_answer: 2
+    explanations:
+      correct: "A tabletop exercise is a discussion-based exercise where team members walk through a simulated emergency scenario in a facilitated workshop setting. Participants discuss their roles, responsibilities, decisions, and coordination — verbally, without executing any real actions or touching live systems. Tabletops identify gaps in plans, communication, and decision-making at low cost and with no operational risk."
+      incorrect:
+        - "A penetration test actively exploits vulnerabilities in live systems — it involves real technical activity and is not a discussion-based exercise."
+        - "A red team exercise uses real adversary TTPs against live infrastructure — it actively tests defenses, unlike the discussion-based tabletop format."
+        - null
+        - "A parallel test (also called a parallel processing test) activates backup systems simultaneously with production systems to verify they can handle the load — it involves real systems, unlike a tabletop exercise."
+    tags: [tabletop-exercise, incident-response, BCP, training]
+    difficulty: easy
+
+  - id: q-d5-017
+    domain: domain5
+    question: "After a company implements a new set of security controls to address a vulnerability, some risk still remains that was not fully eliminated. What is this remaining risk called?"
+    options:
+      - "A. Inherent risk"
+      - "B. Accepted risk"
+      - "C. Transferred risk"
+      - "D. Residual risk"
+    correct_answer: 3
+    explanations:
+      correct: "Residual risk is the risk that remains after security controls have been applied to reduce inherent risk. No control eliminates risk entirely — residual risk reflects the exposure that persists after mitigation. Organizations must decide whether to accept residual risk, apply additional controls, or transfer it (e.g., via insurance). Residual risk = Inherent risk minus control effectiveness."
+      incorrect:
+        - "Inherent risk is the level of risk that exists before any controls are applied — it is the raw, unmitigated risk exposure."
+        - "Accepted risk (risk tolerance) is the deliberate decision to acknowledge and absorb risk without taking further action — accepting residual risk is a response to it, not what it is called."
+        - "Transferred risk involves shifting financial consequences to a third party (e.g., insurance) — it is a risk response strategy, not a description of remaining risk after controls."
+        - null
+    tags: [risk-management, residual-risk, inherent-risk, controls]
+    difficulty: easy
+
+  - id: q-d5-018
+    domain: domain5
+    question: "A financial services company requires that the employee who authorizes a payment transaction must be a different person from the employee who executes the transfer. What security principle does this implement?"
+    options:
+      - "A. Least privilege"
+      - "B. Dual control"
+      - "C. Separation of duties"
+      - "D. Job rotation"
+    correct_answer: 2
+    explanations:
+      correct: "Separation of duties (SoD) divides critical tasks between multiple individuals so that no single person has complete control over a sensitive process from start to finish. This prevents fraud and errors by requiring collusion between multiple people to commit a malicious act. It is a key internal control in financial, SOX, and PCI DSS compliance frameworks."
+      incorrect:
+        - "Least privilege limits the permissions granted to a user to the minimum needed for their job — it restricts what each person can do but does not divide a single task between multiple people."
+        - "Dual control requires two people to simultaneously be present and act to execute a single task (e.g., two people required to open a safe at the same time) — separation of duties divides different steps of a process, while dual control requires simultaneous action by two people for one step."
+        - null
+        - "Job rotation periodically moves employees between roles to detect fraud (since a replacement would notice discrepancies), provide cross-training, and reduce insider threat risk — it is a different compensating control, not the same as dividing authorization from execution."
+    tags: [separation-of-duties, governance, access-control, compliance]
+    difficulty: easy
+
+  - id: q-d5-019
+    domain: domain5
+    question: "A service provider's SLA guarantees 'five nines' (99.999%) availability. What is the approximate maximum allowed downtime per year under this agreement?"
+    options:
+      - "A. Approximately 8.76 hours per year"
+      - "B. Approximately 52.6 minutes per year"
+      - "C. Approximately 5.26 minutes per year"
+      - "D. Approximately 31.5 seconds per year"
+    correct_answer: 2
+    explanations:
+      correct: "99.999% availability means only 0.001% downtime is allowed. There are 525,600 minutes in a year. 525,600 × 0.00001 = 5.256 minutes per year. Five nines is the gold standard for critical systems — it requires extremely robust architecture with redundancy, automated failover, and zero-downtime maintenance procedures."
+      incorrect:
+        - "8.76 hours corresponds to 99.9% availability (three nines) — a much less stringent standard that allows about one hour of downtime per month."
+        - "52.6 minutes corresponds to 99.99% availability (four nines) — one step below five nines, which is approximately 52 minutes of allowed annual downtime."
+        - null
+        - "31.5 seconds would correspond to approximately 99.9999% availability (six nines) — even more stringent than the five nines described."
+    tags: [availability, SLA, high-availability, business-continuity]
+    difficulty: medium
+
+  - id: q-d5-020
+    domain: domain5
+    question: "Which document formally tracks all identified risks, including their likelihood and impact ratings, risk owners, chosen treatment strategies, and current mitigation status?"
+    options:
+      - "A. Security policy"
+      - "B. Risk register"
+      - "C. Vulnerability assessment report"
+      - "D. Business impact analysis (BIA)"
+    correct_answer: 1
+    explanations:
+      correct: "A risk register is the central repository for documenting and tracking all identified risks throughout their lifecycle. Each entry typically includes: risk description, affected assets, likelihood score, impact score, risk rating, assigned owner, chosen response (accept/mitigate/transfer/avoid), control measures in place, residual risk, and review dates. It is a living document updated as risks change."
+      incorrect:
+        - "A security policy states organizational security requirements and management intent — it does not track individual risks with owners and status."
+        - null
+        - "A vulnerability assessment report documents technical security weaknesses discovered by scanning — it is an input into the risk register but does not provide the broad risk tracking function across all risk categories."
+        - "A BIA identifies critical business functions and quantifies the impact of their disruption — it informs risk prioritization but does not serve as the ongoing risk tracking mechanism."
+    tags: [risk-register, risk-management, governance]
+    difficulty: easy
+
+  - id: q-d5-021
+    domain: domain5
+    question: "Under most modern data breach notification laws (such as GDPR and U.S. state laws), what primarily triggers the legal obligation to notify affected individuals?"
+    options:
+      - "A. Any unauthorized access to the organization's network, regardless of what data was accessed"
+      - "B. A breach involving personal information that creates a risk of harm to the affected individuals"
+      - "C. Any failed login attempt detected in security system logs"
+      - "D. Discovery of any vulnerability in systems that store personal data"
+    correct_answer: 1
+    explanations:
+      correct: "Most data breach notification laws — including GDPR (72-hour regulator notification), HIPAA, and U.S. state laws — require notification when personal data has been compromised in a way that creates a meaningful risk of harm to individuals (e.g., identity theft, fraud, discrimination). Not all security incidents trigger notification; a risk assessment of the breach is typically required to determine whether notification obligations apply."
+      incorrect:
+        - "Unauthorized network access alone does not typically trigger notification — the key factor is whether personal data was accessed, exfiltrated, or compromised and whether there is a risk of harm to individuals."
+        - null
+        - "Failed login attempts are security events that should be investigated but do not constitute a data breach — no personal data was necessarily accessed or compromised."
+        - "Discovering a vulnerability is a security finding that requires remediation — it does not trigger breach notification because no data has been compromised yet."
+    tags: [breach-notification, GDPR, compliance, privacy]
+    difficulty: medium
+
+  - id: q-d5-022
+    domain: domain5
+    question: "An administrator wants to deploy an emergency security patch on a production system during business hours due to active exploitation in the wild. Through which process must this change typically be approved in a mature organization?"
+    options:
+      - "A. Approval from the system owner only is sufficient"
+      - "B. CISO approval via email is the standard emergency process"
+      - "C. An emergency change process through the Change Advisory Board (CAB) or pre-approved emergency change authority"
+      - "D. Any senior IT manager can verbally approve emergency changes"
+    correct_answer: 2
+    explanations:
+      correct: "Formal change management processes include an emergency change (or expedited change) pathway for situations requiring rapid response. This typically involves a streamlined CAB review or a pre-designated Emergency Change Authority (ECA) that can approve changes quickly while still maintaining documentation and accountability. Even emergency changes must be logged and reviewed post-implementation."
+      incorrect:
+        - "While system owner input is valuable, a formal change management process typically requires broader cross-functional review — system owners alone cannot approve production changes without going through the change process."
+        - "Email approval from a single executive (even the CISO) is not a substitute for the formal change management process — it lacks documentation, risk assessment, and rollback planning."
+        - null
+        - "Verbal approval from any manager bypasses the formal process entirely — all changes, including emergency changes, should be formally documented through the change management system even if expedited."
+    tags: [change-management, CAB, governance, ITIL]
+    difficulty: medium
+
+  - id: q-d5-023
+    domain: domain5
+    question: "What is the PRIMARY purpose of conducting a Business Impact Analysis (BIA)?"
+    options:
+      - "A. To identify and assess technical vulnerabilities in IT systems"
+      - "B. To identify critical business functions and quantify the financial and operational impact of their disruption"
+      - "C. To document step-by-step recovery procedures for IT systems after a disaster"
+      - "D. To evaluate the cost-effectiveness of proposed security controls"
+    correct_answer: 1
+    explanations:
+      correct: "A Business Impact Analysis (BIA) identifies the organization's critical business processes, the resources they depend on, and the potential consequences (financial loss, regulatory penalties, reputational damage, operational disruption) if those functions are interrupted. The BIA produces key outputs including Maximum Tolerable Downtime (MTD), Recovery Time Objectives (RTO), and Recovery Point Objectives (RPO) that drive the BCP and DRP."
+      incorrect:
+        - "Identifying technical vulnerabilities is vulnerability assessment — the BIA focuses on business processes and impact, not specific technical security weaknesses."
+        - null
+        - "Documenting IT recovery procedures is the Disaster Recovery Plan (DRP) — the BIA is the analytical input that informs recovery priorities for the DRP."
+        - "Evaluating control cost-effectiveness is part of risk treatment and security program management — BIA is specifically about understanding the business impact of operational disruptions."
+    tags: [BIA, BCP, DRP, RTO, RPO, business-continuity]
+    difficulty: easy
+
+  - id: q-d5-024
+    domain: domain5
+    question: "A multinational company stores EU citizens' personal data on servers physically located in the United States. Which regulatory concern is MOST relevant to this data storage arrangement?"
+    options:
+      - "A. PCI DSS compliance requirements for cross-border data"
+      - "B. Data sovereignty and GDPR cross-border transfer restrictions requiring adequate protections"
+      - "C. HIPAA requirements for international health data storage"
+      - "D. SOX requirements for financial data stored internationally"
+    correct_answer: 1
+    explanations:
+      correct: "GDPR (Chapter V) restricts transferring EU personal data to countries outside the European Economic Area (EEA) unless the destination country provides an adequate level of data protection. Since the U.S. is not an EEA country, transfers require mechanisms such as Standard Contractual Clauses (SCCs), Binding Corporate Rules (BCRs), or certification under frameworks like the EU-U.S. Data Privacy Framework. This is called data sovereignty — the data is subject to EU law regardless of where it is stored."
+      incorrect:
+        - "PCI DSS governs the protection of cardholder data regardless of location — while it applies to payment card data, data sovereignty specifically refers to the legal jurisdiction principle, not PCI requirements."
+        - null
+        - "HIPAA is a U.S. federal law governing protected health information — it does not specifically address cross-border data transfers or EU citizens' data."
+        - "SOX governs financial reporting for U.S. publicly traded companies — it does not specifically regulate the geographic storage location of personal data."
+    tags: [data-sovereignty, GDPR, compliance, privacy, cross-border]
+    difficulty: medium
+
+  - id: q-d5-025
+    domain: domain5
+    question: "Which role is specifically mandated by GDPR for organizations that conduct large-scale systematic monitoring of individuals or process special categories of data, and serves as the primary point of contact for data protection supervisory authorities?"
+    options:
+      - "A. Chief Information Security Officer (CISO)"
+      - "B. Chief Privacy Officer (CPO)"
+      - "C. Data Protection Officer (DPO)"
+      - "D. Information System Security Officer (ISSO)"
+    correct_answer: 2
+    explanations:
+      correct: "The Data Protection Officer (DPO) is a role specifically created and required by GDPR (Article 37) for public authorities, organizations processing special categories of data, and organizations conducting large-scale systematic monitoring. The DPO advises on GDPR compliance, monitors data protection practices, serves as the contact point for the supervisory authority (e.g., EU data protection authorities), and acts as the point of contact for data subject rights requests."
+      incorrect:
+        - "The CISO is responsible for the overall information security program — while they work closely with the DPO on data protection, the CISO role is a security leadership role, not a GDPR-specific compliance role."
+        - "A Chief Privacy Officer (CPO) oversees privacy strategy broadly — while similar in scope, the CPO is not the specific GDPR-mandated role with legally defined responsibilities to supervisory authorities."
+        - null
+        - "An ISSO manages security controls for specific information systems — it is primarily a U.S. federal government role (NIST/FISMA context) and is not the GDPR-mandated privacy role."
+    tags: [DPO, GDPR, compliance, privacy, governance]
+    difficulty: medium

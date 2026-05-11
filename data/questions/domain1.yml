@@ -188,3 +188,288 @@ questions:
         - "Providing server redundancy is a high availability/fault tolerance control, not a honeypot."
     tags: [deception-technology, honeypot, threat-intelligence]
     difficulty: easy
+
+  - id: q-d1-011
+    domain: domain1
+    question: "Which security model operates on the principle of 'never trust, always verify' and assumes that threats exist both inside and outside the traditional network perimeter?"
+    options:
+      - "A. Defense in depth"
+      - "B. Zero trust"
+      - "C. Perimeter-based security"
+      - "D. Security through obscurity"
+    correct_answer: 1
+    explanations:
+      correct: "Zero trust is a security model that eliminates implicit trust based on network location. Every access request — regardless of whether it originates inside or outside the network — must be explicitly authenticated, authorized, and continuously validated. It assumes breach and enforces least-privilege access."
+      incorrect:
+        - "Defense in depth uses multiple overlapping security layers but does not eliminate perimeter-based trust; it is a complementary strategy, not the model described."
+        - null
+        - "Perimeter-based security (the traditional 'castle and moat' model) implicitly trusts traffic inside the network — the opposite of zero trust."
+        - "Security through obscurity relies on keeping system details hidden rather than on verifying every access request."
+    tags: [zero-trust, architecture, fundamentals]
+    difficulty: easy
+
+  - id: q-d1-012
+    domain: domain1
+    question: "Which security approach uses multiple overlapping layers of controls so that if one control fails, additional controls still provide protection?"
+    options:
+      - "A. Zero trust"
+      - "B. Least privilege"
+      - "C. Defense in depth"
+      - "D. Security through obscurity"
+    correct_answer: 2
+    explanations:
+      correct: "Defense in depth (also called layered security) implements multiple independent security controls — physical, technical, and administrative — so that the failure of any single control does not result in a complete compromise. Examples include combining firewalls, IPS, endpoint protection, and user training."
+      incorrect:
+        - "Zero trust is a model based on continuous verification of every access request — it is a philosophy, not a layered control strategy."
+        - "Least privilege limits user permissions to the minimum necessary — it is one control within a defense-in-depth strategy, not the strategy itself."
+        - null
+        - "Security through obscurity relies on hiding system details; it provides weak protection and is not a recognized layered defense strategy."
+    tags: [defense-in-depth, fundamentals, security-controls]
+    difficulty: easy
+
+  - id: q-d1-013
+    domain: domain1
+    question: "A security analyst discovers that a malicious insider embedded secret messages inside image files to exfiltrate data undetected. What technique is MOST likely being used?"
+    options:
+      - "A. Cryptography"
+      - "B. Obfuscation"
+      - "C. Steganography"
+      - "D. Tokenization"
+    correct_answer: 2
+    explanations:
+      correct: "Steganography is the practice of hiding secret data within ordinary, non-secret files or messages (such as images, audio, or video) to avoid detection. Unlike cryptography, which makes data unreadable, steganography conceals the very existence of the hidden data."
+      incorrect:
+        - "Cryptography transforms data into an unreadable format using keys — it does not hide the existence of the data, only its content."
+        - "Obfuscation makes code or data harder to understand (e.g., minifying JavaScript) but is not specifically about embedding hidden data inside carrier files."
+        - null
+        - "Tokenization replaces sensitive data with non-sensitive placeholders (tokens) — it is a data protection technique, not a data hiding technique."
+    tags: [steganography, data-hiding, covert-channels]
+    difficulty: medium
+
+  - id: q-d1-014
+    domain: domain1
+    question: "An attacker inputs more data into a program's input buffer than it is designed to hold, causing the program to overwrite adjacent memory regions. What type of vulnerability is being exploited?"
+    options:
+      - "A. SQL injection"
+      - "B. Race condition"
+      - "C. Integer overflow"
+      - "D. Buffer overflow"
+    correct_answer: 3
+    explanations:
+      correct: "A buffer overflow occurs when a program writes more data to a buffer than it can hold, overwriting adjacent memory. Attackers exploit this to overwrite the return address and redirect code execution to malicious shellcode. Buffer overflows have been used in many famous exploits including early worms like CodeRed and Blaster."
+      incorrect:
+        - "SQL injection inserts malicious SQL code into database queries via application input — it does not involve memory buffer boundaries."
+        - "A race condition is a vulnerability where the outcome depends on the timing of events, such as a time-of-check to time-of-use (TOCTOU) flaw — it does not involve overwriting memory buffers."
+        - "An integer overflow occurs when arithmetic produces a value too large for the variable type, which can cause unexpected behavior — it is a related but distinct vulnerability from buffer overflow."
+        - null
+    tags: [buffer-overflow, memory-safety, application-attacks]
+    difficulty: medium
+
+  - id: q-d1-015
+    domain: domain1
+    question: "Which cryptographic property ensures that even if a server's long-term private key is later compromised, past encrypted sessions cannot be retrospectively decrypted?"
+    options:
+      - "A. Key escrow"
+      - "B. Perfect forward secrecy (PFS)"
+      - "C. Certificate pinning"
+      - "D. Key stretching"
+    correct_answer: 1
+    explanations:
+      correct: "Perfect Forward Secrecy (PFS) generates a unique ephemeral session key for each session that is not derived from the server's long-term private key. Even if the private key is later stolen, an attacker cannot decrypt previously recorded sessions because those session keys were never stored and cannot be derived. TLS 1.3 mandates PFS."
+      incorrect:
+        - "Key escrow is the practice of storing copies of cryptographic keys with a trusted third party for recovery purposes — it does not provide forward secrecy and actually increases the risk of key compromise."
+        - null
+        - "Certificate pinning associates a host with an expected certificate or public key to prevent certificate substitution attacks — it does not protect past sessions from decryption."
+        - "Key stretching (PBKDF2, bcrypt, Argon2) makes brute-force attacks on passwords more expensive by applying the hash function many times — it is not related to session key compromise."
+    tags: [cryptography, PFS, TLS, forward-secrecy]
+    difficulty: hard
+
+  - id: q-d1-016
+    domain: domain1
+    question: "When storing user passwords, a random unique value is added to each password before hashing. What is this technique called, and what type of attack does it PRIMARILY prevent?"
+    options:
+      - "A. Key stretching; it prevents brute force attacks"
+      - "B. Salting; it prevents rainbow table and precomputed hash attacks"
+      - "C. Peppering; it prevents collision attacks"
+      - "D. Hashing; it prevents replay attacks"
+    correct_answer: 1
+    explanations:
+      correct: "Salting adds a unique random value (the salt) to each password before hashing, ensuring that identical passwords produce different hashes. This defeats rainbow tables and precomputed hash databases because the attacker would need to build a separate table for every possible salt value — computationally infeasible."
+      incorrect:
+        - "Key stretching (e.g., bcrypt, PBKDF2) increases the computational cost of hashing to slow brute force attacks — it does not involve adding a random value to the password input."
+        - null
+        - "Peppering adds a secret server-side value to all passwords (unlike a salt, it is not stored with the hash) — it provides additional protection but does not specifically target rainbow table attacks. Peppering and salting can be used together."
+        - "Hashing alone (without a salt) is vulnerable to rainbow tables because the same password always produces the same hash — salting is the solution to this."
+    tags: [cryptography, password-storage, hashing, salting]
+    difficulty: medium
+
+  - id: q-d1-017
+    domain: domain1
+    question: "A security team compares their current security posture against a target baseline or industry framework to identify missing controls and areas for improvement. What activity is this?"
+    options:
+      - "A. Risk assessment"
+      - "B. Vulnerability scan"
+      - "C. Gap analysis"
+      - "D. Penetration test"
+    correct_answer: 2
+    explanations:
+      correct: "A gap analysis compares the current state of security controls against a desired target state (such as a regulatory requirement, security framework like NIST CSF, or industry best practice). The result is a list of 'gaps' — areas where controls are missing or insufficient — which forms the basis for a remediation roadmap."
+      incorrect:
+        - "A risk assessment identifies, analyzes, and evaluates risks — it focuses on threat likelihood and impact, not specifically on measuring distance from a target baseline."
+        - "A vulnerability scan uses automated tools to identify technical security weaknesses in systems — it is narrower than a gap analysis, which covers processes, policies, and controls holistically."
+        - null
+        - "A penetration test simulates real attacks to actively exploit vulnerabilities — it goes further than analysis to demonstrate exploitability, whereas a gap analysis is a documentation and review exercise."
+    tags: [gap-analysis, governance, frameworks]
+    difficulty: easy
+
+  - id: q-d1-018
+    domain: domain1
+    question: "A cryptographer argues that the security of an encryption system should depend entirely on the secrecy of the key, not on keeping the algorithm secret. What principle is being described?"
+    options:
+      - "A. Shannon's maxim"
+      - "B. The principle of least functionality"
+      - "C. Kerckhoffs's principle"
+      - "D. Security through obscurity"
+    correct_answer: 2
+    explanations:
+      correct: "Kerckhoffs's principle (1883) states that a cryptographic system should be secure even if everything about the system — except the key — is public knowledge. This is why modern algorithms like AES and RSA are publicly documented: their strength relies entirely on key secrecy, not algorithm secrecy. This allows independent review and verification."
+      incorrect:
+        - "Shannon's maxim ('the enemy knows the system') is the modern restatement of Kerckhoffs's principle, not the original principle itself."
+        - "The principle of least functionality means systems should be configured to provide only required functions, minimizing the attack surface — not related to cryptographic algorithm design."
+        - null
+        - "Security through obscurity relies on keeping system details hidden to provide security — this is the opposite of Kerckhoffs's principle and is considered a weak security practice."
+    tags: [cryptography, Kerckhoffs, principles, fundamentals]
+    difficulty: medium
+
+  - id: q-d1-019
+    domain: domain1
+    question: "Attackers compromise a trusted software vendor's build pipeline and inject malicious code into a signed update package that is distributed to thousands of the vendor's customers. What type of attack is this?"
+    options:
+      - "A. Watering hole attack"
+      - "B. Zero-day exploit"
+      - "C. Insider threat"
+      - "D. Supply chain attack"
+    correct_answer: 3
+    explanations:
+      correct: "A supply chain attack (also called a value chain attack) targets less-secure elements in the supply chain — such as a vendor's build system or software update mechanism — to compromise many downstream customers through a trusted channel. The 2020 SolarWinds SUNBURST attack is a prime example: malicious code was inserted into a software update trusted by thousands of organizations."
+      incorrect:
+        - "A watering hole attack compromises websites frequently visited by the target group, waiting for victims to visit — it does not involve compromising the software build pipeline."
+        - "A zero-day exploit takes advantage of an unpatched vulnerability — while a supply chain attack may use zero-days, the defining characteristic of this scenario is the compromise of the vendor's distribution mechanism."
+        - "An insider threat originates from someone within the organization — in this scenario, external attackers compromised the vendor's pipeline from outside."
+        - null
+    tags: [supply-chain, threat-actors, software-security]
+    difficulty: medium
+
+  - id: q-d1-020
+    domain: domain1
+    question: "Which security control has been shown to be MOST effective at reducing the risk of successful phishing and social engineering attacks targeting employees?"
+    options:
+      - "A. Email spam filtering with sandboxing"
+      - "B. Security awareness training combined with simulated phishing exercises"
+      - "C. Web application firewalls"
+      - "D. Endpoint detection and response (EDR)"
+    correct_answer: 1
+    explanations:
+      correct: "Security awareness training teaches employees to recognize social engineering tactics, suspicious emails, and malicious links. When combined with regular simulated phishing exercises that provide immediate feedback, it measurably reduces click rates on phishing emails. Humans are the primary target of social engineering — technical controls alone cannot fully address this."
+      incorrect:
+        - "Email spam filtering catches many phishing emails but cannot block all of them — spear phishing and targeted attacks frequently bypass filters. Training addresses the human factor that technical filters cannot."
+        - null
+        - "Web application firewalls protect web applications from attacks like SQL injection and XSS — they do not prevent employees from clicking phishing links in their email."
+        - "EDR detects and responds to malicious activity on endpoints after execution — it is a detection/response control, not a preventive control for the initial phishing vector."
+    tags: [security-awareness, phishing, administrative-controls]
+    difficulty: easy
+
+  - id: q-d1-021
+    domain: domain1
+    question: "In a PKI hierarchy, which entity sits at the top of the certificate chain, self-signs its own certificate, and serves as the ultimate source of trust?"
+    options:
+      - "A. Intermediate Certificate Authority (CA)"
+      - "B. Registration Authority (RA)"
+      - "C. Root Certificate Authority (Root CA)"
+      - "D. Certificate Revocation List (CRL)"
+    correct_answer: 2
+    explanations:
+      correct: "The Root CA is the trust anchor at the top of the PKI hierarchy. It self-signs its own certificate (since no higher authority exists above it) and signs Intermediate CA certificates. Root CA private keys are kept offline and highly secured because compromising the Root CA would invalidate the entire PKI chain of trust beneath it."
+      incorrect:
+        - "Intermediate CAs are signed by the Root CA and are used for day-to-day certificate issuance — they sit below the Root CA in the hierarchy and their certificates trace back to the Root."
+        - "A Registration Authority (RA) handles identity verification and enrollment of certificate requestors on behalf of the CA — it does not issue or sign certificates itself."
+        - null
+        - "A Certificate Revocation List (CRL) is a published list of revoked certificates — it is not an entity in the PKI hierarchy."
+    tags: [PKI, Root-CA, certificates, cryptography]
+    difficulty: easy
+
+  - id: q-d1-022
+    domain: domain1
+    question: "When a recipient wants to VERIFY a digital signature on a message, which key do they use?"
+    options:
+      - "A. The recipient's private key"
+      - "B. The recipient's public key"
+      - "C. A shared symmetric key"
+      - "D. The sender's public key"
+    correct_answer: 3
+    explanations:
+      correct: "To verify a digital signature, the recipient uses the sender's public key. The sender created the signature using their private key — only the mathematically paired public key can verify it. If the verification succeeds, it proves the message was signed by the holder of the corresponding private key (authentication) and was not altered in transit (integrity)."
+      incorrect:
+        - "The recipient's private key is used for decryption (when someone encrypts a message to the recipient using the recipient's public key) — it has no role in verifying someone else's signature."
+        - "The recipient's public key is used by others to encrypt messages to the recipient — not for signature verification."
+        - "Shared symmetric keys are used in symmetric encryption for confidentiality — digital signatures use asymmetric key pairs, not symmetric keys."
+        - null
+    tags: [digital-signatures, PKI, cryptography, asymmetric]
+    difficulty: medium
+
+  - id: q-d1-023
+    domain: domain1
+    question: "Which certificate status checking mechanism allows a client to query a responder in real time for the validity of a specific certificate, rather than downloading an entire revocation list?"
+    options:
+      - "A. CRL (Certificate Revocation List)"
+      - "B. OCSP (Online Certificate Status Protocol)"
+      - "C. CRL Distribution Point (CRLDP)"
+      - "D. Certificate pinning"
+    correct_answer: 1
+    explanations:
+      correct: "OCSP (Online Certificate Status Protocol) allows a client to send a query for a specific certificate's serial number to an OCSP responder and receive a real-time 'good', 'revoked', or 'unknown' status. This is more efficient than downloading a full CRL, especially in large PKI environments with many certificates."
+      incorrect:
+        - "A CRL (Certificate Revocation List) is a periodically published list of all revoked certificates, which clients must download entirely — it can become large and is not real-time."
+        - null
+        - "A CRL Distribution Point (CRLDP) is an extension in a certificate that indicates where to download the CRL — it is part of the CRL system, not a real-time query mechanism."
+        - "Certificate pinning hardcodes an expected certificate or public key hash in an application to prevent substitution attacks — it is not a revocation checking mechanism."
+    tags: [PKI, OCSP, CRL, certificate-revocation]
+    difficulty: medium
+
+  - id: q-d1-024
+    domain: domain1
+    question: "In the AAA security framework used for network access control, which component is responsible for verifying that a user is who they claim to be?"
+    options:
+      - "A. Authorization"
+      - "B. Accounting"
+      - "C. Authentication"
+      - "D. Auditing"
+    correct_answer: 2
+    explanations:
+      correct: "Authentication is the process of verifying identity — confirming that a user, device, or process is who or what it claims to be, typically through passwords, tokens, certificates, or biometrics. AAA frameworks like RADIUS and TACACS+ implement all three: authentication (who are you?), authorization (what can you do?), and accounting (what did you do?)."
+      incorrect:
+        - "Authorization determines what an authenticated user is permitted to do — it comes after authentication and grants or denies access to specific resources."
+        - "Accounting (also called auditing) records user activities, login times, and actions taken — it tracks what was done, not who the user is."
+        - null
+        - "Auditing is often used interchangeably with accounting in this context but refers to the review of those records — identity verification is authentication."
+    tags: [AAA, authentication, RADIUS, access-control]
+    difficulty: easy
+
+  - id: q-d1-025
+    domain: domain1
+    question: "A government regulation requires that copies of all encryption keys be stored with a designated escrow agent so they can be retrieved under court order. What is this practice called?"
+    options:
+      - "A. Key splitting (M-of-N control)"
+      - "B. Key stretching"
+      - "C. Key escrow"
+      - "D. Key derivation"
+    correct_answer: 2
+    explanations:
+      correct: "Key escrow is the practice of depositing copies of cryptographic keys with a trusted third party (an escrow agent) so that data can be decrypted by authorized parties — such as law enforcement with a valid court order — even without the original key holder's cooperation. It is controversial because it creates a high-value target for attackers."
+      incorrect:
+        - "Key splitting (M-of-N control) divides a key into multiple parts distributed to multiple custodians, requiring a threshold number (M of N) to reconstruct the key — it is a key protection mechanism, not the same as holding a copy for third-party recovery."
+        - "Key stretching (PBKDF2, bcrypt) increases the computational cost of hashing to resist brute-force attacks on passwords — it has nothing to do with storing keys with third parties."
+        - null
+        - "Key derivation generates a new cryptographic key from a master key or password using a derivation function (KDF) — it creates keys rather than storing them with a third party."
+    tags: [key-management, key-escrow, cryptography]
+    difficulty: medium
