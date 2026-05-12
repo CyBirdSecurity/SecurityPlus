@@ -26,10 +26,10 @@ interactive_questions:
       - "Something you are"
       - "Somewhere you are"
     correct_mapping:
-      "Password or PIN": "Something you know"
-      "Hardware security key (YubiKey)": "Something you have"
-      "Fingerprint scan": "Something you are"
-      "GPS location": "Somewhere you are"
+      - "Something you know"
+      - "Something you have"
+      - "Something you are"
+      - "Somewhere you are"
     explanation: >
       Multi-factor authentication draws from distinct factor categories. Knowledge factors (password, PIN) can be shared or guessed. Possession factors (token, smart card, security key) require physical ownership. Inherence factors (biometrics) are physically tied to you. Location factors restrict access by geography.
 

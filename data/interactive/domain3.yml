@@ -28,9 +28,9 @@ interactive_questions:
       - "PaaS"
       - "IaaS"
     correct_mapping:
-      "Applications, data; provider manages everything else": "SaaS"
-      "Applications and data; provider manages OS through hardware": "PaaS"
-      "OS, applications, and data; provider manages hardware and hypervisor": "IaaS"
+      - "SaaS"
+      - "PaaS"
+      - "IaaS"
     explanation: >
       The Shared Responsibility Model defines security boundaries. SaaS customers manage only data access and configurations. PaaS customers manage their deployed applications and data. IaaS customers manage OS, middleware, runtime, applications, and data — the most customer responsibility. 'As you go up the stack, you give up more control to the provider.'
 

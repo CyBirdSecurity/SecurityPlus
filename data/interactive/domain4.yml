@@ -27,10 +27,10 @@ interactive_questions:
       - "RBAC (Role-Based Access Control)"
       - "ABAC (Attribute-Based Access Control)"
     correct_mapping:
-      "Data owners set permissions at their discretion": "DAC (Discretionary Access Control)"
-      "System enforces access based on security labels/clearances": "MAC (Mandatory Access Control)"
-      "Permissions are assigned to job functions/roles": "RBAC (Role-Based Access Control)"
-      "Access decisions based on multiple attributes (user, resource, environment)": "ABAC (Attribute-Based Access Control)"
+      - "DAC (Discretionary Access Control)"
+      - "MAC (Mandatory Access Control)"
+      - "RBAC (Role-Based Access Control)"
+      - "ABAC (Attribute-Based Access Control)"
     explanation: >
       DAC is flexible but relies on data owners making good decisions (traditional Unix/Windows permissions). MAC is strict and enforced by the OS using security labels — used in government/military systems. RBAC simplifies enterprise administration by grouping permissions into roles. ABAC is the most flexible and granular, supporting complex policies combining user attributes, resource attributes, and environmental context.
 

@@ -30,10 +30,10 @@ interactive_questions:
       - "Rootkit"
       - "Ransomware"
     correct_mapping:
-      "Self-replicates across networks without user interaction": "Worm"
-      "Disguises itself as legitimate software": "Trojan"
-      "Hides malware presence by modifying the OS kernel": "Rootkit"
-      "Encrypts files and demands payment": "Ransomware"
+      - "Worm"
+      - "Trojan"
+      - "Rootkit"
+      - "Ransomware"
     explanation: >
       Each malware type has a defining characteristic. Worms are autonomous spreaders; Trojans rely on deception and user execution; Rootkits provide persistent stealthy access; Ransomware monetizes access by encrypting victim data. Understanding these distinctions guides detection and response strategies.
 

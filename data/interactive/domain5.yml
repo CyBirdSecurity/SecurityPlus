@@ -29,10 +29,10 @@ interactive_questions:
       - "Risk Acceptance"
       - "Risk Mitigation"
     correct_mapping:
-      "Purchase cyber liability insurance": "Risk Transfer"
-      "Stop collecting social security numbers since they are not required": "Risk Avoidance"
-      "Accept that the 0.001% chance of flooding is within risk tolerance": "Risk Acceptance"
-      "Deploy multi-factor authentication to reduce breach likelihood": "Risk Mitigation"
+      - "Risk Transfer"
+      - "Risk Avoidance"
+      - "Risk Acceptance"
+      - "Risk Mitigation"
     explanation: >
       The four risk response strategies: Transfer (shift financial impact to insurer/third party), Avoidance (eliminate the risk by removing the activity), Acceptance (acknowledge and absorb the risk), Mitigation (reduce likelihood or impact through controls). Risk can rarely be completely eliminated — residual risk remains after mitigation and is either accepted or transferred.
 
